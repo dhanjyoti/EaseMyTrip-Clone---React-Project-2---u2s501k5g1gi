@@ -1,4 +1,11 @@
 .main-div{
     height: 65px;
     border: 2px solid green;
+    display: flex;
+    flex-direction: row;
+}
+.nav-item-list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
 }

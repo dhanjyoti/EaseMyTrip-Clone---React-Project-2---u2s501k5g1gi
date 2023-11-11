@@ -4,8 +4,74 @@
     display: flex;
     flex-direction: row;
 }
+.navbar{
+    display: flex;
+    flex-direction: row;
+}
 .nav-item-list{
     display: flex;
     flex-direction: row;
+    align-items: center;
     list-style: none;
+}
+.nav-list{
+    border-right: 1px solid gray;
+    padding: 10px;
+}
+.more{
+    border: none;
+}
+
+.helpline{
+    width: 19px;
+    height: 17px;
+    display: inline-block;
+    background: url(../../images/home-sub-sprite.png) no-repeat -173px -5px;
+    vertical-align: bottom;
+    margin-right: 2px;
+    background-size: 300px 58px;
+}
+.profile{
+    width: 18px;
+    height: 12px;
+    display: inline-block;
+    background: url(../../images/home-sub-sprite.png) no-repeat -148px -5px;
+    vertical-align: bottom;
+    background-size: 300px 58px;
+}
+.flag{
+    background: url(../../images/flag_IN.svg);
+    width: 18px;
+    height: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.down-arrow{
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    position: relative;
+    top: -2px;
+    margin-left: 6px;
+}
+
+.right-navbar{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+}
+
+.helpline-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.help-component{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

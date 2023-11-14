@@ -1,0 +1,16 @@
+.trip-option{
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    list-style: outside none;
+    margin: 0;
+    padding: 2px 0;
+    text-align: center;
+    width: 86px;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-right: 1px;
+
+    background-color: #fff !important;
+    color: #1853a2!important;
+}

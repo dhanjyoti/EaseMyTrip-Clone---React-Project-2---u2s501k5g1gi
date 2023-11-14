@@ -2,7 +2,7 @@ import React from 'react'
 
 const HelpComponent = ({text, className, icon}) => {
   return (
-    <div className='help-component'>
+    <div className='flex flex-row items-center'>
         <div className={className}/>
         <div>{text}</div>
         <div>{icon}</div>

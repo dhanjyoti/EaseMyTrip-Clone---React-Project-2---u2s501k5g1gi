@@ -23,6 +23,19 @@ const Home = () => {
           <div></div>
         </div>
       </div>
+
+      <div>
+        <h2>Exclusive Offers</h2>
+        <div>
+          <span>Best Offers</span>
+          <span>Flight</span>
+          <span>Hotel</span>
+          <span>Bus</span>
+          <span>Holidays</span>
+        </div>
+        <div></div>
+        <button className='bg-[#2196F3] rounded-full px-5 py-1 text-white'>View All Offers</button>
+      </div>
     </div>
   )
 }

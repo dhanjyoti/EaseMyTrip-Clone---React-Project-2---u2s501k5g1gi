@@ -1,5 +1,9 @@
 import React from 'react'
 import Trip from '../components/home/Trip'
+import OfferCard from '../components/offerCard/OfferCard'
+import refundImage from '../images/refundImage.png';
+import TandC_refund from '../images/T&C_refund.png';
+import EMTFIRST from '../images/offerFlight/EMTFIRST.webp'
 
 const Home = () => {
   return (
@@ -33,8 +37,27 @@ const Home = () => {
           <span>Bus</span>
           <span>Holidays</span>
         </div>
-        <div></div>
+        <div>
+          <OfferCard 
+            tagline={"New User Offer"} 
+            dealName={"First Flight"} 
+            code={"EMTFIRST"} 
+            image={EMTFIRST} 
+            para={"Register and Get Discount on Booking First Flight with us"}
+            validity={"Valid till 30th Dec 2023"}
+          />
+        </div>
         <button className='bg-[#2196F3] rounded-full px-5 py-1 text-white'>View All Offers</button>
+      </div>
+
+      {/* Refund Section */}
+      <div>
+        <div className='border-1 border-blue-600 flex flex-row'>
+          <div><img src={refundImage} /></div>
+          <div></div>
+          <div><img src={TandC_refund} /></div>
+        </div>
+        <div></div>
       </div>
     </div>
   )

@@ -1,10 +1,11 @@
 import React from 'react'
 import CardOffer_code from '../../images/cardOffer_code'
+import './offerCard.css'
 
-const OfferCard = ({tagline, dealName, code, image, para, validity}) => {
+const OfferCard = ({tagline, dealName, code, image, para, validity, className}) => {
   return (
-    <div className='border-2 border-blue-600'>
-        <div>
+    <div className='border-2 border-blue-600 w-[330px] h-[290px]'>
+        <div className={'flex flex-row justify-between px-4 pt-[10px] ' + className}>
             <div>
                 <div>
                     <p>{tagline}</p>
@@ -13,14 +14,14 @@ const OfferCard = ({tagline, dealName, code, image, para, validity}) => {
                 <div>
                     <div>
                         <p>Use Code:</p>
-                        <h3>{code}</h3>
                     </div>
-                    <div>
+                    <div className='flex flex-row'>
+                        <h3>{code}</h3>
                         <CardOffer_code/>
                     </div>
                 </div>
             </div>
-            <div><img src={image}/></div>
+            <div><img className='w-[120px] h-[150px] rounded-t-full' src={image}/></div>
         </div>
         <div>{para}</div>
         <div>{validity}</div>
@@ -28,4 +29,4 @@ const OfferCard = ({tagline, dealName, code, image, para, validity}) => {
   )
 }
 
-export default OfferCard
+export default OfferCard;

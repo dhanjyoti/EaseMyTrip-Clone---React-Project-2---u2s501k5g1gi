@@ -14,3 +14,16 @@
     background-color: #fff !important;
     color: #1853a2!important;
 }
+
+.full-refund{
+    background-image: linear-gradient(to right, #76C6F5, #62ACEB, #31D2C2, #12C29F);
+    padding: 10px 30px !important;
+    color: #fff;
+}
+.covid-refund{
+    background-image: linear-gradient(to right, #FF7D83, #D2003C);
+    padding: 10px 15px!important;
+    color: #fff;
+    display: flex;
+    border-radius: 12px;
+}

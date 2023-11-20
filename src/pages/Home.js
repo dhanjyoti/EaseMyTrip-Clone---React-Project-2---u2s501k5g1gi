@@ -87,16 +87,16 @@ const Home = () => {
 
       <h1>Top Flight Routes</h1>
 
-      <div className='grid grid-rows-3 grid-flow-col gap-4'>
+      <div className='grid grid-cols-3 grid-flow-row gap-4'>
         <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
-        <TopFlightRoutes image={mumbaiImg} takeOff={"Chennai"} landing={"Mumbai"} routeCode={"MAA-BOM"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Delhi"} landing={"Ahmendabad"} routeCode={"DEL-AMD"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Delhi"} landing={"Lucknow"} routeCode={"DEL-LKO"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Mumbai"} landing={"Chennai"} routeCode={"BOM-MAA"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Mumbai"} landing={"Dubai"} routeCode={"BOM-DXB"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Mumbai"} landing={"Kolkata"} routeCode={"BOM-CCU"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Hyderabad"} landing={"Bangalore"} routeCode={"HYD-BLR"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Mumbai"} landing={"Jaipur"} routeCode={"BOM-JAI"} />
+        <TopFlightRoutes image={mumbaiImg} takeOff={"Delhi"} landing={"Dubai"} routeCode={"DEL-DXB"} />
       </div>
     </div>
   )

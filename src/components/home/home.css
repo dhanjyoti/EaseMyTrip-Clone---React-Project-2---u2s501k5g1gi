@@ -27,3 +27,18 @@
     display: flex;
     border-radius: 12px;
 }
+
+.background{
+    border-radius: 30px 5px 5px 5px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid rgb(211, 211, 255);
+    position: relative;
+    box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+    width: 49%;
+    background: #fff url(https://www.easemytrip.com/images/desk-img/side-c.svg);
+    background-repeat: no-repeat;
+    background-position: -17% 93%;
+}

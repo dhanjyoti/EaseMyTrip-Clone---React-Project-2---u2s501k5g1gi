@@ -1,0 +1,41 @@
+.line{
+    width: 100%;
+    float: left;
+    padding: 18px 0;
+    border-bottom: 1px solid #cfd8dc;
+}
+.booking-button{
+    float: right;
+    margin: 0;
+    position: relative;
+    padding: 10px 20px;
+    line-height: 20px;
+    order: 0;
+    color: #fff;
+    padding: 9px 20px;
+    font-size: .875rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 40px;
+    background-color: #2196f3;
+    cursor: pointer;
+    white-space: nowrap;
+    /* -webkit-appearance: none; */
+    text-decoration: none;
+}
+.price{
+    font-size: 1.7rem;
+    margin-left: 10px;
+    position: relative;
+    float: right;
+    margin-right: -80px;
+    color: #ef6614;
+}
+.head{
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+}

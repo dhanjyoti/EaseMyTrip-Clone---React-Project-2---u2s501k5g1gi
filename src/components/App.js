@@ -4,6 +4,7 @@ import "../styles/App.css";
 import Home from "../pages/Home";
 import Header from "./header/Header";
 import Flight from "../pages/Flight";
+import Footer from "./footer/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route element={<Home/>} path="/" />
         <Route element={<Flight/>} path="/flight" />
       </Routes>
+      <Footer />
     </Router>
   )
   // return <div className="App">App</div>;

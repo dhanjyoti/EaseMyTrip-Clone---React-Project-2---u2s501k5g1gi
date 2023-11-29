@@ -1,5 +1,6 @@
 import React from 'react'
 import FlightCard from '../components/flightCard.js/FlightCard'
+// import '../styles/flight.css'
 
 const Flight = () => {
     return (

@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Header from "./header/Header";
 import Flight from "../pages/Flight";
 import Footer from "./footer/Footer";
+import FlightList from "../pages/FlightList";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route element={<Home/>} path="/" />
         <Route element={<Flight/>} path="/flight" />
+        <Route element={<FlightList/>} path="/flightlist" />
       </Routes>
       <Footer />
     </Router>

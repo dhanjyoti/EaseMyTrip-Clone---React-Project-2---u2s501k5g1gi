@@ -67,8 +67,37 @@ const FlightList = () => {
                             </div>
                         </div>
                         <div>
-                            <button>Search</button>
+                            <button className='search-button'>Search</button>
                         </div>
+
+                    </div>
+                    <div>
+                        <ul className='flex flex-row'>
+                            <li>
+                                <label>
+                                    <input type='checkbox'/>
+                                    Defence Forces
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type='checkbox'/>
+                                    Students
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type='checkbox'/>
+                                    Senior Citizens
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type='checkbox'/>
+                                    Doctors Nurses
+                                </label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

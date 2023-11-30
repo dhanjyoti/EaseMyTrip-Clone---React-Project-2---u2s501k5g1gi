@@ -1,5 +1,5 @@
 import React from 'react'
-import FlightCard from '../components/flightCard.js/FlightCard'
+import FlightRouteCard from '../components/flightRouteCard/FlightRouteCard'
 // import '../styles/flight.css'
 
 const Flight = () => {
@@ -35,12 +35,12 @@ const Flight = () => {
                 </div>
             </div>
             <div>
-                <FlightCard place={"Mumbai"} date={"Monday 18 Dec 2023"} flightName={"Indigo"} price={4972} />
-                <FlightCard place={"Bangalore"} date={"Wednesday 06 Dec 2023"} flightName={"Indigo"} price={6053} />
-                <FlightCard place={"GOA"} date={"Tuesday 12 Dec 2023"} flightName={"Indigo"} price={4699} />
-                <FlightCard place={"Chennai"} date={"Tuesday 05 Dec 2023"} flightName={"Indigo"} price={5272} />
-                <FlightCard place={"Pune"} date={"Thursday 07 Dec 2023"} flightName={"Indigo"} price={4998} />
-                <FlightCard place={"Ahmedabad"} date={"Thursday 07 Dec 2023"} flightName={"Indigo"} price={3833} />
+                <FlightRouteCard place={"Mumbai"} date={"Monday 18 Dec 2023"} flightName={"Indigo"} price={4972} />
+                <FlightRouteCard place={"Bangalore"} date={"Wednesday 06 Dec 2023"} flightName={"Indigo"} price={6053} />
+                <FlightRouteCard place={"GOA"} date={"Tuesday 12 Dec 2023"} flightName={"Indigo"} price={4699} />
+                <FlightRouteCard place={"Chennai"} date={"Tuesday 05 Dec 2023"} flightName={"Indigo"} price={5272} />
+                <FlightRouteCard place={"Pune"} date={"Thursday 07 Dec 2023"} flightName={"Indigo"} price={4998} />
+                <FlightRouteCard place={"Ahmedabad"} date={"Thursday 07 Dec 2023"} flightName={"Indigo"} price={3833} />
             </div>
 
             <div>

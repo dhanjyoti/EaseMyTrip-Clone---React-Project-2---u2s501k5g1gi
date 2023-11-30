@@ -1,0 +1,14 @@
+.morefare-button{
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #2196f3;
+    border: 1px solid #2196f3;
+    border-radius: 20px;
+    padding: 3px 10px;
+    text-decoration: none;
+    margin-top: 5px;
+    float: left;
+    cursor: pointer;
+    MARGIN-LEFT: -16px;
+}

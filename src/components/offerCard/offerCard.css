@@ -1,3 +1,18 @@
-.offer-bg{
+.offer1-bg{
+    background-image: linear-gradient(to right, #2273ef, #91fff9);
+}
+.offer2-bg{
+    background-image: linear-gradient(to left, #5fd8d4, #42753e);
+}
+.offer3-bg{
+    background-image: linear-gradient(to right, #e444ff, #c09cff);
+}
+.offer4-bg{
+    background-image: linear-gradient(to right, #D4453F, #FFE57D);
+}
+.offer5-bg{
+    background-image: linear-gradient(to right, #e444ff, #c09cff);
+}
+.offer6-bg{
     background-image: linear-gradient(to right, #2273ef, #91fff9);
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-import "./flightCard.css"
+import "./flightRouteCard.css"
 import RupeesIcon from '../../images/RupeesIcon'
 
-const FlightCard = ({place, date, flightName, price}) => {
+const FlightRouteCard = ({place, date, flightName, price}) => {
   return (
     <div className='flex flex-row justify-between items-center line'>
         <div className='flex flex-col items-start'>
@@ -25,4 +25,4 @@ const FlightCard = ({place, date, flightName, price}) => {
   )
 }
 
-export default FlightCard
+export default FlightRouteCard

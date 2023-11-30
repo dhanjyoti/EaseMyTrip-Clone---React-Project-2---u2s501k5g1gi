@@ -1,6 +1,7 @@
 import React from 'react'
-import SwapNewIcon from '../images/flightCard/swap-nw-icn.png'
+import SwapNewIcon from '../images/flightCardImage/swap-nw-icn.png'
 import '../styles/flight.css'
+import FlightCard from '../components/flightCard/FlightCard'
 
 const FlightList = () => {
     return (
@@ -69,7 +70,6 @@ const FlightList = () => {
                         <div>
                             <button className='search-button'>Search</button>
                         </div>
-
                     </div>
                     <div>
                         <ul className='flex flex-row'>
@@ -98,6 +98,12 @@ const FlightList = () => {
                                 </label>
                             </li>
                         </ul>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>
+                        <FlightCard/>
                     </div>
                 </div>
             </div>

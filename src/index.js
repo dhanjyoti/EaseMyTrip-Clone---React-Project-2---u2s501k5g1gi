@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App";
-import '@splidejs/splide/css';
+import '@splidejs/react-splide/css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -33,3 +33,40 @@
     top: -2px;
     margin-left: 6px;
 }
+.continue-button{
+    border: medium none;
+    border-radius: 40px;
+    color: #fff;
+    background: #EF6614;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    height: 43px;
+    -webkit-appearance: none;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.terms-n-conditions{
+    width: 100%;
+    float: left;
+    margin: 14px 0 0 0;
+    color: #8A8686;
+    font-size: 12px;
+}
+.text-hyperlink{
+    color: #2196f3;
+    text-decoration: none;
+}
+.dialog-div{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #b3b3b3;
+    border-radius: 4px;
+    display: flex;
+}

@@ -1,0 +1,18 @@
+.travel-package{
+    width: 1200px;
+    margin: auto;
+    padding: 5px 0;
+}
+.travel-package-heading{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 15px 0;
+    flex-direction: column;
+    justify-content: center;    
+}
+.travel-package-para{
+    font-size: 13px;
+    margin: 10px auto;
+    text-align: justify;
+}

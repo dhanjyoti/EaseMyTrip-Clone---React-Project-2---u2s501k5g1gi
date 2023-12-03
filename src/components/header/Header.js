@@ -65,14 +65,15 @@ const Header = () => {
                     Email ID or Mobile Number
                   </div>
                   <div>
-                    <input type='text' placeholder='Enter email ID' />
+                    <input type='text' className='dialog-div' placeholder='Enter email ID' />
                   </div>
                   <div>
-                    {/* <input type='button'>CONTINUE</input> */}
+                    <button className='continue-button'>CONTINUE</button>
                   </div>
                   <div>
-                    {/* By logging in, I understand & agree to EaseMyTrip
-                    <span>terms of use</span> and <span>privacy policy</span> */}
+                    <p className='terms-n-conditions'>By logging in, I understand & agree to EaseMyTrip
+                      <span className='text-hyperlink'> terms of use</span> and <span className='text-hyperlink'>privacy policy</span>
+                    </p>
                   </div>
                 </div>
               }

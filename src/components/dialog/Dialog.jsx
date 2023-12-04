@@ -1,11 +1,8 @@
 import React from 'react';
 import * as DialogP from '@radix-ui/react-dialog';
 
-const Dialog = ({ title, content, trigger }) => (
-    <DialogP.Root>
-        <DialogP.Trigger asChild>
-            {trigger}
-        </DialogP.Trigger>
+const Dialog = ({ title, content, open, openChange }) => (
+    <DialogP.Root open={open} onOpenChange={openChange}>
         <DialogP.Portal>
             <DialogP.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
             <DialogP.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">

@@ -8,6 +8,9 @@ import DownArrow from '../../images/down-arrow-5-svgrepo-com';
 import Dialog from '../dialog/Dialog';
 import HoverCard from '../hoverCard/HoverCard';
 import Input from '../Input';
+import api from '../../utils/api';
+
+
 const navList = [
   {
     label: "FLIGHT"
@@ -52,7 +55,10 @@ const Header = () => {
       (async () => {
         try {
           let res = await api.signup({ data: { name, email, password, appType: 'bookingportals' } })
-          console.log(res);
+          // console.log(res);
+          if (res.status == "success") {
+
+          }
         } catch (e) {
           console.log("error", e);
         }
@@ -90,24 +96,30 @@ const Header = () => {
                 <button onClick={() => setLoginDialog(true)}>Login</button>
               </div>
             </HoverCard>
+
+            {/* Login */}
             <Dialog
               title={"Login"}
               content={
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div>
                     Email ID
                   </div>
                   <div>
-                    <input type='text' className='dialog-div' placeholder='Enter email ID' />
+                    <Input placeholder={"Enter email ID"} type={'email'} required value={email} onChange={({ target }) => {
+                      setEmail(target.value)
+                    }} />
                   </div>
                   <div>
                     Password
                   </div>
                   <div>
-                    <input type='password' className='dialog-div' placeholder='password' />
+                    <Input placeholder={"Enter a password"} type={'password'} required value={password} onChange={({ target }) => {
+                      setPassword(target.value)
+                    }} />
                   </div>
                   <div>
-                    <button className='continue-button'>CONTINUE</button>
+                    <button className='continue-button' type='submit'>CONTINUE</button>
                   </div>
                   <div>
                     <p className='terms-n-conditions'>By logging in, I understand & agree to EaseMyTrip
@@ -118,6 +130,8 @@ const Header = () => {
               }
               open={loginDialog} openChange={setLoginDialog}
             />
+
+            {/* Signup */}
             <Dialog
               title={"Signup or Create an account"}
               content={
@@ -129,7 +143,6 @@ const Header = () => {
                     <Input placeholder={"Enter your name"} required value={name} onChange={({ target }) => {
                       setName(target.value)
                     }} />
-                    {/* <Input type='text' className='dialog-div' required placeholder='Enter your name' /> */}
                   </div>
                   <div>
                     Email ID
@@ -138,7 +151,6 @@ const Header = () => {
                     <Input placeholder={"Enter email ID"} type={'email'} required value={email} onChange={({ target }) => {
                       setEmail(target.value)
                     }} />
-                    {/* <Input type='text' className='dialog-div' required placeholder='Enter email ID' /> */}
                   </div>
                   <div>
                     Password
@@ -147,7 +159,6 @@ const Header = () => {
                     <Input placeholder={"Enter a password"} type={'password'} required value={password} onChange={({ target }) => {
                       setPassword(target.value)
                     }} />
-                    {/* <Input type='password' className='dialog-div' required placeholder='password' /> */}
                   </div>
                   <div>
                     Confirm Password
@@ -156,7 +167,6 @@ const Header = () => {
                     <Input placeholder={"Confirm password"} type={'password'} required value={confirmPassword} onChange={({ target }) => {
                       setConfirmPassword(target.value)
                     }} />
-                    {/* <Input type='password' className='dialog-div' required placeholder='confirm password' /> */}
                   </div>
                   <div>
                     <button className='continue-button' type='submit'>CONTINUE</button>

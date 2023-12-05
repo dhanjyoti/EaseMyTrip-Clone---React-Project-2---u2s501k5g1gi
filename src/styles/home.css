@@ -16,3 +16,15 @@
     margin: 10px auto;
     text-align: justify;
 }
+.web-checkin{
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    float: right;
+    margin: -2px;
+    text-decoration: none;
+    border: 1px solid #aae3ec;
+    padding: 5px 8px;
+    border-radius: 3px;
+    background: rgba(255,255,255,.15);
+}

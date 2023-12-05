@@ -36,6 +36,7 @@ import Dubai from '../images/famousTravelAttraction/Dubai';
 import London from '../images/famousTravelAttraction/London';
 import Kerala from '../images/famousTravelAttraction/Kerala';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import WebCheckinIcon from '../images/WebCheckinIcon';
 const crousalItems = [
   {
     id: 1,
@@ -114,10 +115,10 @@ const Crousal = ({ items = [] }) => {
   return (
     <Splide options={{
       perPage: 3,
-      perMove:1,
-      autoWidth:true, gap:20
-    }} 
-    aria-label="My Favorite Images">
+      perMove: 1,
+      autoWidth: true, gap: 20
+    }}
+      aria-label="My Favorite Images">
       {items.map((item) => <SplideSlide key={item.id}>
         {item.render}
       </SplideSlide>)}
@@ -142,9 +143,41 @@ const Home = () => {
 
         </div>
 
-        <div>
-          <div></div>
-          <div></div>
+        <div className='flex flex-row items-center justify-between'>
+          <div>
+            <ul className='flex flex-row'>
+              <li>
+                <label>
+                  <input type='checkbox' />
+                  Defence Forces
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type='checkbox' />
+                  Students
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type='checkbox' />
+                  Senior Citizens
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type='checkbox' />
+                  Doctors Nurses
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div className='web-checkin flex flex-row'>
+            <div>
+              <WebCheckinIcon />
+            </div>
+            <div>Web Check-In</div>
+          </div>
         </div>
       </div>
 

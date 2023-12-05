@@ -37,6 +37,11 @@ import London from '../images/famousTravelAttraction/London';
 import Kerala from '../images/famousTravelAttraction/Kerala';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import WebCheckinIcon from '../images/WebCheckinIcon';
+import WhyBook from '../components/whyBook/WhyBook';
+import EasyBooking from '../images/whyBook/EasyBooking';
+import LowestBooking from '../images/whyBook/LowestBooking';
+import ExcDeal from '../images/whyBook/ExcDeal';
+import Support from '../images/whyBook/Support';
 const crousalItems = [
   {
     id: 1,
@@ -140,7 +145,10 @@ const Home = () => {
         </div>
 
         <div>
-
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
 
         <div className='flex flex-row items-center justify-between'>
@@ -279,12 +287,19 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
+      <div className='flex flex-col items-center'>
         <div>
           Why book with us?
         </div>
-        <div></div>
-        <div></div>
+        <div className='why-book'>
+          <WhyBook icon={<EasyBooking/>} head={"Easy Booking"} para={"We offer easy and convenient flight bookings with attractive offers."} />
+          <WhyBook icon={<LowestBooking/>} head={"Easy Booking"} para={"We offer easy and convenient flight bookings with attractive offers."} />
+          <WhyBook icon={<ExcDeal/>} head={"Easy Booking"} para={"We offer easy and convenient flight bookings with attractive offers."} />
+          <WhyBook icon={<Support/>} head={"Easy Booking"} para={"We offer easy and convenient flight bookings with attractive offers."} />
+        </div>
+        <div className='covid-refund'>
+            Customer's Refund Against Booking Made During Covid
+        </div>
       </div>
 
       <div className='travel-package'>

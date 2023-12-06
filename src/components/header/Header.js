@@ -77,7 +77,10 @@ const Header = () => {
             <Login open={loginDialog} openChange={setLoginDialog} />
 
             {/* Signup */}
-            <Signup open={signupDialog} openChange={setSignupDialog}/>
+            <Signup open={signupDialog} openChange={setSignupDialog} onSuccess={()=>{
+              setSignupDialog(false)
+              setLoginDialog(true)
+            }}/>
           </div>
         </div>
       </div>

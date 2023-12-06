@@ -6,7 +6,7 @@ const FlightCard = ({flightIcon, flightName, departureTime, departurePlace, trav
     return (
         <div>
             <div>
-                <div>
+                <div className='flex flex-row items-center'>
                     <div><img src={flightIcon} /></div>
                     <div>
                         <div>{flightName}</div>
@@ -39,6 +39,11 @@ const FlightCard = ({flightIcon, flightName, departureTime, departurePlace, trav
                             <button className='morefare-button'>+ More Fare</button>
                         </div>
                         <div></div>
+                    </div>
+                    <div>
+                        <button className='py-[6px] px-3 rounded-full text-white bg-[#ef6614]'>
+                            BOOK NOW
+                        </button>
                     </div>
                 </div>
                 <div></div>

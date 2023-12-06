@@ -3,7 +3,7 @@ import api from '../../utils/api'
 import Dialog from '../dialog/Dialog'
 import Input from '../Input';
 
-const Signup = ({open, openChange}) => {
+const Signup = ({open, openChange, onSuccess}) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -19,7 +19,10 @@ const Signup = ({open, openChange}) => {
             let res = await api.signup({ data: { name, email, password, appType: 'bookingportals' } })
             // console.log(res);
             if (res.status == "success") {
-              console.log("successful");
+              // console.log("successful");
+              if(onSuccess){
+                onSuccess();
+              }
             }
           } catch (e) {
             console.log("error", e);

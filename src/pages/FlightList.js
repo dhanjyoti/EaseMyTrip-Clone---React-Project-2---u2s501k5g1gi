@@ -2,6 +2,7 @@ import React from 'react'
 import SwapNewIcon from '../images/flightCardImage/swap-nw-icn.png'
 import '../styles/flight.css'
 import FlightCard from '../components/flightCard/FlightCard'
+import FilterCheckBox from '../components/FilterCheckBox'
 
 const FlightList = () => {
     return (
@@ -100,8 +101,37 @@ const FlightList = () => {
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <div></div>
+                <div className='flex flex-row'>
+                    <div className='flex flex-col border-2 border-gray-400 w-60 px-4'>
+                        <div><h2>FILTER</h2></div>
+                        <div>
+                            <h3>Popular Filters</h3>
+                            <div>
+                                <FilterCheckBox name={"Nonstop"} />
+                                <FilterCheckBox name={"Morning Departure"} />
+                                <FilterCheckBox name={"Vistara"} />
+                                <FilterCheckBox name={"Air India"} />
+                                <FilterCheckBox name={"AksaraAir"} />
+                                <FilterCheckBox name={"Indigo"} />
+                                <FilterCheckBox name={"Air India Express"} />
+                                <FilterCheckBox name={"Air India Express"} />
+                                <FilterCheckBox name={"SpiceJet"} />
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Price Range</h3>
+                            <input type="range" className='w-52' />
+                        </div>
+                        <div>
+                            <h3>Aircraft</h3>
+                            <FilterCheckBox name={"Airbus A320"} />
+                            <FilterCheckBox name={"Airbus A2IN"} />
+                            <FilterCheckBox name={"Boeing B78P"} />
+                            <FilterCheckBox name={"Boeing B738"} />
+                            <FilterCheckBox name={"Airbus A20N"} />
+                            <FilterCheckBox name={"Airbus A321"} />
+                        </div>
+                    </div>
                     <div>
                         <FlightCard/>
                     </div>

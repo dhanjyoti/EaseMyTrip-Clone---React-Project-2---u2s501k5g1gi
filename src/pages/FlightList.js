@@ -1,8 +1,9 @@
 import React from 'react'
 import SwapNewIcon from '../images/flightCardImage/swap-nw-icn.png'
 import '../styles/flight.css'
-import FlightCard from '../components/flightCard/FlightCard'
 import FilterCheckBox from '../components/FilterCheckBox'
+import FlightRoute from '../components/flightRouteCard/FlightRoute'
+import Stopage from '../components/Stopage'
 
 const FlightList = () => {
     return (
@@ -121,6 +122,15 @@ const FlightList = () => {
                         <div>
                             <h3>Price Range</h3>
                             <input type="range" className='w-52' />
+                            <p>Rs. 22911 - Rs.57751</p>
+                        </div>
+                        <div>
+                            <h3>Stops</h3>
+                            <div className='flex flex-row gap-[6px]'>
+                                <Stopage stopsNumber={"0"} stops={"Nonstop"}/>
+                                <Stopage stopsNumber={"1"} stops={"Stop"} />
+                                <Stopage stopsNumber={"2+"} stops={"Stop"} />
+                            </div>
                         </div>
                         <div>
                             <h3>Aircraft</h3>
@@ -132,8 +142,8 @@ const FlightList = () => {
                             <FilterCheckBox name={"Airbus A321"} />
                         </div>
                     </div>
-                    <div>
-                        <FlightCard/>
+                    <div className='pl-3'>
+                        <FlightRoute />
                     </div>
                 </div>
             </div>

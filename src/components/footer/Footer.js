@@ -8,7 +8,7 @@ import BottomImage from '../../images/footerImage/botft.png'
 
 const Footer = () => {
     return (
-        <div>
+        <div className='bg-[#1a1a1a]'>
             <div className='flex flex-row'>
                 <div>
                     <img src={EaseMyTrip} />

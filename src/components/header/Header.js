@@ -40,7 +40,7 @@ const navList = [
 
 const Header = () => {
 
-    
+
   const [loginDialog, setLoginDialog] = useState(false);
   const [signupDialog, setSignupDialog] = useState(false);
 
@@ -51,7 +51,17 @@ const Header = () => {
         <ul className='flex flex-row items-center list-none'>
           {navList.map((item) => <li key={item.label} className='p-[10px] border-r border-gray-500'><NavItems text={item.label} /></li>)}
 
-          <li className='p-[10px]'><NavItems text={"More"} /></li>
+          <HoverCard trigger={<button><HelpComponent className='border-none pl-3' text={"More"} icon={<DownArrow />} /></button>}>
+            <ul>
+              <li>CHARTERS</li>
+              <li>CRUISE</li>
+              <li>GIFT CARD</li>
+              <li>OFFERS</li>
+              <li>CORPORATE TRAVEL</li>
+              <li>AGENT LOGIN</li>
+            </ul>
+          </HoverCard>
+          {/* <li className='p-[10px]'><NavItems text={"More"} /></li> */}
         </ul>
       </div>
       <div className='flex flex-row'>
@@ -60,7 +70,10 @@ const Header = () => {
         </div>
         <div className='flex flex-row items-center'>
           <div>
-            <HelpComponent className={"helpline"} text={"24X7 Helpline"} icon={<DownArrow />} />
+            <HoverCard trigger={<button><HelpComponent className={"helpline"} text={"24X7 Helpline"} icon={<DownArrow />} /></button>}>
+              <div>Tel: 011 - 83663234, 43224563</div>
+              <div>care@easemytrip.com</div>
+            </HoverCard>
           </div>
           <div>
             <HelpComponent className={"flag"} text={"India"} icon={<DownArrow />} />
@@ -77,10 +90,10 @@ const Header = () => {
             <Login open={loginDialog} openChange={setLoginDialog} />
 
             {/* Signup */}
-            <Signup open={signupDialog} openChange={setSignupDialog} onSuccess={()=>{
+            <Signup open={signupDialog} openChange={setSignupDialog} onSuccess={() => {
               setSignupDialog(false)
               setLoginDialog(true)
-            }}/>
+            }} />
           </div>
         </div>
       </div>

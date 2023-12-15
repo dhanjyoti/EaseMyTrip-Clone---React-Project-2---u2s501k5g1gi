@@ -7,6 +7,7 @@ import Flight from "../pages/Flight";
 import Footer from "./footer/Footer";
 import FlightList from "../pages/FlightList";
 import Activities from "../pages/Activities";
+import Hotels from "../pages/Hotels";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route element={<Home/>} path="/" />
         <Route element={<Flight/>} path="/flight" />
         <Route element={<FlightList/>} path="/flightlist" />
+        <Route element={<Hotels/>} path="/hotels" />
         <Route element={<Activities/>} path="/activities" />
       </Routes>
       <Footer />

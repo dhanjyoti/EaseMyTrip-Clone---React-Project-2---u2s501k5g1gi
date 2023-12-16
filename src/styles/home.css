@@ -53,3 +53,23 @@
     position: relative;
     padding-bottom: 30px;
 }
+.useCode{
+    font-size: 12px;
+    background: #e1ffe4;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px dashed #abc9ae;
+    margin: 7px 0 4px 0;
+    color: #000000;
+}
+.popular-destination{
+    padding-bottom: 2px;
+    width: 100%;
+    -webkit-box-pack: justify;
+    -webkit-box-flex: 1;
+    /* flex-grow: 1; */
+    overflow-x: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

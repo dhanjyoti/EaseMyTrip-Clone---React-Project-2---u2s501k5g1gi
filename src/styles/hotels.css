@@ -38,3 +38,21 @@
     background-image: linear-gradient(to right top, #a0c8ff, #9ad0ff, #97d8ff, #97dfff, #9ae6ff);
     border-radius: 50%;
 }
+.oliveleaf{
+    background-image: url(../images/hotels/lev2.png);
+    position: absolute;
+    top: 38px;
+    height: 100%;
+    left: 0;
+    width: 66px;
+    background-repeat: no-repeat;
+}
+.oliveleaf2{
+    background-image: url(../images/hotels/lev1.png);
+    position: absolute;
+    top: 38px;
+    height: 100%;
+    right: 0;
+    width: 67px;
+    background-repeat: no-repeat;
+}

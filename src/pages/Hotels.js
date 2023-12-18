@@ -24,6 +24,15 @@ import Profile from '../images/Profile'
 import GooglePlay from '../images/hotels/google-play.png'
 import AppStore from '../images/hotels/app-store.png'
 import QRCode from '../images/hotels/app-qr-code.svg'
+import PopularDestination from '../components/popularDestination/PopularDestination'
+import Bangalore from '../images/hotels/bangalore.png'
+import Delhi from '../images/hotels/Delhi.png'
+import Goa from '../images/hotels/Goa.png'
+import Bangkok from '../images/hotels/Bangkok.png'
+import Kolkata from '../images/hotels/Kolkata.png'
+import Mumbai from '../images/hotels/Mumbai.png'
+import Singapore from '../images/hotels/Singapore.png'
+import Dubai from '../images/hotels/Dubai.png'
 
 const Hotels = () => {
     return (
@@ -146,8 +155,15 @@ const Hotels = () => {
                         <div className='text-[26px] font-semibold text-black mr-10'>Book Hotels at Popular Destinations</div>
                     </div>
                 </div>
-                <div>
-                    
+                <div className='flex flex-row '>
+                    <PopularDestination image={Bangalore} place={"Bangalore"} price={"495"}/>
+                    <PopularDestination image={Delhi} place={"Delhi"} price={"269"}/>
+                    <PopularDestination image={Goa} place={"Goa"} price={"615"}/>
+                    <PopularDestination image={Bangkok} place={"Bangkok"} price={"802"}/>
+                    <PopularDestination image={Kolkata} place={"Kolkata"} price={"503"}/>
+                    <PopularDestination image={Mumbai} place={"Mumbai"} price={"441"}/>
+                    <PopularDestination image={Singapore} place={"Singapore"} price={"2313"}/>
+                    <PopularDestination image={Dubai} place={"Dubai"} price={"2753"}/>
                 </div>
             </div>
         </div>

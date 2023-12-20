@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import * as Acd from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
-const Accordion = ({title, content}) => (
+const Accordion = ({title, content, content1, content2}) => (
   <Acd.Root
     className="outline-none w-full"
     type="single"
@@ -13,6 +13,8 @@ const Accordion = ({title, content}) => (
     <AccordionItem value="item-1">
       <AccordionTrigger>{title}</AccordionTrigger>
       <AccordionContent>{content}</AccordionContent>
+      <AccordionContent>{content1}</AccordionContent>
+      <AccordionContent>{content2}</AccordionContent>
     </AccordionItem>
   </Acd.Root>
 );

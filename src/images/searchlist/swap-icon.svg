@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29" height="29" viewBox="0 0 29 29">
+  <defs>
+    <filter id="Ellipse_88" x="0" y="0" width="29" height="29" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_6" data-name="Group 6" transform="translate(-353 -230)">
+    <g transform="matrix(1, 0, 0, 1, 353, 230)" filter="url(#Ellipse_88)">
+      <g id="Ellipse_88-2" data-name="Ellipse 88" transform="translate(3 2)" fill="#fff" stroke="#e2dcdc" stroke-width="1">
+        <circle cx="11.5" cy="11.5" r="11.5" stroke="none"/>
+        <circle cx="11.5" cy="11.5" r="11" fill="none"/>
+      </g>
+    </g>
+    <path id="Icon_material-arrow-forward" data-name="Icon material-arrow-forward" d="M11.883,6,10.846,7.037l4.1,4.111H6v1.471H17.962Z" transform="translate(356.364 229.834)" fill="#e2dcdc"/>
+    <path id="Icon_material-arrow-forward-2" data-name="Icon material-arrow-forward" d="M12.079,12.618l1.037-1.037-4.1-4.111h8.95V6H6Z" transform="translate(354.339 237.998)" fill="#e2dcdc"/>
+  </g>
+</svg>

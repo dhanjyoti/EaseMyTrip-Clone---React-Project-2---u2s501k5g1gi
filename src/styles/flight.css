@@ -18,3 +18,7 @@
     font-weight: 600;
     margin-top: 21px;
 }
+
+.scroller::-webkit-scrollbar{
+    display: none;
+}

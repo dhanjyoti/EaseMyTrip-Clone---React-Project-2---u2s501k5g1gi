@@ -8,6 +8,7 @@ import DownArrow from '../../images/down-arrow-5-svgrepo-com';
 import HoverCard from '../hoverCard/HoverCard';
 import Signup from '../signup/Signup';
 import Login from '../login/Login';
+import { Link } from 'react-router-dom';
 
 
 const navList = [
@@ -49,7 +50,12 @@ const Header = () => {
       <div className='flex flex-row'>
         <div><Logo /></div>
         <ul className='flex flex-row items-center list-none'>
-          {navList.map((item) => <li key={item.label} className='p-[10px] border-r border-gray-500'><NavItems text={item.label} /></li>)}
+          {navList.map((item) => ( 
+            <li key={item.label} className='p-[10px] border-r border-gray-500'>
+              <Link to={`/${item.label.toLowerCase()}`}>
+                <NavItems text={item.label} />
+              </Link>
+            </li>))}
 
           <HoverCard trigger={<button><HelpComponent className='border-none pl-3' text={"More"} icon={<DownArrow />} /></button>}>
             <ul>

@@ -4,10 +4,9 @@ import HotelSearchBar from "../components/searchBar/HotelSearchBar";
 import SideBarCollapse from "../components/sidebarCollapse/SideBarCollapse";
 import OfferListComponent from "../components/offerListCode/OfferListComponent";
 import HotelComponent from "../components/hotel_list/HotelComponent";
-import HotelImg from "../images/hotelComponent/89392_0.jpg"
+import HotelImg from "../images/hotelComponent/89392_0.jpg";
 
 const HotelList = () => {
-
   return (
     <div className="bg-blue-100">
       <div className="main-form border-2 border-green-500">
@@ -117,8 +116,59 @@ const HotelList = () => {
           </div>
         </div>
         <div>
-          <div><OfferListComponent/></div>
-          <div><HotelComponent hotelImage={HotelImg}/></div>
+          <div>
+            <OfferListComponent />
+          </div>
+          <div>
+            <HotelComponent
+              hotelImage={HotelImg}
+              hotelName={"The Chancery Pavilion"}
+              locationName={"Richmond Circle"}
+              tagLine={"Couple Friendly | Free wifi"}
+              review={"Very Good"}
+              reviewPoint={"2027 reviews"}
+              ratePoint={"4.0"}
+              prevAmount={"3099"}
+              amount={"2399"}
+              taxesNfee={"614 Taxes & fees"}
+            />
+            <HotelComponent
+              hotelImage={HotelImg}
+              hotelName={"The Chancery Pavilion"}
+              locationName={"Richmond Circle"}
+              tagLine={"Couple Friendly | Free wifi"}
+              review={"Very Good"}
+              reviewPoint={"2027 reviews"}
+              ratePoint={"4.0"}
+              prevAmount={"3099"}
+              amount={"2399"}
+              taxesNfee={"614 Taxes & fees"}
+            />
+            <HotelComponent
+              hotelImage={HotelImg}
+              hotelName={"The Chancery Pavilion"}
+              locationName={"Richmond Circle"}
+              tagLine={"Couple Friendly | Free wifi"}
+              review={"Very Good"}
+              reviewPoint={"2027 reviews"}
+              ratePoint={"4.0"}
+              prevAmount={"3099"}
+              amount={"2399"}
+              taxesNfee={"614 Taxes & fees"}
+            />
+            <HotelComponent
+              hotelImage={HotelImg}
+              hotelName={"The Chancery Pavilion"}
+              locationName={"Richmond Circle"}
+              tagLine={"Couple Friendly | Free wifi"}
+              review={"Very Good"}
+              reviewPoint={"2027 reviews"}
+              ratePoint={"4.0"}
+              prevAmount={"3099"}
+              amount={"2399"}
+              taxesNfee={"614 Taxes & fees"}
+            />
+          </div>
         </div>
       </div>
     </div>

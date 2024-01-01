@@ -22,7 +22,7 @@ const FlightCard = ({
   const [detailVisible, setDetailVisible] = useState(false);
 
   return (
-    <div className="flex flex-col items-start px-4 py-2 my-[10px] transition-shadow duration-500 shadow-[0_0_10px_0_rgb(0_0_0_/_15%)] hover:shadow-[0_0_15px_0_rgb(0_0_0_/_35%)]">
+    <div className="flex flex-col items-start px-4 py-2 my-[10px] transition-shadow duration-400 shadow-[0_0_10px_0_rgb(0_0_0_/_15%)] hover:shadow-[0_0_15px_0_rgb(0_0_0_/_35%)]">
       <div className="flex flex-row items-center gap-2 pl-2 justify-between w-full">
         <div className="flex flex-row items-center justify-center">
           <div className="w-12 h-12 flex items-center">

@@ -9,6 +9,7 @@ import FlightList from "../pages/FlightList";
 import Activities from "../pages/Activities";
 import Hotels from "../pages/Hotels";
 import HotelList from "../pages/HotelList";
+import HotelDetailPage from "./hotel_list/HotelDetailPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route element={<Hotels/>} path="/hotels" />
         <Route element={<HotelList/>} path="/hotellist" />
         <Route element={<Activities/>} path="/activities" />
+        <Route element={<HotelDetailPage/>} path="/hoteldetailpage" />
       </Routes>
       <Footer />
     </Router>

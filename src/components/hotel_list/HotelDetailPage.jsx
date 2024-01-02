@@ -2,12 +2,13 @@ import React from "react";
 import BookingPolicy from "./BookingPolicy";
 import StarRating from "../../images/hotelComponent/icon-star.svg";
 import MapMaker from "../../images/hotelComponent/map-marker.svg";
+import HotelImage1 from "../../images/hotelComponent/CommonciK2Rp.jpg";
 
 const HotelDetailPage = () => {
   return (
-    <div className="my-44 ">
-      <div>
-        <div className="flex flex-row justify-between p-[10px] pb-[2px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]">
+    <div className="my-44">
+      <div className="mx-[50px] p-[10px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]">
+        <div className="flex flex-row justify-between">
           <div>
             <div className="flex flex-row items-baseline">
               <span className="text-[21px] font-semibold">
@@ -39,8 +40,23 @@ const HotelDetailPage = () => {
             <div className="bg-[#00A664] rounded-[10px] text-[13px] font-semibold p-[6px] text-white inline-block">5.0</div>
           </div>
         </div>
-        <div></div>
+
+        <div className="flex flex-row">
+            <div className="flex flex-row ">
+                <div><img className="w-[593px] h-[310px]" src={HotelImage1}/></div>
+                <div className="ml-2">
+                    <div><img className="w-[185px] h-[98px] mb-2" src={HotelImage1}/></div>
+                    <div><img className="w-[185px] h-[98px] mb-2" src={HotelImage1}/></div>
+                    <div><img className="w-[185px] h-[98px]" src={HotelImage1}/></div>
+                </div>
+            </div>
+
+            <div className="border-t ml-6 pt-[15px] border-[#eee]">
+                iysddpiuvdsafg
+            </div>
+        </div>
       </div>
+
       <div className="py-[10px] px-[15px] rounded-[5px] border border-[#d5d5d5] shadow-sm">
         <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
           Room

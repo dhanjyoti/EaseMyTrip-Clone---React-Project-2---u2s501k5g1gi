@@ -3,6 +3,9 @@ import BookingPolicy from "./BookingPolicy";
 import StarRating from "../../images/hotelComponent/icon-star.svg";
 import MapMaker from "../../images/hotelComponent/map-marker.svg";
 import HotelImage1 from "../../images/hotelComponent/CommonciK2Rp.jpg";
+import RedRupeeIcon from "../../images/hotelComponent/red_rupee.png";
+import BlackRupeeIcon from "../../images/hotelComponent/rupee_new_black.svg";
+import CalanderIcon from "../../images/hotelComponent/calendar_icon.svg";
 
 const HotelDetailPage = () => {
   return (
@@ -37,23 +40,73 @@ const HotelDetailPage = () => {
               <div className="text-[13px] font-semibold">Very Good</div>
               <div className="text-[#555555] text-xs">25 reviews</div>
             </div>
-            <div className="bg-[#00A664] rounded-[10px] text-[13px] font-semibold p-[6px] text-white inline-block">5.0</div>
+            <div className="bg-[#00A664] rounded-[10px] text-[13px] font-semibold p-[6px] text-white inline-block">
+              5.0
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-row">
-            <div className="flex flex-row ">
-                <div><img className="w-[593px] h-[310px]" src={HotelImage1}/></div>
-                <div className="ml-2">
-                    <div><img className="w-[185px] h-[98px] mb-2" src={HotelImage1}/></div>
-                    <div><img className="w-[185px] h-[98px] mb-2" src={HotelImage1}/></div>
-                    <div><img className="w-[185px] h-[98px]" src={HotelImage1}/></div>
-                </div>
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-row">
+            <div>
+              <img className="w-[593px] h-[310px]" src={HotelImage1} />
             </div>
+            <div className="ml-2">
+              <div>
+                <img className="w-[185px] h-[98px] mb-2" src={HotelImage1} />
+              </div>
+              <div>
+                <img className="w-[185px] h-[98px] mb-2" src={HotelImage1} />
+              </div>
+              <div>
+                <img className="w-[185px] h-[98px]" src={HotelImage1} />
+              </div>
+            </div>
+          </div>
 
-            <div className="border-t ml-6 pt-[15px] border-[#eee]">
-                iysddpiuvdsafg
+          <div className="border-t ml-6 pt-[15px] border-[#eee]">
+            <div className="flex flex-row justify-between">
+              <div className="max-w-[214px] mr-[78px]">
+                <div className="flex flex-row">
+                  <p className="border-l-4 text-[11px] max-h-[18px] rounded-[3px] border-[#0c6be9] mr-[6px] mt-[2px]"></p>
+                  <p className="text-[#446DCB] text-[17px] font-medium">
+                    Deluxe Room NON Smoking
+                  </p>
+                </div>
+                <p className="font-medium text-[13px] ">2 x Guest | 1 x Room</p>
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="flex flex-row items-center">
+                  <img className="h-3" src={RedRupeeIcon} />
+                  <span className="text-[15px] font-medium text-[#FF0000] pl-1">4759</span>
+                </div>
+                <div className="flex flex-row items-center">
+                  <img src={BlackRupeeIcon}/>
+                  <span className="text-2xl font-semibold">4085</span>
+                </div>
+                <div className="flex flex-row items-center text-xs">
+                  <span>+</span>
+                  <img className="h-[11px]" src={BlackRupeeIcon}/>
+                  <span className="font-medium">570 Taxes & fees</span>
+                </div>
+                <div className="text-xs">base price(Per Night)</div>
+              </div>
             </div>
+            <div className="flex flex-row justify-between border-y border-[#E4E2E2] my-[23px] py-3 pl-2 pr-3">
+              <div className="flex flex-row text-[14px] font-medium">
+                <img src={CalanderIcon}/>
+                <span className="text-[#2196f3]">&nbsp;CHECK-IN:&nbsp;</span>
+                <span>02:00 PM</span>
+              </div>
+              <div className="flex flex-row text-[14px] font-medium">
+                <img src={CalanderIcon}/>
+                <span className="text-[#2196f3]">&nbsp;CHECK-IN:&nbsp;</span>
+                <span>02:00 PM</span>
+              </div>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       </div>
 

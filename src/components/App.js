@@ -10,6 +10,7 @@ import Activities from "../pages/Activities";
 import Hotels from "../pages/Hotels";
 import HotelList from "../pages/HotelList";
 import HotelDetailPage from "./hotel_list/HotelDetailPage";
+import Train from "../pages/train/Train";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route element={<HotelList/>} path="/hotellist" />
         <Route element={<Activities/>} path="/activities" />
         <Route element={<HotelDetailPage/>} path="/hoteldetailpage" />
+        <Route element={<Train/>} path="/train" />
       </Routes>
       <Footer />
     </Router>

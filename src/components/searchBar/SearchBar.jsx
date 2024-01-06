@@ -126,7 +126,9 @@ const SearchBar = () => {
                 <div className='text-sm text-black/40'>FROM</div>
                 <div className='font-bold text-lg'>{selectedFrom?.place}</div>
                 <div className='text-xs truncate'>{selectedFrom?.airport}</div>
-                <div className='absolute z-10 w-[400px] top-2/3'><SearchList open={fromOpen} items={fromPoint} placeholder={"From"} onClick={(e) => setSelectedFrom(e)} /></div>
+                <div className='absolute z-10 w-[400px] top-2/3'>
+                    <SearchList open={fromOpen} items={fromPoint} placeholder={"From"} onClick={(e) => setSelectedFrom(e)} />
+                </div>
             </div>
             <div className='relative flex items-center justify-center'>
                 <span className='w-[2px] h-full bg-gray-200 block'></span>

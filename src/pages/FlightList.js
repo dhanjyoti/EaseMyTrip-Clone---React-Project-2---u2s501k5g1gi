@@ -1,109 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import SwapNewIcon from "../images/flightCardImage/swap-nw-icn.png";
 import "../styles/flight.css";
 import FilterCheckBox from "../components/FilterCheckBox";
 import FlightRoute from "../components/flightRouteCard/FlightRoute";
 import Stopage from "../components/Stopage";
 import OfferListComponent from "../components/offerListCode/OfferListComponent";
+import Calander from "../components/calander/Calander";
+import SearchList from "../components/search-list/SearchList";
+
+const fromPoint = [
+  {
+      place: "Delhi(DEL)",
+      airport: "Indra Gandhi International Airport",
+      country: "India",
+  },
+  {
+      place: "Bangalore(BLR)",
+      airport: "Bangalore International Airport",
+      country: "India",
+  },
+  {
+      place: "Mumbai(BOM)",
+      airport: "Chattrapathi Sivaji International Airport",
+      country: "India",
+  },
+  {
+      place: "Kolkota(CCU)",
+      airport: "Netaji Subhash Chandra Bose Airport",
+      country: "India",
+  }, {
+      place: "Goa(GOI)",
+      airport: "Dobalim Goa International Airport",
+      country: "India",
+  }
+]
 
 const FlightList = () => {
 
+  const [fromOpen, setFromOpen]=useState(false)
+  const [toOpen, setToOpen]=useState(false)
+  const [selectedDate, setSelectedDate]=useState(new Date())
+  const [fromCity, setFromCity]=useState({})
+  const [toCity, setToCity]=useState({})
+
   return (
     <div>
-      <div>
-        <div className="back-ground">
-          <div className="flex flex-row">
-            <div>
-              <ul className="flex flex-row">
-                <li>
-                  <label>
-                    <input name="trip" id="trip" type="radio" />
-                    ONE WAY
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input name="trip" id="trip" type="radio" />
-                    ROUND TRIP
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input name="trip" id="trip" type="radio" />
-                    MULTICITY
-                  </label>
-                </li>
-              </ul>
-              <div className="flex flex-row">
-                <div>
-                  <input type="text" placeholder="From" />
-                </div>
-                <span>
-                  <img src={SwapNewIcon} />
-                </span>
-                <div>
-                  <input type="text" placeholder="To" />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-row">
-              <div>
-                <div>DEPARTURE DATE</div>
-                <input type="date" />
-              </div>
-              <div>
-                <div>RETURN DATE</div>
-                <input type="date" />
-              </div>
-              <div>
-                <div>TRAVELLER</div>
-                <div>
-                  <span>1</span>
-                  <span>Travellers</span>
-                  <span></span>
-                </div>
-              </div>
-              <div>
-                <div>CLASS</div>
-                <div>
-                  <span>Economy</span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button className="search-button">Search</button>
+      <div className="flex flex-col">
+        <div></div>
+        <div className="flex flex-row items-center">
+          <div className="relative">
+            <input value={fromCity?.place} placeholder="From"  readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
+            <div className="absolute z-20  w-[400px]">
+            <SearchList open={fromOpen} items={fromPoint} placeholder={"From"} onClick={setFromCity}/>
             </div>
           </div>
-          <div>
-            <ul className="flex flex-row">
-              <li>
-                <label>
-                  <input type="checkbox" />
-                  Defence Forces
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input type="checkbox" />
-                  Students
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input type="checkbox" />
-                  Senior Citizens
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input type="checkbox" />
-                  Doctors Nurses
-                </label>
-              </li>
-            </ul>
+          <div className="relative">
+            <input placeholder="To" value={toCity?.place}  readOnly onClick={()=>setToOpen(prev=>!prev)}/>
+            <div className="absolute z-20  w-[400px]">
+            <SearchList open={toOpen} items={fromPoint} placeholder={"To"} onClick={setToCity}/>
+            </div>
           </div>
+          <Calander selected={selectedDate} onChange={setSelectedDate}/>
+          <select>
+            <option>Economy</option>
+            <option>Prem.Economy</option>
+            <option>Business</option>
+            <option>First</option>
+          </select>
         </div>
+      </div>
+      <div>
         <div className="flex flex-row max-w-full">
           <div className="flex flex-col border-2 border-gray-400 w-60 px-4">
             <div>

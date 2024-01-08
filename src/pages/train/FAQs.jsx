@@ -47,8 +47,8 @@ const accordian = [
 const FAQs = () => {
   return (
     <div className='mx-[155px]'>
-        <h2>FAQs</h2>
-        <div className=''>
+        <h1 className='text-xl font-semibold text-center'>FAQs</h1>
+        <div className='divide-y divide-gray-300 text-base font-medium'>
             {accordian.map((item)=>{
                 return (<Accordion title={item.title} content={item.content} />);
             })}

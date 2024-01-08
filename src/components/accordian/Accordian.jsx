@@ -12,7 +12,7 @@ const Accordion = ({
   value,
 }) => (
   <Acd.Root
-    className="outline-none w-full"
+    className="outline-none w-full py-3"
     type="single"
     defaultValue={defaultOpen ? value : ""}
     collapsible

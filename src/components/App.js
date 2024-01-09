@@ -11,6 +11,7 @@ import Hotels from "../pages/Hotels";
 import HotelList from "../pages/HotelList";
 import HotelDetailPage from "./hotel_list/HotelDetailPage";
 import Train from "../pages/train/Train";
+import Bus from "../pages/bus/Bus";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route element={<Activities/>} path="/activities" />
         <Route element={<HotelDetailPage/>} path="/hoteldetailpage" />
         <Route element={<Train/>} path="/trains" />
+        <Route element={<Bus/>} path="/bus" />
       </Routes>
       <Footer />
     </Router>

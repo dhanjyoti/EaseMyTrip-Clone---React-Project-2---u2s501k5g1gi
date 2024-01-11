@@ -7,6 +7,7 @@ import Stopage from "../components/Stopage";
 import OfferListComponent from "../components/offerListCode/OfferListComponent";
 import Calander from "../components/calander/Calander";
 import SearchList from "../components/search-list/SearchList";
+// import SwapNewIcon from "../images/swap-nw-icn.png";
 
 const fromPoint = [
   {
@@ -45,15 +46,16 @@ const FlightList = () => {
 
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-2">
         <div></div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center justify-between mx-[155px] ">
           <div className="relative">
-            <input value={fromCity?.place} placeholder="From"  readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
+            <input className="placeholder-sky-300)" value={fromCity?.place} placeholder="From"  readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
             <div className="absolute z-20  w-[400px]">
             <SearchList open={fromOpen} items={fromPoint} placeholder={"From"} onClick={setFromCity}/>
             </div>
           </div>
+          <div><img src={SwapNewIcon} /></div>
           <div className="relative">
             <input placeholder="To" value={toCity?.place}  readOnly onClick={()=>setToOpen(prev=>!prev)}/>
             <div className="absolute z-20  w-[400px]">
@@ -67,6 +69,7 @@ const FlightList = () => {
             <option>Business</option>
             <option>First</option>
           </select>
+          <button className="border border-white rounded-full text-white text-base py-[9px] px-7 font-semibold">SEARCH</button>
         </div>
       </div>
       <div>

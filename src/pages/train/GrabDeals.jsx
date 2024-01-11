@@ -2,8 +2,8 @@ import React from 'react'
 
 const GrabDeals = () => {
     return (
-        <div className='bg-[#ececec] py-[50px] px-[155px] text-[13px] leading-6 font-medium'>
-            <h3 className='text-center text-xl font-semibold'>Grab Best Deals on Train Tickets</h3>
+        <div className='bg-[#F2FAFF] py-[50px] px-[155px] text-[13px] leading-6 font-medium'>
+            <h3 className='text-center text-xl font-semibold mb-4'>Grab Best Deals on Train Tickets</h3>
             <div>
                 <p>
                     The railway is the most affordable way to travel in India, and as a trustworthy travel brand, EaseMyTrip understands the value of your money and desire to travel. To make your train ticket booking more convenient, we are pleased to become IRCTC Authorized partner. Customer can book their train tickets in the most convenient way with our website. You just need to visit our website or download our mobile app to make your train ticket booking with us.

@@ -6,9 +6,9 @@ import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const Calander = ({onChange,selected, customInput}) => {
+const Calander = ({onChange,selected, customInput, className=""}) => {
   return (
-    <DatePicker selected={selected} onChange={onChange} customInput={customInput}/>
+    <DatePicker selected={selected} onChange={onChange} customInput={customInput} wrapperClassName={className}/>
   );
 };
 

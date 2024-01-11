@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.793" height="33.99" viewBox="0 0 23.793 33.99">
+  <g id="Payment" transform="translate(-76.8)">
+    <g id="Group_285" data-name="Group 285" transform="translate(76.8)">
+      <g id="Group_284" data-name="Group 284">
+        <path id="Path_543" data-name="Path 543" d="M90.962,0H79.632A2.836,2.836,0,0,0,76.8,2.832V23.226a2.836,2.836,0,0,0,2.832,2.832h10.2V24.926h-10.2a1.7,1.7,0,0,1-1.7-1.7V2.832a1.7,1.7,0,0,1,1.7-1.7h11.33a1.7,1.7,0,0,1,1.7,1.7V19.261h1.133V2.832A2.836,2.836,0,0,0,90.962,0Z" transform="translate(-76.8)" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_287" data-name="Group 287" transform="translate(84.731 8.144)">
+      <g id="Group_286" data-name="Group 286">
+        <path id="Path_544" data-name="Path 544" d="M210.764,129.62l-5.557-6.945-.885.708,5.557,6.945A5.113,5.113,0,0,1,211,133.514v13.873h-8.288a5.314,5.314,0,0,1-5.308-5.308v-2.056h-1.133v2.056a6.449,6.449,0,0,0,6.441,6.441h8.854a.566.566,0,0,0,.566-.566V133.515A6.255,6.255,0,0,0,210.764,129.62Z" transform="translate(-196.267 -122.675)" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_289" data-name="Group 289" transform="translate(83.762 12.226)">
+      <g id="Group_288" data-name="Group 288">
+        <path id="Path_545" data-name="Path 545" d="M184.34,185.294a1.479,1.479,0,0,1,1.04.466l7.613,8.09.825-.777-7.614-8.09a2.606,2.606,0,0,0-1.832-.821,2.573,2.573,0,0,0-1.869.709l-.057.055a2.615,2.615,0,0,0-.15,3.547l4.879,5.761v1.753a7.579,7.579,0,0,0,4.9,7.068l.4-1.061a6.442,6.442,0,0,1-4.164-6.007v-1.96a.569.569,0,0,0-.134-.367l-5.012-5.918a1.5,1.5,0,0,1,.113-2.043A1.516,1.516,0,0,1,184.34,185.294Z" transform="translate(-181.674 -184.16)" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_291" data-name="Group 291" transform="translate(89.263 1.133)">
+      <g id="Group_290" data-name="Group 290">
+        <rect id="Rectangle_35" data-name="Rectangle 35" width="1.133" height="14.162" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_293" data-name="Group 293" transform="translate(86.43 18.694)">
+      <g id="Group_292" data-name="Group 292">
+        <rect id="Rectangle_36" data-name="Rectangle 36" width="1.133" height="6.798" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_295" data-name="Group 295" transform="translate(86.43 0.566)">
+      <g id="Group_294" data-name="Group 294">
+        <rect id="Rectangle_37" data-name="Rectangle 37" width="1.133" height="12.463" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_297" data-name="Group 297" transform="translate(79.632 2.832)">
+      <g id="Group_296" data-name="Group 296">
+        <rect id="Rectangle_38" data-name="Rectangle 38" width="1.133" height="7.364" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_299" data-name="Group 299" transform="translate(82.465 2.832)">
+      <g id="Group_298" data-name="Group 298">
+        <rect id="Rectangle_39" data-name="Rectangle 39" width="1.133" height="4.532" fill="#747171"/>
+      </g>
+    </g>
+    <g id="Group_301" data-name="Group 301" transform="translate(79.632 18.694)">
+      <g id="Group_300" data-name="Group 300">
+        <path id="Path_546" data-name="Path 546" d="M123.432,281.6h-3.4a.566.566,0,0,0-.566.566v3.4a.566.566,0,0,0,.566.566h3.4a.566.566,0,0,0,.566-.566v-3.4A.566.566,0,0,0,123.432,281.6Zm-.566,3.4H120.6v-2.266h2.266Z" transform="translate(-119.467 -281.6)" fill="#747171"/>
+      </g>
+    </g>
+  </g>
+</svg>

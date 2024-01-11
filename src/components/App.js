@@ -12,12 +12,16 @@ import HotelList from "../pages/HotelList";
 import HotelDetailPage from "./hotel_list/HotelDetailPage";
 import Train from "../pages/train/Train";
 import Bus from "../pages/bus/Bus";
+import BusList from "../pages/bus/BusList";
+import Test from "../pages/test";
 
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
+      <Route element={<Test/>} path="/test" />
+
         <Route element={<Home/>} path="/" />
         <Route element={<Flight/>} path="/flight" />
         <Route element={<FlightList/>} path="/flightlist" />
@@ -27,6 +31,7 @@ function App() {
         <Route element={<HotelDetailPage/>} path="/hoteldetailpage" />
         <Route element={<Train/>} path="/trains" />
         <Route element={<Bus/>} path="/bus" />
+        <Route element={<BusList/>} path="/buslist" />
       </Routes>
       <Footer />
     </Router>

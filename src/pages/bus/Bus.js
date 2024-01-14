@@ -7,6 +7,7 @@ import Calander from "../../components/calander/Calander";
 import "./bus.css";
 import BusIcon from "../../images/bus_Icons/location-icon.svg";
 import SwipeIcon from "../../images/bus_Icons/swipe-icn.png";
+import BusFAQ from "./BusFAQ";
 
 const places = ["Bangalore", "Pune", "Delhi", "Chennai", "Goa"];
 const Bus = () => {
@@ -73,6 +74,7 @@ const Bus = () => {
         }}
       />
       <BusTravelDetails />
+      <BusFAQ />
       <BusBenefit />
     </div>
   );

@@ -30,7 +30,7 @@ const busbenefitcard = [
 
 const BusBenefit = () => {
   return (
-    <div>
+    <div className='mb-10'>
         <div>
             <h2 className='text-center text-[25px] font-semibold my-6'>Benefit of booking bus with EaseMyTrip</h2>
             <div className='flex flex-row justify-between mx-[142px]'>
@@ -42,11 +42,11 @@ const BusBenefit = () => {
         <div>
             <h2 className='text-center text-[25px] font-semibold my-6'>Gaining the trust day by day</h2>
             <div className='flex flex-row justify-center gap-36 text-center'>
-                <div className='border shadow-[7px_5px_30px_rgb(72_73_121_/_15%)] py-[25px] px-28 rounded-[5px]'>
+                <div className='shadow-[7px_5px_30px_rgb(72_73_121_/_15%)] py-[25px] px-28 rounded-[5px]'>
                     <p className='text-sm text-[#5f5f5f]'>Our Trusted Operators</p>
                     <p className='text-[40px] font-lg'>3999+</p>
                 </div>
-                <div className='border shadow-[7px_5px_30px_rgb(72_73_121_/_15%)] py-[25px] px-28 rounded-[5px]'>
+                <div className='shadow-[7px_5px_30px_rgb(72_73_121_/_15%)] py-[25px] px-28 rounded-[5px]'>
                     <p className='text-sm text-[#5f5f5f]'>No. of Tickets Booked</p>
                     <p className='text-[40px] font-lg'>499999+</p>
                 </div>

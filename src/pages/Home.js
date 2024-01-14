@@ -198,7 +198,7 @@ const Crousal = ({ items = [] }) => {
 const Home = () => {
   return (
     <div>
-      <div className="relative border-2 border-[#007aff] bg-[#007aff] py-12 px-4">
+      <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
         <SearchBar />
 
         <div>

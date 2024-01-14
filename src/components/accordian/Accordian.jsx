@@ -12,7 +12,7 @@ const Accordion = ({
   value,
 }) => (
   <Acd.Root
-    className="outline-none w-full py-3"
+    className="outline-none w-full py-5"
     type="single"
     defaultValue={defaultOpen ? value : ""}
     collapsible
@@ -67,7 +67,7 @@ const AccordionContent = React.forwardRef(
       {...props}
       ref={forwardedRef}
     >
-      <div className="py-[15px] px-5">{children}</div>
+      <div className="py-[15px] px-5 text-sm">{children}</div>
     </Acd.Content>
   )
 );

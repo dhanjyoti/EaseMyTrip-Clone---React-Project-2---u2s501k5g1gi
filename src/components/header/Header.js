@@ -8,7 +8,7 @@ import DownArrow from "../../images/down-arrow-5-svgrepo-com";
 import HoverCard from "../hoverCard/HoverCard";
 import Signup from "../signup/Signup";
 import Login from "../login/Login";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navList = [
   {
@@ -16,9 +16,6 @@ const navList = [
   },
   {
     label: "HOTELS",
-  },
-  {
-    label: "FLIGHT + HOTEL",
   },
   {
     label: "TRAINS",
@@ -51,17 +48,17 @@ const Header = () => {
   const [signupDialog, setSignupDialog] = useState(false);
 
   return (
-    <div className="flex flex-row border-2 border-green-500 h-[65px]">
+    <div className="flex flex-row border-2 border-white h-[65px]">
       <div className="flex flex-row">
         <div>
           <Logo />
         </div>
         <ul className="flex flex-row items-center list-none">
           {navList.map((item) => (
-            <li key={item.label} className="p-[10px] border-r border-gray-500">
-              <Link to={`/${item.label.toLowerCase()}`}>
+            <li key={item.label} className="border-r h-6 border-gray-400 text-xs font-medium flex items-center">
+              <NavLink to={`/${item.label.toLowerCase()}`} className={({isActive})=>isActive?"text-[#ef6614] border-b-4 border-b-[#ef6614] py-4": "border-b-4 border-b-white"}>
                 <NavItems text={item.label} />
-              </Link>
+              </NavLink>
             </li>
           ))}
 

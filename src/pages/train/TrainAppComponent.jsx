@@ -7,12 +7,12 @@ import QRCode from '../../images/trainComponent/app-qr-code.svg';
 
 const TrainAppComponent = () => {
   return (
-    <div className='mx-[155px] flex flex-row justify-between gap-4'>
-        <div>
-            <span className='absolute w-[350px] h-[350px] bg-gradient-to-tr from-blue-200 via-blue-300 to-blue-500 rounded-full'></span>
-            <img className='z-10 relative w-[269px] h-[335px]' src={TrainApp} />
+    <div className='mx-[155px] flex flex-row items-center justify-between max-w-[1200px]'>
+        <div className='relative w-[23%]'>
+            <span className='absolute h-[350px] w-[350px] -right-[40px] bg-gradient-to-tr from-blue-200 via-blue-300 to-blue-500 rounded-full'></span>
+            <img className='z-10 relative h-[335px]' src={TrainApp} />
         </div>
-        <div className='border-r border-[#adadad]'>
+        <div className='ml-[50px] w-[20.5%] border-r border-[#adadad]'>
             <div className='text-[21px] font-semibold'>Highest Rated* Travel App</div>
             <div className='mt-[30px] grid grid-cols-2 text-[#5c5c5c]'>
                 <div className='text-left'>
@@ -43,32 +43,35 @@ const TrainAppComponent = () => {
                 <div>
                     <div className='flex items-center'>
                         <span>5</span>
-                        <div className='w-[60%] h-[14px] bg-[#3ec12f] ml-[7px]'></div>
+                        <div className='w-[80%] h-[14px] bg-[#3ec12f]'></div>
                     </div>
                     <div className='flex items-center'>
                         <span>4</span>
-                        <div className='w-[60%] h-[14px] bg-[#80dd87] ml-[7px]'></div>
+                        <div className='w-[60%] h-[14px] bg-[#80dd87]'></div>
                     </div>
                     <div className='flex items-center'>
                         <span>3</span>
-                        <div className='w-[20%] h-[14px] bg-[#e1d013] ml-[7px]'></div>
+                        <div className='w-[20%] h-[14px] bg-[#e1d013]'></div>
                     </div>
                     <div className='flex items-center'>
                         <span>2</span>
-                        <div className='w-[12%] h-[14px] bg-[#d57522] ml-[7px]'></div>
+                        <div className='w-[12%] h-[14px] bg-[#d57522]'></div>
                     </div>
                     <div className='flex items-center'>
                         <span>1</span>
-                        <div className='w-[5%] h-[14px] bg-[#ff7373] ml-[7px]'></div>
+                        <div className='w-[5%] h-[14px] bg-[#ff7373]'></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div className='text-center border-r border-[#adadad] '>
-            <img className='absolute w-[18%] px-[22px]' src={AwardLogoTrain}/>
-            <div className='relative w-[90%]'>
-                <p className='text-[21px] font-semibold mt-[79px]'>Trusted by</p>
-                <p className='text-[22px] font-bold mt-[26px]'>20 Million+ Customers</p>
+        <div className='relative w-[22%] h-[200px] border-r border-[#adadad] '>
+            <div className=' w-[90%] h-full flex items-center flex-col justify-center'>
+            <img className='absolute' src={AwardLogoTrain}/>
+            <p className='absolute top-0 text-[21px] font-semibold'>Trusted by</p>
+            <div className='relative'>
+                
+                <p className='text-[22px] font-bold'>20 Million+<br/>Customers</p>
+            </div>
             </div>
         </div>
         <div className='w-[23%]'>

@@ -49,8 +49,21 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
                 <div className="flex flex-row flex-wrap gap-3">
                     {selectedSeats.map((ss) => <div key={"ss" + ss} className="text-[10px] rounded border border-gray-200 bg-yellow-100 text-black/70 px-2 py-1 relative">{ss} (ST) <button onClick={()=>removeSeat(ss)} className="text-[8px] flex items-center justify-center rounded-full text-white bg-black absolute right-0 top-0 w-3 h-w-3 -mr-[6px] -mt-[6px]">X</button></div>)}
                 </div>
-                <div className="py-[10px] px-2">
-                    <div></div>
+                <div className="py-[10px] px-2 text-xs">
+                    <div>
+                        <div className="flex flex-row justify-between">
+                            <span>Bare Fare(+)</span>
+                            <span className="web-rupee">₹ 0</span>
+                        </div>
+                        <div className="flex flex-row justify-between">
+                            <span>GST</span>
+                            <span className="web-rupee">₹ 0</span>
+                        </div>
+                        <div className="flex flex-row justify-between mt-5">
+                            <span>Total Amount</span>
+                            <span className="text-xl font-semibold text-[#d63b05] web-rupee">₹ 0</span>
+                        </div>
+                    </div>
                     <p className="text-[#737373] text-[10px] text-right">(Including All Taxes)</p>
                 </div>
             </div>

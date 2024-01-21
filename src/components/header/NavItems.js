@@ -3,7 +3,7 @@ import React from 'react'
 const NavItems = ({text}) => {
   return (
     <div>
-        <a>{text}</a>
+        <a className='px-2'>{text}</a>
     </div>
   )
 }

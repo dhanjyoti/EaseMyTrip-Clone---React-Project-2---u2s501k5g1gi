@@ -9,6 +9,7 @@ import HoverCard from "../hoverCard/HoverCard";
 import Signup from "../signup/Signup";
 import Login from "../login/Login";
 import { Link, NavLink } from "react-router-dom";
+import useUser from "../../utils/useUser";
 
 const navList = [
   {
@@ -40,28 +41,41 @@ const moreOptions = [
   "GIFT CARD",
   "OFFERS",
   "CORPORATE TRAVEL",
-  "AGENT LOGIN"
-]
+  "AGENT LOGIN",
+];
 
 const Header = () => {
   const [loginDialog, setLoginDialog] = useState(false);
   const [signupDialog, setSignupDialog] = useState(false);
+  const { user, setUser } = useUser();
 
+  const logout = ()=>{
+    setUser(null)
+  }
   return (
-    <div className="flex flex-row border-2 border-white h-[65px]">
+    <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px]">
       <div className="flex flex-row">
         <div>
           <Logo />
         </div>
         <ul className="flex flex-row items-center list-none">
           {navList.map((item) => (
-            <li key={item.label} className="border-r h-6 border-gray-400 text-xs font-medium flex items-center">
-              <NavLink to={`/${item.label.toLowerCase()}`} className={({isActive})=>isActive?"text-[#ef6614] border-b-4 border-b-[#ef6614] py-4": "border-b-4 border-b-white"}>
+            <li
+              key={item.label}
+              className="border-r h-6 border-gray-400 text-xs font-medium flex items-center"
+            >
+              <NavLink
+                to={`/${item.label.toLowerCase()}`}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#ef6614] border-b-4 border-b-[#ef6614] py-4"
+                    : "border-b-4 border-b-white"
+                }
+              >
                 <NavItems text={item.label} />
               </NavLink>
             </li>
           ))}
-
 
           <div className="group/more">
             <HelpComponent
@@ -70,7 +84,11 @@ const Header = () => {
               icon={<DownArrow />}
             />
             <ul className="transform divide-y divide-gray-300 transition-[max-height] duration-300 shadow-[0_0_7px_rgba(0,0,0,.4)] z-[999] absolute max-h-0 overflow-hidden bg-white group-hover/more:max-h-full">
-             {moreOptions.map((mo)=> <li key={mo} className="px-2.5 py-1.5">{mo}</li>)}
+              {moreOptions.map((mo) => (
+                <li key={mo} className="px-2.5 py-1.5">
+                  {mo}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -98,7 +116,7 @@ const Header = () => {
               <div>care@easemytrip.com</div>
             </HoverCard>
           </div>
-          <div>
+          <div className="flex flex-col items-end">
             <HelpComponent
               className={"flag"}
               text={"India"}
@@ -115,12 +133,28 @@ const Header = () => {
                 </button>
               }
             >
-              <div>
-                <button onClick={() => setSignupDialog(true)}>Signup</button>
-              </div>
-              <div>
-                <button onClick={() => setLoginDialog(true)}>Login</button>
-              </div>
+              {user ? (
+                <div>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-xl">{user.name}</span>
+                    <span className="text-sm">{user.email}</span>
+                  </div>
+                  <div>
+                    <button onClick={logout}>Logout</button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div>
+                    <button onClick={() => setSignupDialog(true)}>
+                      Signup
+                    </button>
+                  </div>
+                  <div>
+                    <button onClick={() => setLoginDialog(true)}>Login</button>
+                  </div>
+                </div>
+              )}
             </HoverCard>
 
             {/* Login */}

@@ -48,7 +48,7 @@ const BusDetailsCard = () => {
                 <div className='text-[13px] text-[#737373]'>Hyderabad</div>
             </div>
             <div className='flex flex-col items-end'>
-                <div className='web-rupee line-through'>₹ 799</div>
+                <div className='web-rupee'><u>₹</u> <del>799</del></div>
                 <div className='web-rupee text-xl font-semibold text-[#d63b05]'>₹ 749</div>
                 <div className='text-[10px] font-semibold text-[#0ab707] bg-[honeydew] border border-dashed border-[#6ad36a] py-[1px] px-[2px]'>BOOKING Applied</div>
             </div>

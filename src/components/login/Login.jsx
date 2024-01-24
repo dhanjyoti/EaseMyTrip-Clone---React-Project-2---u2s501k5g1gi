@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import Dialog from '../dialog/Dialog'
 import Input from '../Input';
 import api from '../../utils/api';
+import useUser from '../../utils/useUser';
 
 const Login = ({ open, openChange }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const {setUser} = useUser()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -13,7 +16,8 @@ const Login = ({ open, openChange }) => {
     (async () => {
       try {
         let res = await api.login({ data: { email, password, appType: "bookingportals" } })
-        console.log(res);
+        console.log(res.data);
+        setUser(res.data)
       } catch (error) {
         alert('error')
         console.log(error)

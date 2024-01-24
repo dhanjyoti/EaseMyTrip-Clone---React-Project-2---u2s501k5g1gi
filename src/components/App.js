@@ -14,10 +14,12 @@ import Train from "../pages/train/Train";
 import Bus from "../pages/bus/Bus";
 import BusList from "../pages/bus/BusList";
 import Test from "../pages/test";
+import { UserProvider } from "../utils/useUser";
 
 function App() {
   return (
-    <Router>
+    <UserProvider>
+      <Router>
       <Header />
       <Routes>
       <Route element={<Test/>} path="/test" />
@@ -35,6 +37,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </UserProvider>
   )
   // return <div className="App">App</div>;
 }

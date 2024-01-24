@@ -200,18 +200,11 @@ const Home = () => {
     <div>
       <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
         <SearchBar />
-
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
       </div>
 
-      <div>
-        <h2>Exclusive Offers</h2>
-        <div>
+      <div className="my-10">
+        <h2 className="text-center text-[34px] font-bold">Exclusive Offers</h2>
+        <div className="text-center text-[15px] font-medium flex flex-row justify-center gap-14 mb-10 mt-5">
           <span>Best Offers</span>
           <span>Flight</span>
           <span>Hotel</span>
@@ -221,7 +214,7 @@ const Home = () => {
         <div>
           <Crousal items={crousalItems} />
         </div>
-        <button className="bg-[#2196F3] rounded-full px-5 py-1 text-white">
+        <button className="bg-[#2196F3] rounded-full px-5 py-[5px] block m-auto text-white text-[15px] font-medium my-[15px]">
           View All Offers
         </button>
       </div>

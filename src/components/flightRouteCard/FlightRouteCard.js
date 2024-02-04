@@ -14,9 +14,9 @@ const FlightRouteCard = ({place, date, flightName, price}) => {
             </div>
         </div>
         <div className='flex flex-row items-center'>
-          <span>One way as low as</span> 
+          <span>One way as low as&nbsp;&nbsp;</span> 
           <span><RupeesIcon/></span>
-          <strong className='price'> {price}</strong>
+          <strong className='price'>{price}</strong>
         </div>
         <div>
             <button className='booking-button'>BOOK NOW</button>

@@ -1,40 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SwapNewIcon from "../images/flightCardImage/swap-nw-icn.png";
 import "../styles/flight.css";
 import FilterCheckBox from "../components/FilterCheckBox";
 import FlightRoute from "../components/flightRouteCard/FlightRoute";
+import IndigoIcon from '../images/flightCardImage/Indigo6E.png'
 import Stopage from "../components/Stopage";
 import OfferListComponent from "../components/offerListCode/OfferListComponent";
 import Calander from "../components/calander/Calander";
 import SearchList from "../components/search-list/SearchList";
+import { useSearchParams } from "react-router-dom";
+import api from "../utils/api";
+import FlightCard from "../components/flightCard/FlightCard";
 // import SwapNewIcon from "../images/swap-nw-icn.png";
 
 const fromPoint = [
   {
-      place: "Delhi(DEL)",
-      airport: "Indra Gandhi International Airport",
-      country: "India",
+    place: "Delhi(DEL)",
+    code:"DEL",
+    airport: "Indra Gandhi International Airport",
+    country: "India",
   },
   {
-      place: "Bangalore(BLR)",
-      airport: "Bangalore International Airport",
-      country: "India",
+    place: "Bangalore(BLR)",
+    code:"BLR",
+    airport: "Bangalore International Airport",
+    country: "India",
   },
   {
-      place: "Mumbai(BOM)",
-      airport: "Chattrapathi Sivaji International Airport",
-      country: "India",
+    place: "Mumbai(BOM)",
+    code:"BOM",
+    airport: "Chattrapathi Sivaji International Airport",
+    country: "India",
   },
   {
-      place: "Kolkota(CCU)",
-      airport: "Netaji Subhash Chandra Bose Airport",
-      country: "India",
-  }, {
-      place: "Goa(GOI)",
-      airport: "Dobalim Goa International Airport",
-      country: "India",
-  }
-]
+    place: "Kolkota(CCU)",
+    code:"CCU",
+    airport: "Netaji Subhash Chandra Bose Airport",
+    country: "India",
+  },
+  {
+    place: "Goa(GOI)",
+    code:"GOI",
+    airport: "Dobalim Goa International Airport",
+    country: "India",
+  },
+];
 
 const FlightList = () => {
 
@@ -44,6 +54,28 @@ const FlightList = () => {
   const [fromCity, setFromCity]=useState({})
   const [toCity, setToCity]=useState({})
 
+  const [flights, setFlights] = useState([])
+
+  const [params] = useSearchParams()
+  const src = params.get('src')
+  const dest = params.get('dest')
+  const day = params.get('day')
+  const date = params.get('date')
+
+  useEffect(()=>{
+    (async()=>{
+      try{
+        const res = await api.searchFlights({src, dest, day})
+        setFlights(res.data.flights)
+      }catch(e){
+
+      }
+    })()  
+
+    setFromCity(fromPoint.find((fp)=>fp.code === src))
+    setToCity(fromPoint.find((fp)=>fp.code === dest))
+    setSelectedDate(new Date(date))
+  },[params])
   return (
     <div>
       <div className="flex flex-col bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-2">
@@ -118,7 +150,22 @@ const FlightList = () => {
           <div className="flex flex-col">
             <div><OfferListComponent/></div>
             <div className="w-[955px] px-4">
-              <FlightRoute />
+              <div>
+                {flights.map((flight)=>{
+                  return <FlightCard
+                  flightIcon={IndigoIcon}
+                  flightName={"Indigo"}
+                  flightNumber={flight.flightID}
+                  departureTime={flight.departureTime}
+                  departurePlace={"Delhi"}
+                  travelTime={flight.duration+"hrs"}
+                  stop={flight.stops === 0 ? "non-stop":flight.stops+" stop(s)"}
+                  arrivalTime={flight.arrivalTime}
+                  arrivalPlace={"Mumbai"}
+                  price={flight.ticketPrice}
+              />
+                })}
+              </div>
             </div>
           </div>
         </div>

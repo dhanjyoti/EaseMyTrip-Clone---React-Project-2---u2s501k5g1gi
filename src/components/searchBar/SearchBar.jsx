@@ -6,6 +6,7 @@ import WebCheckinIcon from "../../images/WebCheckinIcon";
 import SearchList from "../search-list/SearchList";
 import TravallerClass from "../travaller-class/TravallerClass";
 import Calander from "../calander/Calander";
+import RadioOption from "./RadioOption";
 
 const months = [
   "Jan",
@@ -67,26 +68,31 @@ const SearchBar = () => {
   const fromPoint = [
     {
       place: "Delhi(DEL)",
+      code: "DEL",
       airport: "Indra Gandhi International Airport",
       country: "India",
     },
     {
       place: "Bangalore(BLR)",
+      code: "BLR",
       airport: "Bangalore International Airport",
       country: "India",
     },
     {
       place: "Mumbai(BOM)",
+      code: "BOM",
       airport: "Chattrapathi Sivaji International Airport",
       country: "India",
     },
     {
       place: "Kolkota(CCU)",
+      code: "CCU",
       airport: "Netaji Subhash Chandra Bose Airport",
       country: "India",
     },
     {
       place: "Goa(GOI)",
+      code: "GOI",
       airport: "Dobalim Goa International Airport",
       country: "India",
     },
@@ -95,31 +101,36 @@ const SearchBar = () => {
   const toPoint = [
     {
       place: "Delhi(DEL)",
+      code: "DEL",
       airport: "Indra Gandhi International Airport",
       country: "India",
     },
     {
       place: "Bangalore(BLR)",
+      code: "BLR",
       airport: "Bangalore International Airport",
       country: "India",
     },
     {
       place: "Mumbai(BOM)",
+      code: "BOM",
       airport: "Chattrapathi Sivaji International Airport",
       country: "India",
     },
     {
       place: "Kolkota(CCU)",
+      code: "CCU",
       airport: "Netaji Subhash Chandra Bose Airport",
       country: "India",
     },
     {
       place: "Goa(GOI)",
+      code: "GOI",
       airport: "Dobalim Goa International Airport",
       country: "India",
     },
   ];
-
+  const [isChecked, setIsChecked] = useState(false);
   const [fromOpen, setFromOpen] = useState(false);
   const [selectedFrom, setSelectedFrom] = useState(fromPoint[0]);
 
@@ -148,7 +159,7 @@ const SearchBar = () => {
 
   const [activeTripTab, setActiveTripTab] = useState("one-way");
   return (
-    <div className="flex flex-col gap-4 px-20">
+    <div className="flex flex-col gap-4 px-28">
       <div className="flex flex-row justify-between">
         <TripTab active={activeTripTab} onChange={setActiveTripTab} />
         <div className="text-xl font-bold text-white">Search Lowest Price</div>
@@ -266,38 +277,21 @@ const SearchBar = () => {
             />
           </div>
         </div>
-        <div className="bg-orange-400 uppercase text-white text-xl font-bold flex items-center justify-center px-7 -m-0.5 ml-0 rounded-r-md">
+        <a
+          href={`/flightlist?src=${selectedFrom.code}&dest=${
+            selectedTo.code
+          }&day=${weekdays[departureDate.getDay()].substring(
+            0,
+            3
+          )}&date=${departureDate.toJSON()}`}
+          className="bg-[#ef6614] uppercase text-white text-xl font-bold flex items-center justify-center px-7 -m-0.5 ml-0 rounded-r-md"
+        >
           Search
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center justify-between">
         <div>
-          <ul className="flex flex-row">
-            <li>
-              <label>
-                <input type="checkbox" />
-                Defence Forces
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="checkbox" />
-                Students
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="checkbox" />
-                Senior Citizens
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="checkbox" />
-                Doctors Nurses
-              </label>
-            </li>
-          </ul>
+          <RadioOption/>
         </div>
         <div className="web-checkin flex flex-row">
           <div>

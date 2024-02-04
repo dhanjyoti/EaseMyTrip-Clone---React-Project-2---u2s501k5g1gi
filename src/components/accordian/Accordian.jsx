@@ -12,7 +12,7 @@ const Accordion = ({
   value,
 }) => (
   <Acd.Root
-    className="outline-none w-full py-5"
+    className="outline-none w-full py-5 border-b border-gray-300"
     type="single"
     defaultValue={defaultOpen ? value : ""}
     collapsible
@@ -41,7 +41,7 @@ const AccordionTrigger = React.forwardRef(
     <Acd.Header className="flex">
       <Acd.Trigger
         className={classNames(
-          "flex flex-row justify-between items-center group outline-none w-full font-bold",
+          "flex flex-row justify-between items-center group outline-none w-full text-xl font-medium",
           className
         )}
         {...props}

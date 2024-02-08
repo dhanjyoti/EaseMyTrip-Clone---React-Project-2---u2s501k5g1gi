@@ -290,9 +290,7 @@ const SearchBar = () => {
         </a>
       </div>
       <div className="flex flex-row items-center justify-between">
-        <div>
-          <RadioOption/>
-        </div>
+        <RadioOption/>
         <div className="web-checkin flex flex-row">
           <div>
             <WebCheckinIcon />

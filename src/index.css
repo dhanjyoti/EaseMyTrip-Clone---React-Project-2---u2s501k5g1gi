@@ -25,3 +25,7 @@ code {
 .web-rupee {
   font-family: 'WebRupee', sans-serif;
 }
+
+.react-datepicker-wrapper{
+  width: 100%;
+}

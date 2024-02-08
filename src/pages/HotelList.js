@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/hotellist.css";
 import HotelSearchBar from "../components/searchBar/HotelSearchBar";
 import SideBarCollapse from "../components/sidebarCollapse/SideBarCollapse";
 import OfferListComponent from "../components/offerListCode/OfferListComponent";
 import HotelComponent from "../components/hotel_list/HotelComponent";
 import HotelImg from "../images/hotelComponent/89392_0.jpg";
+import api from "../utils/api";
+import { useSearchParams } from "react-router-dom";
+import SearchBar from "./hotel/search";
 
 const HotelList = () => {
+  const [hotels, setHotels] = useState([])
+
+  const [params] = useSearchParams()
+  const location = params.get('place')
+  const checkin = params.get('checkin')
+  const checkout = params.get('checkout')
+  
+  useEffect(()=>{
+    (async()=>{
+      try{
+        const res = await api.searchHotels({location})
+        setHotels(res.data.data.hotels)
+      }catch(e){
+
+      }
+    })()  
+  },[params])
   return (
     <div className="bg-blue-100">
       <div className="main-form border-2 border-green-500">
-        <HotelSearchBar />
+        <SearchBar location={location} checkin={new Date(checkin)} checkout={new Date(checkout)}/>
         {/* <button className='modify-button'>Modify Search</button> */}
       </div>
 
@@ -120,54 +140,19 @@ const HotelList = () => {
             <OfferListComponent />
           </div>
           <div>
-            <HotelComponent
-              hotelImage={HotelImg}
-              hotelName={"The Chancery Pavilion"}
-              locationName={"Richmond Circle"}
-              tagLine={"Couple Friendly | Free wifi"}
+            {hotels.map((hotel)=><HotelComponent
+            key={hotel._id}
+              hotelImage={hotel.images?.[0]||HotelImg}
+              hotelName={hotel.name}
+              locationName={hotel.location}
+              tagLine={(hotel.amenities || []).join(' | ')}
               review={"Very Good"}
               reviewPoint={"2027 reviews"}
-              ratePoint={"4.0"}
+              ratePoint={hotel.rating.toString().padEnd(3, ".0")}
               prevAmount={"3099"}
-              amount={"2399"}
+              amount={hotel.avgCostPerNight.toFixed(2)}
               taxesNfee={"614 Taxes & fees"}
-            />
-            <HotelComponent
-              hotelImage={HotelImg}
-              hotelName={"The Chancery Pavilion"}
-              locationName={"Richmond Circle"}
-              tagLine={"Couple Friendly | Free wifi"}
-              review={"Very Good"}
-              reviewPoint={"2027 reviews"}
-              ratePoint={"4.0"}
-              prevAmount={"3099"}
-              amount={"2399"}
-              taxesNfee={"614 Taxes & fees"}
-            />
-            <HotelComponent
-              hotelImage={HotelImg}
-              hotelName={"The Chancery Pavilion"}
-              locationName={"Richmond Circle"}
-              tagLine={"Couple Friendly | Free wifi"}
-              review={"Very Good"}
-              reviewPoint={"2027 reviews"}
-              ratePoint={"4.0"}
-              prevAmount={"3099"}
-              amount={"2399"}
-              taxesNfee={"614 Taxes & fees"}
-            />
-            <HotelComponent
-              hotelImage={HotelImg}
-              hotelName={"The Chancery Pavilion"}
-              locationName={"Richmond Circle"}
-              tagLine={"Couple Friendly | Free wifi"}
-              review={"Very Good"}
-              reviewPoint={"2027 reviews"}
-              ratePoint={"4.0"}
-              prevAmount={"3099"}
-              amount={"2399"}
-              taxesNfee={"614 Taxes & fees"}
-            />
+            />)}
           </div>
         </div>
       </div>

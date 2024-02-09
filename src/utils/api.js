@@ -15,11 +15,21 @@ const searchHotels = async ({location})=>{
     return (await http.get(`bookingportals/hotel?search={"location":"${location}"}`))
 }
 
+const searchTrains = async ({src, dest, day})=>{
+    return (await http.get(`bookingportals/train?search={"source":"${src}","destination":"${dest}"}&day=${day}`))
+}
+
+const searchBuses = async ({src, dest, day})=>{
+    return (await http.get(`bookingportals/bus?search={"source":"${src}","destination":"${dest}"}&day=${day}`))
+}
+
 const api = {
     login,
     signup,
     searchFlights,
-    searchHotels
+    searchHotels,
+    searchTrains,
+    searchBuses
 }
 
 export default api;

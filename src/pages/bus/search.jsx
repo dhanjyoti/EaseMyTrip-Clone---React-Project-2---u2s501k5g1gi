@@ -18,8 +18,8 @@ const Search = ({ options, onChange, value, valueRender, placeholder, className=
     animation={null}
     suffixRender={()=><div></div>}
     options={options}
-    onChange={() => {}}
-    value={undefined}
+    onChange={onChange}
+    value={value}
   />
   );
 };

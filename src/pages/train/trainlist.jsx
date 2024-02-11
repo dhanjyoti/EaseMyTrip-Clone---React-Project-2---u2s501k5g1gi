@@ -33,7 +33,7 @@ const TrainList = () => {
           <div className="bg-white w-[240px] h-[800px] border border-[#E3DFDF]"></div>
         </div>
 
-        <div className="p-2">
+        <div className="pl-3 pt-6">
           <TrainCard />
 
           {/* {trains.map((train) => (

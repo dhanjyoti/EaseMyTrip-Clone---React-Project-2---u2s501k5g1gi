@@ -17,12 +17,13 @@ const HotelComponent = ({
   prevAmount,
   amount,
   taxesNfee,
+  onClick
 }) => {
   return (
     <div className="py-2 pl-2 my-3 border bg-white border-[#c9d7e1] rounded-2xl flex flex-row mr-[50px] transition-shadow duration-400 shadow-[0_0_10px_0_rgb(197_197_197_/_70%)] hover:shadow-[0_0_10px_0_rgb(33_150_243_/_70%)]">
       <div>
         <div>
-          <img className="rounded-xl w-[293px] h-[202px]" src={hotelImage} />
+          <img onClick={onClick} className="rounded-xl w-[293px] h-[202px] cursor-pointer" src={hotelImage} />
         </div>
       </div>
 
@@ -106,7 +107,7 @@ const HotelComponent = ({
             <span className="text-[11px]">{taxesNfee}</span>
           </div>
           <div className="text-[#737373] text-[11px]">Per Night</div>
-          <div className="text-white bg-[#ef6614] py-[7px] ml-4 w-[150px] self-baseline text-center text-sm rounded-[40px]">View Room</div>
+          <div onClick={onClick} className="cursor-pointer text-white bg-[#ef6614] py-[7px] ml-4 w-[150px] self-baseline text-center text-sm rounded-[40px]">View Room</div>
           <div className="text-[#2196f3] text-xs font-semibold pr-2">Login & Save more&#62;</div>
         </div>
       </div>

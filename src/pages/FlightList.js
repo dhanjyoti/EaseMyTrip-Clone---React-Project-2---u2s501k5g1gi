@@ -76,6 +76,7 @@ const FlightList = () => {
     setToCity(fromPoint.find((fp)=>fp.code === dest))
     setSelectedDate(new Date(date))
   },[params])
+
   return (
     <div>
       <div className="flex flex-col bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-2">
@@ -153,6 +154,8 @@ const FlightList = () => {
               <div>
                 {flights.map((flight)=>{
                   return <FlightCard
+                  key={flight._id}
+                  id={flight._id}
                   flightIcon={IndigoIcon}
                   flightName={"Indigo"}
                   flightNumber={flight.flightID}

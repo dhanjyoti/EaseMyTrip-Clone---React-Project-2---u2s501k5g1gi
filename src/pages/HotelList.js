@@ -8,9 +8,11 @@ import HotelImg from "../images/hotelComponent/89392_0.jpg";
 import api from "../utils/api";
 import { useSearchParams } from "react-router-dom";
 import SearchBar from "./hotel/search";
+import {useNavigate} from "react-router-dom";
 
 const HotelList = () => {
   const [hotels, setHotels] = useState([])
+  const navigate = useNavigate()
 
   const [params] = useSearchParams()
   const location = params.get('place')
@@ -142,6 +144,9 @@ const HotelList = () => {
           <div>
             {hotels.map((hotel)=><HotelComponent
             key={hotel._id}
+            onClick={()=>{
+              navigate(`/hoteldetailpage?id=${hotel._id}&checkin=${checkin}&checkout=${checkout}`)
+            }}
               hotelImage={hotel.images?.[0]||HotelImg}
               hotelName={hotel.name}
               locationName={hotel.location}

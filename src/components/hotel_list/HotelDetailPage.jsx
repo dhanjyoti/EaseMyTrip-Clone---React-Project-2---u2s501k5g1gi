@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BookingPolicy from "./BookingPolicy";
 import StarRating from "../../images/hotelComponent/icon-star.svg";
 import MapMaker from "../../images/hotelComponent/map-marker.svg";
@@ -10,20 +10,34 @@ import WifiIcon from "../../images/hotelComponent/wifi-icon.svg";
 import LaundryService from "../../images/hotelComponent/laundry-icon.svg";
 import Amenities from "../../images/hotelComponent/feather-plus.svg";
 import HotelAmunities from "./HotelAmunities";
-
-
-
+import { useSearchParams } from "react-router-dom";
+import api from "../../utils/api";
 
 const HotelDetailPage = () => {
-  return (
-    <div className="my-44">
+  const [hotel, setHotel] = useState();
+
+  const [params] = useSearchParams();
+  const id = params.get("id");
+  const checkin = params.get('checkin')
+  const checkout = params.get('checkout')
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await api.hotelDetail({ id });
+        console.log(res.data.data);
+        setHotel(res.data.data);
+      } catch (e) {}
+    })();
+  }, [params]);
+
+  return hotel ? (
+    <div className="my-10">
       <div className="mx-[50px] p-[10px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]">
         <div className="flex flex-row justify-between">
           <div>
             <div className="flex flex-row items-baseline">
-              <span className="text-[21px] font-semibold">
-                Zion A Luxurious Hotel Bangalore
-              </span>
+              <span className="text-[21px] font-semibold">{hotel.name}</span>
               <span className="flex flex-row">
                 <img src={StarRating} />
                 <img src={StarRating} />
@@ -35,11 +49,9 @@ const HotelDetailPage = () => {
                 Hotel
               </span>
             </div>
-            <div className="flex flex-row text-[#9F9C9C] text-[13px] font-medium my-[6px]">
+            <div className="flex flex-row text-[#9F9C9C] text-[13px] font-medium my-[6px] gap-2">
               <img src={MapMaker} />
-              <div>
-                31 W.H. Hanumanthappa Road 5Th Main Off Race Course Road
-              </div>
+              <div>{hotel.location}</div>
             </div>
           </div>
           <div className="flex flex-row items-center">
@@ -48,7 +60,7 @@ const HotelDetailPage = () => {
               <div className="text-[#555555] text-xs">25 reviews</div>
             </div>
             <div className="bg-[#00A664] rounded-[10px] text-[13px] font-semibold p-[6px] text-white inline-block">
-              5.0
+              {`${hotel.rating}`.padEnd(3, ".0")}
             </div>
           </div>
         </div>
@@ -56,18 +68,20 @@ const HotelDetailPage = () => {
         <div className="flex flex-row justify-between">
           <div className="flex flex-row">
             <div>
-              <img className="w-[593px] h-[310px]" src={HotelImage1} />
+              <img
+                className="w-[593px] h-[310px] object-cover"
+                src={hotel.images?.[0]}
+              />
             </div>
             <div className="ml-2">
-              <div>
-                <img className="w-[185px] h-[98px] mb-2" src={HotelImage1} />
-              </div>
-              <div>
-                <img className="w-[185px] h-[98px] mb-2" src={HotelImage1} />
-              </div>
-              <div>
-                <img className="w-[185px] h-[98px]" src={HotelImage1} />
-              </div>
+              {hotel.images?.filter((_,i)=>i!==0).map((image) => {
+                return <div key={image}>
+                  <img
+                    className="w-[185px] h-[98px] mb-2 object-cover"
+                    src={image}
+                  />
+                </div>;
+              })}
             </div>
           </div>
 
@@ -84,16 +98,14 @@ const HotelDetailPage = () => {
               </div>
               <div className="flex flex-col items-end">
                 <div className="flex flex-row items-center">
-                  <img className="h-3" src={RedRupeeIcon} />
-                  <span className="text-[15px] font-medium text-[#FF0000] pl-1">4759</span>
-                </div>
-                <div className="flex flex-row items-center">
-                  <img src={BlackRupeeIcon}/>
-                  <span className="text-2xl font-semibold">4085</span>
+                  <img src={BlackRupeeIcon} />
+                  <span className="text-2xl font-semibold">
+                    {Math.floor(hotel.avgCostPerNight)}
+                  </span>
                 </div>
                 <div className="flex flex-row items-center text-xs">
                   <span>+</span>
-                  <img className="h-[11px]" src={BlackRupeeIcon}/>
+                  <img className="h-[11px]" src={BlackRupeeIcon} />
                   <span className="font-medium">570 Taxes & fees</span>
                 </div>
                 <div className="text-xs">base price(Per Night)</div>
@@ -101,12 +113,12 @@ const HotelDetailPage = () => {
             </div>
             <div className="flex flex-row justify-between border-y border-[#E4E2E2] mt-7 py-3 pl-2 pr-3">
               <div className="flex flex-row text-[14px] font-medium">
-                <img src={CalanderIcon}/>
+                <img src={CalanderIcon} />
                 <span className="text-[#2196f3]">&nbsp;CHECK-IN:&nbsp;</span>
                 <span>02:00 PM</span>
               </div>
               <div className="flex flex-row text-[14px] font-medium">
-                <img src={CalanderIcon}/>
+                <img src={CalanderIcon} />
                 <span className="text-[#2196f3]">&nbsp;CHECK-IN:&nbsp;</span>
                 <span>02:00 PM</span>
               </div>
@@ -114,22 +126,26 @@ const HotelDetailPage = () => {
             <div className="my-[13px]">
               <ul className="flex flex-row justify-between items-center pr-3">
                 <li className="flex flex-row text-[11px] bg-[#F3F9FF] px-[6px] py-1 hover:bg-[#bbdbfb]">
-                  <img className="mr-1" src={WifiIcon}/>
+                  <img className="mr-1" src={WifiIcon} />
                   <p>Wi-Fi Enabled</p>
                 </li>
                 <li className="flex flex-row text-[11px] bg-[#F3F9FF] px-[6px] py-1 hover:bg-[#bbdbfb]">
-                  <img className="mr-1" src={LaundryService}/>
+                  <img className="mr-1" src={LaundryService} />
                   <p>Laundry Service</p>
-                </li>              
+                </li>
                 <li className="flex flex-row text-[11px] bg-[#F3F9FF] px-[6px] py-1 hover:bg-[#bbdbfb]">
-                  <img className="mr-1" src={Amenities}/>
+                  <img className="mr-1" src={Amenities} />
                   <p>34 Amenities</p>
                 </li>
               </ul>
             </div>
             <div className="flex flex-row justify-between mt-5">
-              <button className="text-[#2196f3] border border-[#2196f3] py-[9px] w-[47%] rounded-full font-semibold cursor-pointer">SELECT ROOMS</button>
-              <button className="bg-[#EF6614] text-[#fff] font-semibold cursor-pointer rounded-full w-[47%]">BOOK NOW</button>
+              <button className="text-[#2196f3] border border-[#2196f3] py-[9px] w-[47%] rounded-full font-semibold cursor-pointer">
+                SELECT ROOMS
+              </button>
+              <button className="bg-[#EF6614] text-[#fff] font-semibold cursor-pointer rounded-full w-[47%]">
+                BOOK NOW
+              </button>
             </div>
           </div>
         </div>
@@ -156,10 +172,12 @@ const HotelDetailPage = () => {
         </span>
       </div>
 
-      <HotelAmunities/>
+      <HotelAmunities />
 
       <BookingPolicy />
     </div>
+  ) : (
+    "Loading"
   );
 };
 

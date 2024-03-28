@@ -25,12 +25,6 @@ const navList = [
     label: "BUS",
   },
   {
-    label: "HOLIDAYS",
-  },
-  {
-    label: "CABS",
-  },
-  {
     label: "ACTIVITIES",
   },
 ];
@@ -56,7 +50,7 @@ const Header = () => {
     <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px]">
       <div className="flex flex-row">
         <div>
-          <Logo />
+          <Link to={"/"}><Logo /></Link>
         </div>
         <ul className="flex flex-row items-center list-none">
           {navList.map((item) => (

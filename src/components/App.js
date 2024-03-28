@@ -25,8 +25,7 @@ function App() {
       <Header />
       <Routes>
       <Route element={<Test/>} path="/test" />
-
-        <Route element={<Home/>} path="/" />
+        <Route element={<Home/>} path="/*" />
         <Route element={<Flight/>} path="/flight" />
         <Route element={<FlightList/>} path="/flightlist" />
         <Route element={<Hotels/>} path="/hotels" />

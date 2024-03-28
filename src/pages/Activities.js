@@ -18,13 +18,13 @@ const Activities = () => {
     return (
         <div className='flex flex-col items-center'>
             <div>
-                <h1 className='text-center text-5xl font-semibold'>NEVER STOP EXPLORING</h1>
+                <h1 className='text-center text-5xl font-semibold py-5'>NEVER STOP EXPLORING</h1>
                 <p className='text-center text-xl font-medium'>Explore and enjoy activities pan-India and across the world with us.</p>
             </div>
 
             <div>
                 <div>
-                    <h2 className='text-center text-3xl font-medium'>Popular Destinations In India</h2>
+                    <h2 className='text-center text-3xl font-medium py-10'>Popular Destinations In India</h2>
                     <div className='flex flex-row gap-2'>
                         <ActivitiesDestinationCard place={Delhi} placeName={"Delhi"} />
                         <ActivitiesDestinationCard place={Mumbai} placeName={"Mumbai"} />
@@ -33,7 +33,7 @@ const Activities = () => {
                     </div>
                 </div>
                 <div>
-                    <h2 className='text-center text-3xl font-medium'>Most Popular Cities Across The World</h2>
+                    <h2 className='text-center text-3xl font-medium py-10'>Most Popular Cities Across The World</h2>
                     <div className='flex flex-row gap-2'>
                         <ActivitiesDestinationCard place={Dubai} placeName={"Dubai"} />
                         <ActivitiesDestinationCard place={Bangkok} placeName={"Bangkok"} />
@@ -43,7 +43,7 @@ const Activities = () => {
                 </div>
             </div>
             <div className='mx-20'>
-                <h1 className='text-center text-3xl font-medium'>Why Choose Activities</h1>
+                <h1 className='text-center text-3xl font-medium py-10'>Why Choose Activities</h1>
                 <div></div>
                 <p>
                     Welcome to EaseMyTrip, the one-stop-shop for all your travel needs. In addition to booking flights and hotels, we offer a wide range of activities that will make your trip even more exciting and memorable. Whether you are taking a tour to local areas or in a foreign country, EaseMyTrip offers you activities to do. You can book any of the mentioned activities online through our portal.
@@ -78,7 +78,7 @@ const Activities = () => {
                     <br />
                 </p>
             </div>
-            <div className='flex flex-row gap-28'>
+            <div className='flex flex-row gap-28 py-10'>
                 <ActivitiesBottomCard icon={TopPlaces} activityName={"Top Places"}/>
                 <ActivitiesBottomCard icon={SpecializedAgent} activityName={"Specialized Agent"}/>
                 <ActivitiesBottomCard icon={BestPrice} activityName={"Best Price"}/>

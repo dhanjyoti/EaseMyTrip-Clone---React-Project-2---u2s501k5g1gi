@@ -220,7 +220,7 @@ const Home = () => {
       </div>
 
       {/* Refund Section */}
-      <div className="flex flex-row gap-5">
+      <div className="flex flex-row gap-5 mx-[140px]">
         <div className="rounded-xl flex flex-row w-[74%] full-refund">
           <div>
             <img src={refundImage} />
@@ -266,9 +266,9 @@ const Home = () => {
         </div>
       </div>
 
-      <h1>Top Flight Routes</h1>
+      <h1 className="text-center py-5">Top Flight Routes</h1>
 
-      <div className="grid grid-cols-3 grid-flow-row gap-4">
+      <div className="grid grid-cols-3 grid-flow-row gap-4 mx-[140px]">
         <TopFlightRoutes
           image={mumbaiImg}
           takeOff={"Chennai"}
@@ -325,7 +325,7 @@ const Home = () => {
         />
       </div>
 
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-3 mx-[140px] py-10">
         <div className="flex flex-row border-2 border-blue-500 rounded-ss-full background">
           <div>
             <Important />
@@ -370,7 +370,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mx-[140px]">
         <div>Why book with us?</div>
         <div className="why-book">
           <WhyBook

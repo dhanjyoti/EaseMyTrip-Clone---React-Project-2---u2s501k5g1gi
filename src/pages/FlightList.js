@@ -12,6 +12,7 @@ import { useSearchParams } from "react-router-dom";
 import api from "../utils/api";
 import FlightCard from "../components/flightCard/FlightCard";
 // import SwapNewIcon from "../images/swap-nw-icn.png";
+import Slider from '@mui/material/Slider';
 
 const fromPoint = [
   {
@@ -53,6 +54,7 @@ const FlightList = () => {
   const [selectedDate, setSelectedDate]=useState(new Date())
   const [fromCity, setFromCity]=useState({})
   const [toCity, setToCity]=useState({})
+  const [price, setPrice] = useState([5000, 50000]);
 
   const [flights, setFlights] = useState([])
 
@@ -61,6 +63,10 @@ const FlightList = () => {
   const dest = params.get('dest')
   const day = params.get('day')
   const date = params.get('date')
+
+  const updateValue =(e, data)=>{
+    setPrice(data)
+  }
 
   useEffect(()=>{
     (async()=>{
@@ -83,14 +89,14 @@ const FlightList = () => {
         <div></div>
         <div className="flex flex-row items-center justify-between mx-[155px] ">
           <div className="relative">
-            <input className="placeholder-sky-300)" value={fromCity?.place} placeholder="From"  readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
+            <input className="placeholder-sky-300)" value={fromCity?.place} placeholder="From" readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
             <div className="absolute z-20  w-[400px]">
             <SearchList open={fromOpen} items={fromPoint} placeholder={"From"} onClick={setFromCity}/>
             </div>
           </div>
           <div><img src={SwapNewIcon} /></div>
           <div className="relative">
-            <input placeholder="To" value={toCity?.place}  readOnly onClick={()=>setToOpen(prev=>!prev)}/>
+            <input placeholder="To" value={toCity?.place} readOnly onClick={()=>setToOpen(prev=>!prev)}/>
             <div className="absolute z-20  w-[400px]">
             <SearchList open={toOpen} items={fromPoint} placeholder={"To"} onClick={setToCity}/>
             </div>
@@ -106,8 +112,8 @@ const FlightList = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-row max-w-full">
-          <div className="flex flex-col border-2 border-gray-400 w-60 px-4">
+        <div className="flex flex-row max-w-full justify-center">
+          <div className="flex flex-col border-2 border-gray-400 h-fit py-5 w-60 px-4">
             <div>
               <h2>FILTER</h2>
             </div>
@@ -127,8 +133,17 @@ const FlightList = () => {
             </div>
             <div>
               <h3>Price Range</h3>
-              <input type="range" className="w-52" />
-              <p>Rs. 22911 - Rs.57751</p>
+              <div className="w-full m-1">
+                <Slider  
+                min={5000}
+                max={50000}
+                  value={price}
+                  onChange={updateValue}
+                  valueLabelDisplay="auto"
+                />
+              </div>
+              {/* <input type="range" className="w-52" name="price" min="5000" max="50000" step="1" value={price} onChange={(e)=>setPrice(e.target.value)} /> */}
+              <p>Rs.{price[0]} - Rs.{price[1]}</p>
             </div>
             <div>
               <h3>Stops</h3>

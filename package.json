@@ -10,6 +10,10 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.14",
+    "@mui/styled-engine-sc": "6.0.0-alpha.18",
     "@oshq/react-select": "^1.2.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -25,7 +29,8 @@
     "react-datepicker": "^4.25.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.18.0",
-    "react-scripts": "5.0.0"
+    "react-scripts": "5.0.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",

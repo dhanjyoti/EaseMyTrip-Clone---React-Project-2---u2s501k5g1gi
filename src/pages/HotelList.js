@@ -31,13 +31,12 @@ const HotelList = () => {
   },[params])
   return (
     <div className="bg-blue-100">
-      <div className="main-form border-2 border-green-500">
+      <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
         <SearchBar location={location} checkin={new Date(checkin)} checkout={new Date(checkout)}/>
         {/* <button className='modify-button'>Modify Search</button> */}
       </div>
 
       <div>
-        <div className="h-20"></div>
         <div className="search-hotel">
           <div className="search-hotel-div">
             <ul className="flex flex-wrap items-center m-0 p-0 list-none">

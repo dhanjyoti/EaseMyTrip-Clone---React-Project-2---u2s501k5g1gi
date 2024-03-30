@@ -24,7 +24,7 @@
 .search-hotel{
     display: flex;
     align-items: center;
-    position: sticky;
+    /* position: sticky; */
     top: 72px;
     z-index: 10;
     background: #e8f2fa;

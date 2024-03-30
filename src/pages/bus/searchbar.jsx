@@ -88,7 +88,7 @@ const BusSearchBar = ({s, d, date}) => {
           }&date=${selectedDate.toJSON()}&day=${weekdays[
             selectedDate.getDay()
           ]?.substring(0, 3)}`}
-          className="basis-3/4 border-l-2 text-lg font-semibold text-white bg-[#ef6614] hover:bg-[#e86212]"
+          className="flex items-center justify-center basis-3/4 border-l-2 text-lg font-semibold text-white bg-[#ef6614] hover:bg-[#e86212]"
         >
           SEARCH
         </a>

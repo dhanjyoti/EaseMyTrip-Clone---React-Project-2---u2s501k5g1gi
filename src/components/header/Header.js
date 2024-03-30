@@ -73,14 +73,15 @@ const Header = () => {
 
           <div className="group/more">
             <HelpComponent
-              className="border-none pl-3"
-              text={"More"}
+              className="border-none pl-3 text-xs font-medium"
+              text={"MORE"}
               icon={<DownArrow />}
             />
             <ul className="transform divide-y divide-gray-300 transition-[max-height] duration-300 shadow-[0_0_7px_rgba(0,0,0,.4)] z-[999] absolute max-h-0 overflow-hidden bg-white group-hover/more:max-h-full">
               {moreOptions.map((mo) => (
-                <li key={mo} className="px-2.5 py-1.5">
+                <li key={mo} className="relative px-2.5 py-1.5">
                   {mo}
+                  <Link to="/under-construction" className="absolute inset-0"></Link>
                 </li>
               ))}
             </ul>

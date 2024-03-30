@@ -22,7 +22,7 @@ const months = [
   "Nov",
   "Dec",
 ];
-const weekdays = [
+export const weekdays = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -207,6 +207,7 @@ const SearchBar = () => {
         <Calander
           selected={departureDate}
           onChange={setDepartureDate}
+          className="flex-1"
           customInput={
             <div className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1">
               <div className="text-sm text-black/40">DEPARTURE DATE</div>
@@ -228,7 +229,7 @@ const SearchBar = () => {
             </div>
           }
         />
-        <Calander
+        {/* <Calander
           selected={returnDate}
           onChange={setReturnDate}
           customInput={
@@ -257,7 +258,7 @@ const SearchBar = () => {
               </div>
             </div>
           }
-        />
+        /> */}
         <div
           className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1"
           onClick={() => setTravellerOpen((prev) => !prev)}

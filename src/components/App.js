@@ -17,6 +17,7 @@ import Test from "../pages/test";
 import { UserProvider } from "../utils/useUser";
 import TrainList from "../pages/train/trainlist";
 import FlightBooking from "../pages/flight/FlightBooking";
+import UnderConstruction from "../pages/underconstruction/underconstruction";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route element={<Bus/>} path="/bus" />
         <Route element={<BusList/>} path="/buslist" />
         <Route element={<FlightBooking/>} path="/flight-booking" />
+        <Route element={<UnderConstruction />} path="/under-construction" />
       </Routes>
       <Footer />
     </Router>

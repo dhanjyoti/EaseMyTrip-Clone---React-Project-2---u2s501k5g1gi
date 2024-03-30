@@ -13,6 +13,15 @@ import api from "../utils/api";
 import FlightCard from "../components/flightCard/FlightCard";
 // import SwapNewIcon from "../images/swap-nw-icn.png";
 import Slider from '@mui/material/Slider';
+import { weekdays } from "../components/searchBar/SearchBar";
+
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
 
 const fromPoint = [
   {
@@ -58,11 +67,14 @@ const FlightList = () => {
 
   const [flights, setFlights] = useState([])
 
-  const [params] = useSearchParams()
+  const [params, setParams] = useSearchParams()
   const src = params.get('src')
   const dest = params.get('dest')
   const day = params.get('day')
   const date = params.get('date')
+
+  const [fromTempCity, setFromTempCity]=useState()
+  const [toTempCity, setToTempCity]=useState()
 
   const updateValue =(e, data)=>{
     setPrice(data)
@@ -78,37 +90,52 @@ const FlightList = () => {
       }
     })()  
 
-    setFromCity(fromPoint.find((fp)=>fp.code === src))
-    setToCity(fromPoint.find((fp)=>fp.code === dest))
+    let f = fromPoint.find((fp)=>fp.code === src)
+    setFromCity(f)
+    setFromTempCity(f)
+    let t = fromPoint.find((fp)=>fp.code === dest)
+    setToCity(t)
+    setToTempCity(t)
     setSelectedDate(new Date(date))
   },[params])
 
+  const inputCss = "placeholder-white bg-[#ffffff1a] p-1.5 rounded text-white font-bold"
   return (
     <div>
       <div className="flex flex-col bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-2">
         <div></div>
-        <div className="flex flex-row items-center justify-between mx-[155px] ">
+        <div className="flex flex-row gap-2 items-center justify-between mx-[155px] ">
           <div className="relative">
-            <input className="placeholder-sky-300)" value={fromCity?.place} placeholder="From" readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
+            <input className={inputCss} value={fromCity?.place} placeholder="From" readOnly onClick={()=>setFromOpen(prev=>!prev)}/>
             <div className="absolute z-20  w-[400px]">
             <SearchList open={fromOpen} items={fromPoint} placeholder={"From"} onClick={setFromCity}/>
             </div>
           </div>
-          <div><img src={SwapNewIcon} /></div>
+          <div><img src={SwapNewIcon} className="min-w-[20px]" /></div>
           <div className="relative">
-            <input placeholder="To" value={toCity?.place} readOnly onClick={()=>setToOpen(prev=>!prev)}/>
+            <input className={inputCss} placeholder="To" value={toCity?.place} readOnly onClick={()=>setToOpen(prev=>!prev)}/>
             <div className="absolute z-20  w-[400px]">
             <SearchList open={toOpen} items={fromPoint} placeholder={"To"} onClick={setToCity}/>
             </div>
           </div>
-          <Calander selected={selectedDate} onChange={setSelectedDate}/>
-          <select>
+          <Calander selected={selectedDate} onChange={setSelectedDate}
+          customInput={
+          <div className={inputCss}>
+            {formatDate(selectedDate)}
+            </div>}
+          />
+          <select className={inputCss+" outline-none"}>
             <option>Economy</option>
             <option>Prem.Economy</option>
             <option>Business</option>
             <option>First</option>
           </select>
-          <button className="border border-white rounded-full text-white text-base py-[9px] px-7 font-semibold">SEARCH</button>
+          <button onClick={()=>{
+            setParams({ src: fromCity.code, dest:toCity.code, day:weekdays[selectedDate.getDay()].substring(
+              0,
+              3
+            ), data:selectedDate.toJSON()});
+          }} className="border border-white rounded-full text-white text-base py-[9px] px-7 font-semibold">SEARCH</button>
         </div>
       </div>
       <div>
@@ -137,9 +164,9 @@ const FlightList = () => {
                 <Slider  
                 min={5000}
                 max={50000}
-                  value={price}
-                  onChange={updateValue}
-                  valueLabelDisplay="auto"
+                value={price}
+                onChange={updateValue}
+                valueLabelDisplay="auto"
                 />
               </div>
               {/* <input type="range" className="w-52" name="price" min="5000" max="50000" step="1" value={price} onChange={(e)=>setPrice(e.target.value)} /> */}
@@ -175,11 +202,11 @@ const FlightList = () => {
                   flightName={"Indigo"}
                   flightNumber={flight.flightID}
                   departureTime={flight.departureTime}
-                  departurePlace={"Delhi"}
+                  departurePlace={fromTempCity.place}
                   travelTime={flight.duration+"hrs"}
                   stop={flight.stops === 0 ? "non-stop":flight.stops+" stop(s)"}
                   arrivalTime={flight.arrivalTime}
-                  arrivalPlace={"Mumbai"}
+                  arrivalPlace={toTempCity.place}
                   price={flight.ticketPrice}
               />
                 })}

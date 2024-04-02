@@ -18,12 +18,16 @@ const places = ["Bangalore", "Pune", "Delhi", "Chennai", "Goa"];
 const BusSearchBar = ({s, d, date}) => {
     console.log(s, d)
   const [selectedDate, setSelectedDate] = useState(date || new Date());
-  const [source, setSource] = useState(s||"");
-  const [dest, setDest] = useState(d||"");
+  const [source, setSource] = useState(s||places[0]);
+  const [dest, setDest] = useState(d||places[1]);
 
   useEffect(()=>{
-    setSource(s)
-    setDest(d)
+    if(s){
+      setSource(s)      
+    }
+    if(d){
+      setDest(d)
+    }
   },[s, d])
   return (
     <div className="bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] p-4 px-[155px] pt-[38px] pb-[70px]">

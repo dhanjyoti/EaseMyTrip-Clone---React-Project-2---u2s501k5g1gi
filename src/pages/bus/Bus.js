@@ -168,19 +168,10 @@ const Crousal = ({ items = [] }) => {
 };
 
 const Bus = () => {
-  const [openSeatSelector, setOpenSeatSelector] = useState(false);
 
   return (
     <div>
       <BusSearchBar/>
-      <button onClick={() => setOpenSeatSelector(true)}>Select seats</button>
-      <BusSeatSelector
-        open={openSeatSelector}
-        setOpen={setOpenSeatSelector}
-        busDetail={{
-          seats: 35,
-        }}
-      />
       <div className="my-10">
         <h2 className="text-center text-[34px] font-bold">Exclusive Offers</h2>
         <div className="text-center text-[15px] font-medium flex flex-row justify-center gap-14 mb-10 mt-5">

@@ -38,8 +38,8 @@ const fromPoint = [
     country: "India",
   },
 ];
-const FlightBooking = () => {
-  const [flight, setFlight] = useState();
+const TrainBooking = () => {
+  const [train, setTrain] = useState();
   const [source, setSource] = useState();
   const [destination, setDestination] = useState();
 
@@ -51,21 +51,21 @@ const FlightBooking = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await api.flightDetail({ id });
-        setFlight(res.data.data);
-        setSource(
-          fromPoint.find((fp) => fp.code === res.data.data.source).place
-        );
-        setDestination(
-          fromPoint.find((fp) => fp.code === res.data.data.destination).place
-        );
+        const res = await api.trainDetail({ id });
+        setTrain(res.data.data);
+        // setSource(
+        //   fromPoint.find((fp) => fp.code === res.data.data.source).place
+        // );
+        // setDestination(
+        //   fromPoint.find((fp) => fp.code === res.data.data.destination).place
+        // );
         console.log(res, id);
       } catch (e) {}
     })();
   }, [params]);
 
   return (
-    flight && (
+    train && (
       <div className="flex flex-row gap-7 px-14 py-5">
         <div className="flex flex-col gap-6 flex-1">
           <div className="flex flex-col rounded overflow-hidden p-1.5">
@@ -75,36 +75,33 @@ const FlightBooking = () => {
                 background: "linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%)",
               }}
             >
-              <span></span>
-              Flight Detail
+              Train Detail
             </div>
             <div className="p-5 shadow-md">
               <div className="shadow-md p-3 ">
                 <div>
-                  {source} - {destination} | Sat-09 Mar2024
+                  {train.source} - {train.destination} | Sat-09 Mar2024
                 </div>
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col fontb">
-                    <span className="font-semibold">Indigo</span>
-                    <span>{flight.flightID}</span>
-                    <span>ECONOMY</span>
+                    <span className="font-semibold">{train.trainName}</span>
+                    <span>{train.trainNumber}</span>
+                    <span>{train.trainType}</span>
                   </div>
                   <div className="flex flex-col">
+                    <span>Departure time</span>
                     <span className="font-bold text-2xl">
-                      {flight.departureTime}
+                      {train.departureTime}
                     </span>
                     <span>{source}</span>
-                    <span>Sat-09Mar2024</span>
-                    <span>Terminal - 3</span>
                   </div>
                   <div></div>
                   <div className="flex flex-col">
+                    <span>Arrival time</span>
                     <span className="font-bold text-2xl">
-                      {flight.arrivalTime}
+                      {train.arrivalTime}
                     </span>
                     <span>{destination}</span>
-                    <span>Sun-10Mar2024</span>
-                    <span>Terminal - 2</span>
                   </div>
                 </div>
                 <div></div>
@@ -134,14 +131,14 @@ const FlightBooking = () => {
               <p className="flex flex-row gap-2 pb-[6px]">
                 <input className="w-[18px]" type="radio" name="select" />
                 <p>
-                  Yes, I want to add Medical Refund Policy (FREE) to this flight
+                  Yes, I want to add Medical Refund Policy (FREE) to this train
                 </p>
               </p>
               <p className="flex flex-row gap-2">
                 <input className="w-[18px]" type="radio" name="select" />
                 <p>
                   No, I don't wish to add Medical Refund Policy (FREE) to this
-                  flight
+                  train
                 </p>
               </p>
             </div>
@@ -158,11 +155,11 @@ const FlightBooking = () => {
             <ul className="list-disc mx-9 py-2">
               <li>
                 15 Kgs per passenger Check-in Baggage included for your selected
-                flight on the sector Delhi to Mumbai
+                train on the sector Delhi to Mumbai
               </li>
               <li>
                 Airline Cancellation Fee is Rs 3180 per passenger for your
-                selected flight on the sector Delhi to Mumbai
+                selected train on the sector Delhi to Mumbai
               </li>
               <li>Remember to web check-in before arriving at the airport</li>
               <li>Face masks are advisable</li>
@@ -185,8 +182,6 @@ const FlightBooking = () => {
               </li>
             </ul>
           </div>
-          <div>hello</div>
-          <div>hello</div>
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">
@@ -202,14 +197,14 @@ const FlightBooking = () => {
               </div>
               <div className="flex flex-col divide-y">
                 <div className="py-1 px-3 text-xs flex flex-row justify-between items-center">
-                  <span>Adult x 1</span> <span>₹ {flight.ticketPrice}</span>
+                  <span>Adult x 1</span> <span>₹ {train.fare}</span>
                 </div>
                 <div className="py-1 px-3 text-xs flex flex-row justify-between items-center">
                   <span>Medical Refund Policy</span>{" "}
                   <span className="text-green-600">free</span>
                 </div>
                 <div className="py-1 px-3 text-lg font-bold text-red-600 flex flex-row justify-between items-center">
-                  <span>Grand Total</span> <span>₹ {flight.ticketPrice}</span>
+                  <span>Grand Total</span> <span>₹ {train.fare}</span>
                 </div>
                 <button
                   onClick={() => {
@@ -228,4 +223,4 @@ const FlightBooking = () => {
   );
 };
 
-export default FlightBooking;
+export default TrainBooking;

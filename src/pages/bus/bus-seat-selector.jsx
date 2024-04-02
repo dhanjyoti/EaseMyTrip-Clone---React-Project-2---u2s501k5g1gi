@@ -29,6 +29,7 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
             setSelectedSeats(selectedSeats.filter((ss) => ss !== seat))
         }
     }
+    
     return <Dialog open={open} openChange={setOpen} title={"Bus seats"} content={
         <div className="flex flex-row">
             <div className="flex flex-col gap-1 p-4 border border-[#d3e4f5] bg-[whitesmoke]">
@@ -53,7 +54,7 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
                     <div>
                         <div className="flex flex-row justify-between">
                             <span>Bare Fare(+)</span>
-                            <span className="web-rupee">₹ 0</span>
+                            <span className="web-rupee">₹ {busDetail.fare*selectedSeats.length}</span>
                         </div>
                         <div className="flex flex-row justify-between">
                             <span>GST</span>
@@ -61,10 +62,17 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
                         </div>
                         <div className="flex flex-row justify-between mt-5">
                             <span>Total Amount</span>
-                            <span className="text-xl font-semibold text-[#d63b05] web-rupee">₹ 0</span>
+                            <span className="text-xl font-semibold text-[#d63b05] web-rupee">₹ {busDetail.fare*selectedSeats.length}</span>
                         </div>
                     </div>
                     <p className="text-[#737373] text-[10px] text-right">(Including All Taxes)</p>
+                    <button onClick={()=>{
+                        if(selectedSeats.length > 0){
+                            alert("Ticket booked successfully.")
+                        }else{
+                            alert("Please select seat(s).")
+                        }
+                    }} className="bg-[#ef6614] text-white text-sm rounded-[3px] py-[6px] px-5 font-medium cursor-pointer w-full block mt-3">Continue</button>
                 </div>
             </div>
         </div>

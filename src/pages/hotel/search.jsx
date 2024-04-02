@@ -20,7 +20,7 @@ const months = [
   "Nov",
   "Dec",
 ];
-const weekdays = [
+export const weekdays = [
   "Sunday",
   "Monday",
   "Tuesday",

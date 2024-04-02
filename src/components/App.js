@@ -18,6 +18,7 @@ import { UserProvider } from "../utils/useUser";
 import TrainList from "../pages/train/trainlist";
 import FlightBooking from "../pages/flight/FlightBooking";
 import UnderConstruction from "../pages/underconstruction/underconstruction";
+import TrainBooking from "../pages/train/TrainBooking";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route element={<Bus/>} path="/bus" />
         <Route element={<BusList/>} path="/buslist" />
         <Route element={<FlightBooking/>} path="/flight-booking" />
+        <Route element={<TrainBooking/>} path="/train-booking" />
         <Route element={<UnderConstruction />} path="/under-construction" />
       </Routes>
       <Footer />

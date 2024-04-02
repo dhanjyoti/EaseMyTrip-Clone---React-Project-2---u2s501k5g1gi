@@ -7,7 +7,7 @@ import { Accordion } from "@radix-ui/react-accordion";
 import SideBarCollapse from "../../components/sidebarCollapse/SideBarCollapse";
 
 const TrainList = () => {
-  // const [trains, setTrains] = useState([]);
+  const [trains, setTrains] = useState([]);
 
   const [params] = useSearchParams();
   const from = params.get("from");
@@ -15,14 +15,15 @@ const TrainList = () => {
   const date = params.get("date");
   const day = params.get("day");
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const res = await api.searchTrains({ src: from, dest: to, day });
-  //       setTrains(res.data.data.trains);
-  //     } catch (e) {}
-  //   })();
-  // }, [params]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await api.searchTrains({ src: from, dest: to, day });
+        setTrains(res.data.data.trains);
+      } catch (e) {}
+    })();
+  }, [params]);
+
   return (
     <div className="bg-[#E8F2FA]">
       <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
@@ -77,12 +78,12 @@ const TrainList = () => {
           </div>
         </div>
 
-        <div className="pl-3 pt-6">
-          <TrainCard />
+        <div className="pl-3 pt-6 flex flex-col gap-3">
+          
 
-          {/* {trains.map((train) => (
-            <div key={train._id}>{train.trainName}</div>
-          ))} */}
+          {trains.map((train) => (
+            <TrainCard train={train}/>
+          ))}
         </div>
       </div>
     </div>

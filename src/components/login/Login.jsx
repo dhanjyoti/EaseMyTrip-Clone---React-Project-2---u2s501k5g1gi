@@ -18,6 +18,7 @@ const Login = ({ open, openChange }) => {
         let res = await api.login({ data: { email, password, appType: "bookingportals" } })
         console.log(res.data);
         setUser(res.data)
+        openChange(false)
       } catch (error) {
         alert('error')
         console.log(error)

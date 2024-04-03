@@ -12,6 +12,9 @@ import Amenities from "../../images/hotelComponent/feather-plus.svg";
 import HotelAmunities from "./HotelAmunities";
 import { useSearchParams } from "react-router-dom";
 import api from "../../utils/api";
+import {useNavigate} from "react-router-dom";
+import { useAuth } from "../../utils/useAuth";
+
 
 const HotelDetailPage = () => {
   const [hotel, setHotel] = useState();
@@ -20,6 +23,9 @@ const HotelDetailPage = () => {
   const id = params.get("id");
   const checkin = params.get('checkin')
   const checkout = params.get('checkout')
+
+  const navigate = useNavigate()
+  const {validate}=useAuth()
 
   useEffect(() => {
     (async () => {
@@ -143,7 +149,11 @@ const HotelDetailPage = () => {
               <button className="text-[#2196f3] border border-[#2196f3] py-[9px] w-[47%] rounded-full font-semibold cursor-pointer">
                 SELECT ROOMS
               </button>
-              <button className="bg-[#EF6614] text-[#fff] font-semibold cursor-pointer rounded-full w-[47%]">
+              <button onClick={()=>{
+                if(validate()){
+                  navigate(`/hotel-booking?id=${id}`)
+                }
+              }} className="bg-[#EF6614] text-[#fff] font-semibold cursor-pointer rounded-full w-[47%]">
                 BOOK NOW
               </button>
             </div>

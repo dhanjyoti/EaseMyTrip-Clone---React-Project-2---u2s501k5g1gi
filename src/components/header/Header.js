@@ -10,6 +10,7 @@ import Signup from "../signup/Signup";
 import Login from "../login/Login";
 import { Link, NavLink } from "react-router-dom";
 import useUser from "../../utils/useUser";
+import { useAuth } from "../../utils/useAuth";
 
 const navList = [
   {
@@ -42,6 +43,7 @@ const Header = () => {
   const [loginDialog, setLoginDialog] = useState(false);
   const [signupDialog, setSignupDialog] = useState(false);
   const { user, setUser } = useUser();
+  const { showLogin, setShowLogin }=useAuth()
 
   const logout = ()=>{
     setUser(null)
@@ -153,7 +155,10 @@ const Header = () => {
             </HoverCard>
 
             {/* Login */}
-            <Login open={loginDialog} openChange={setLoginDialog} />
+            <Login open={loginDialog  || showLogin} openChange={(e)=>{
+              setLoginDialog(e)
+              setShowLogin(e)
+            }} />
 
             {/* Signup */}
             <Signup

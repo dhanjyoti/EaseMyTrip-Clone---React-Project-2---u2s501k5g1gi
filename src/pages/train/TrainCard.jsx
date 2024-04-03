@@ -2,9 +2,12 @@ import React from "react";
 import { weekdays } from "../hotel/search";
 // import RightArrow from '../../images/trainComponent/arrow-right.svg';
 import {useNavigate} from "react-router-dom";
+import { useAuth } from "../../utils/useAuth";
 
 const TrainCard = ({ train }) => {
     const navigate = useNavigate()
+
+    const {validate}=useAuth()
   return (
     <div className="border border-[#E3DFDF] rounded-md bg-white">
       <div className="bg-[#F2F9FF] flex justify-between gap-[560px] py-2 px-6">
@@ -83,7 +86,9 @@ const TrainCard = ({ train }) => {
               </div>
               <button
                 onClick={() => {
-                  navigate(`/train-booking?id=${train._id}`);
+                  if(validate()){
+                    navigate(`/train-booking?id=${train._id}`);
+                  }
                 }}
                 className="bg-[#ef6614] text-white text-[11px] rounded-full px-[10px] py-[2px] font-semibold"
               >

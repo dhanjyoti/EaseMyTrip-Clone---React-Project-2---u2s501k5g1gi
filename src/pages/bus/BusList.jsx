@@ -4,26 +4,35 @@ import BusSearchBar from "./searchbar";
 import api from "../../utils/api";
 import { useSearchParams } from "react-router-dom";
 import BusSeatSelector from "./bus-seat-selector";
+import { useAuth } from "../../utils/useAuth";
 
-const CustomRadioGroup = ({items})=>{
-  const pId = useId()
-  return <div className="flex flex-row items-center rounded border border-gray-300 divide-x">
-    {items?.map((item)=>{
-      const id = useId()
-      return <div>
-        <input type="radio" className="peer" id={id} name={pId}/>
-        <label htmlFor={id} className="peer-checked:bg-red-300">{item.label}</label>
-      </div>
-    })}
-  </div>
-}
+const CustomRadioGroup = ({ items }) => {
+  const pId = useId();
+  return (
+    <div className="flex flex-row items-center rounded border border-gray-300 divide-x">
+      {items?.map((item) => {
+        const id = useId();
+        return (
+          <div>
+            <input type="radio" className="peer" id={id} name={pId} />
+            <label htmlFor={id} className="peer-checked:bg-red-300">
+              {item.label}
+            </label>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-const RadioTimeComponent = ({label, icon})=>{
-  return <div className="flex flex-col items-center p-2">
-    <span>{icon}</span>
-    <span className="text-xs text-gray-400">{label}</span>
-  </div>
-}
+const RadioTimeComponent = ({ label, icon }) => {
+  return (
+    <div className="flex flex-col items-center p-2">
+      <span>{icon}</span>
+      <span className="text-xs text-gray-400">{label}</span>
+    </div>
+  );
+};
 
 const CheckBoxItem = ({ children }) => {
   const id = useId();
@@ -92,25 +101,27 @@ const BusList = () => {
   ];
 
   const departureTime = [
-    {label:"Before 6 AM", icon:"i"},
-    {label:"6 AM - 12 AM", icon:"i"},
-    {label:"12 AM - 6 PM", icon:"i"},
-    {label:"After 6 PM", icon:"i"},
-  ]
+    { label: "Before 6 AM", icon: "i" },
+    { label: "6 AM - 12 AM", icon: "i" },
+    { label: "12 AM - 6 PM", icon: "i" },
+    { label: "After 6 PM", icon: "i" },
+  ];
 
-console.log(selectedBus)
+  const { validate } = useAuth();
   return (
     <div>
       <BusSearchBar s={from} d={to} date={new Date(date)} />
-      {selectedBus && <BusSeatSelector
-        open={!!selectedBus}
-        setOpen={(e)=>{
-          if(!e){
-            setSelectedBus(null)
-          }
-        }}
-        busDetail={selectedBus}
-      />}
+      {selectedBus && (
+        <BusSeatSelector
+          open={!!selectedBus}
+          setOpen={(e) => {
+            if (!e) {
+              setSelectedBus(null);
+            }
+          }}
+          busDetail={selectedBus}
+        />
+      )}
       <div className="bg-[#E8F2FA]">
         <div className="flex flex-row justify-center gap-4 py-4">
           <div className="h-fit w-[250px] border border-[#b8d0e5] rounded-[4px] bg-white divide-y">
@@ -182,9 +193,15 @@ console.log(selectedBus)
           </div>
           <div className="p-4 border border-[#b8d0e5] rounded-[4px] flex flex-col min-w-[918px] gap-2 bg-white">
             {buses.map((bus) => (
-              <BusDetailsCard key={bus._id} {...bus} onClick={()=>{
-                setSelectedBus(bus)
-              }}/>
+              <BusDetailsCard
+                key={bus._id}
+                {...bus}
+                onClick={() => {
+                  if (validate()) {
+                    setSelectedBus(bus);
+                  }
+                }}
+              />
             ))}
           </div>
         </div>

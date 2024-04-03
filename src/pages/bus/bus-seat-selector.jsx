@@ -2,6 +2,7 @@ import { useState } from "react";
 import Dialog from "../../components/dialog/Dialog"
 import BusSeatIcon from "./bus-seat";
 import classNames from "classnames";
+import { useAuth } from "../../utils/useAuth";
 
 
 function divideArray(array, parts) {
@@ -15,6 +16,7 @@ function divideArray(array, parts) {
 }
 
 const BusSeatSelector = ({ open, setOpen, busDetail }) => {
+    const {validate}=useAuth()
 
     // Numbers from 1 to 49
     var numbersArray = Array.from({ length: busDetail?.seats || 49 }, (_, i) => i + 1);

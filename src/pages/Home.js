@@ -196,6 +196,7 @@ const Crousal = ({ items = [] }) => {
 };
 
 const Home = () => {
+  
   return (
     <div>
       <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">

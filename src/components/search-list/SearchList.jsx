@@ -1,6 +1,6 @@
 import PlaneIcon from "../../images/searchlist/planeicon.svg"
 import IconSearch from "../../images/searchlist/icon-search.svg"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 const SearchItem = ({ place, airport, country, onClick }) => {
     return <div onClick={onClick} className="flex flex-row p-3 py-2 gap-3 border border-gray-200 hover:bg-gray-100 cursor-pointer select-none">
@@ -13,9 +13,10 @@ const SearchItem = ({ place, airport, country, onClick }) => {
     </div>
 }
 
-const SearchList = ({ placeholder, items, onClick, open }) => {
+const SearchList = ({ placeholder, items, onClick, open, onClose, parent}) => {
     const [search, setSearch]=useState("")
     const [filteredItems, setFilteredItems]=useState([])
+    const [firstTime, setFirstTime]=useState(true)
 
     useEffect(()=>{
         console.log(!!search, items);
@@ -29,9 +30,21 @@ const SearchList = ({ placeholder, items, onClick, open }) => {
         }
     },[items, search])
 
+    useEffect(()=>{
+        const x = (e)=>{
+            if(!e.target.parentNode.classList.contains(parent) && !firstTime){
+                onClose?.()
+            }
+        }
+        setFirstTime(false)
+        document.addEventListener("click",x)
+        return ()=>[
+            document.removeEventListener('click', x)
+        ]
+    },[open])
 
-
-    return open && <div className="max-w-[500px] shadow-md border border-gray-100 bg-white" onClick={(e)=>e.stopPropagation()}>
+    return open && <div>
+        <div className="max-w-[500px] shadow-md border border-gray-100 bg-white" onClick={(e)=>e.stopPropagation()}>
         <div className="flex flex-row items-center px-2">
             <span>
                 <img src={IconSearch} />
@@ -42,8 +55,12 @@ const SearchList = ({ placeholder, items, onClick, open }) => {
         </div>
         <div className="flex flex-col max-h-[250px] overflow-auto">
         <div className="text-sm font-bold p-1.5 bg-sky-50">Top cities</div>
-            {filteredItems?.map((item) => <SearchItem key={item.place} {...item} onClick={()=>onClick?.(item)}/>)}
+            {filteredItems?.map((item) => <SearchItem key={item.place} {...item} onClick={()=>{
+                onClick?.(item)
+                onClose?.()
+            }}/>)}
         </div>
+    </div>
     </div>
 }
 

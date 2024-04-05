@@ -78,17 +78,21 @@ const SearchBar = ({ f, t, d }) => {
     <div className="flex flex-col gap-4 px-28">
       <div className="flex flex-row bg-white rounded-md shadow-lg p-0.5">
         <div
-          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative basis-full"
+          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative basis-full search-parent-from"
           onClick={() => setOpenFrom((prev) => !prev)}
         >
           <div className="text-sm text-black/40">From</div>
           <div className="font-bold text-lg">{from?.place}</div>
           <div className="absolute z-10 w-[400px] top-2/3">
             <SearchList
+            parent={"search-parent-from"}
               open={openFrom}
               items={places}
               placeholder={"City"}
               onClick={(e) => setFrom(e)}
+              onClose={()=>{
+                setOpenFrom(false)
+              }}
             />
           </div>
         </div>
@@ -100,17 +104,21 @@ const SearchBar = ({ f, t, d }) => {
           />
         </div>
         <div
-          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative basis-full"
+          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative basis-full search-parent-to"
           onClick={() => setOpenTo((prev) => !prev)}
         >
           <div className="text-sm text-black/40">To</div>
           <div className="font-bold text-lg">{to?.place}</div>
           <div className="absolute z-10 w-[400px] top-2/3">
             <SearchList
+            parent={"search-parent-to"}
               open={openTo}
               items={places}
               placeholder={"City"}
               onClick={(e) => setTo(e)}
+              onClose={()=>{
+                setOpenTo(false)
+              }}
             />
           </div>
         </div>

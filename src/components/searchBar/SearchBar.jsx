@@ -166,7 +166,7 @@ const SearchBar = () => {
       </div>
       <div className="flex flex-row bg-white rounded-md shadow-lg p-0.5">
         <div
-          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1"
+          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1 search-parent-from"
           onClick={() => setFromOpen((prev) => !prev)}
         >
           <div className="text-sm text-black/40">FROM</div>
@@ -174,10 +174,14 @@ const SearchBar = () => {
           <div className="text-xs truncate">{selectedFrom?.airport}</div>
           <div className="absolute z-10 w-[400px] top-2/3">
             <SearchList
+            parent={"search-parent-from"}
               open={fromOpen}
               items={fromPoint}
               placeholder={"From"}
               onClick={(e) => setSelectedFrom(e)}
+              onClose={()=>{
+                setFromOpen(false)
+              }}
             />
           </div>
         </div>
@@ -189,7 +193,7 @@ const SearchBar = () => {
           />
         </div>
         <div
-          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1"
+          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1 search-parent-to"
           onClick={() => setToOpen((prev) => !prev)}
         >
           <div className="text-sm text-black/40">TO</div>
@@ -197,10 +201,15 @@ const SearchBar = () => {
           <div className="text-xs truncate">{selectedTo?.airport}</div>
           <div className="absolute z-10 w-[400px] top-2/3">
             <SearchList
+            parent={"search-parent-to"}
               open={toOpen}
               items={toPoint}
               placeholder={"TO"}
               onClick={(e) => setSelectedTo(e)}
+              onClose={(e)=>{
+                // console.log(!e, "toOpen")
+                setToOpen(false)
+              }}
             />
           </div>
         </div>
@@ -260,21 +269,23 @@ const SearchBar = () => {
           }
         /> */}
         <div
-          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1"
+          className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1 traveller"
           onClick={() => setTravellerOpen((prev) => !prev)}
         >
           <div className="text-sm text-black/40">TRAVELLER & CLASS</div>
-          <div className="font-bold text-lg">
+          <span className="font-bold text-lg">
             {travellerOption.adults +
               travellerOption.childs +
-              travellerOption.infants}{" "}
-            <span className="text-sm">traveller(s)</span>
-          </div>
+              travellerOption.infants}{" "}traveller(s)
+          </span>
           <div className="text-xs truncate">{travellerOption.class}</div>
           <div className="absolute z-10 top-2/3">
             <TravallerClass
               open={travellerOpen}
               onChange={setTravellerOption}
+              onClose={()=>{
+                setTravellerOpen(false)
+              }}
             />
           </div>
         </div>

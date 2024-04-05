@@ -143,7 +143,7 @@ const FlightList = () => {
       <div className="flex flex-col bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-2">
         <div></div>
         <div className="flex flex-row gap-2 items-center justify-between mx-[155px] ">
-          <div className="relative">
+          <div className="relative search-parent-from">
             <input
               className={inputCss}
               value={fromCity?.place}
@@ -153,17 +153,21 @@ const FlightList = () => {
             />
             <div className="absolute z-20  w-[400px]">
               <SearchList
+              parent={"search-parent-from"}
                 open={fromOpen}
                 items={fromPoint}
                 placeholder={"From"}
                 onClick={setFromCity}
+                onClose={()=>{
+                  setFromOpen(false)
+                }}
               />
             </div>
           </div>
           <div>
             <img src={SwapNewIcon} className="min-w-[20px]" />
           </div>
-          <div className="relative">
+          <div className="relative search-parent-to">
             <input
               className={inputCss}
               placeholder="To"
@@ -173,10 +177,14 @@ const FlightList = () => {
             />
             <div className="absolute z-20  w-[400px]">
               <SearchList
+              parent={"search-parent-to"}
                 open={toOpen}
                 items={fromPoint}
                 placeholder={"To"}
                 onClick={setToCity}
+                onClose={()=>{
+                  setToOpen(false)
+                }}
               />
             </div>
           </div>

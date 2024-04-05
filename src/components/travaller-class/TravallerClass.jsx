@@ -26,7 +26,7 @@ const Wheel = ({ defaultValue, onChange }) => {
     </div>
 }
 
-const TravallerClass = ({open, onChange}) => {
+const TravallerClass = ({open, onChange, onClose}) => {
     const [totalTraveller, setTotalTraveller]=useState(1)
     const [adults, setAdults]=useState(1)
     const [childs, setChilds]=useState(0)
@@ -54,6 +54,15 @@ const TravallerClass = ({open, onChange}) => {
     useEffect(()=>{
         onChange?.({adults, childs, infants, class:classT})
     },[adults, infants, childs, classT])
+
+    useEffect(()=>{
+        document.addEventListener("click",(e)=>{
+            console.log(e.target.parentNode.classList.contains("traveller") || e.target.classList.contains("traveller"))
+            if(!(e.target.parentNode.classList.contains("traveller") || e.target.classList.contains("traveller")))
+            onClose?.()
+        })
+    },[])
+
     return open && <div onClick={(e)=>e.stopPropagation()} className="bg-white p-2 flex flex-col absolute w-[250px] divide-y-2 gap-3 z-10 shadow-xl">
         <div className="flex flex-col gap-4">
             <div className="flex flex-row">

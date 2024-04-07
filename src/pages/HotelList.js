@@ -9,8 +9,10 @@ import api from "../utils/api";
 import { useSearchParams } from "react-router-dom";
 import SearchBar from "./hotel/search";
 import {useNavigate} from "react-router-dom";
+import { useLoading } from "../utils/useLoading";
 
 const HotelList = () => {
+  const {oneShotLoading}=useLoading()
   const [hotels, setHotels] = useState([])
   const navigate = useNavigate()
 
@@ -68,6 +70,7 @@ const HotelList = () => {
                 { label: "₹ 20001- ₹30000" },
                 { label: "above- ₹30000" },
               ]}
+              onChange={oneShotLoading}
               defaultOpen={true}
             />
             <SideBarCollapse
@@ -79,7 +82,9 @@ const HotelList = () => {
                 { label: "Whitefield" },
                 { label: "Marathalli" },
                 { label: "Koramangala" },
+                
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"STAR RATING"}
@@ -91,6 +96,7 @@ const HotelList = () => {
                 { label: "1 Star" },
                 { label: "Unrated" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"USER REVIEW RATING"}
@@ -99,6 +105,7 @@ const HotelList = () => {
                 { label: "4 & above (Very Good)" },
                 { label: "3 & above (Good)" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"AREA ATTRACTION"}
@@ -111,6 +118,7 @@ const HotelList = () => {
                 { label: "Bull Temple" },
                 { label: "ISKCON Temple" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"AMENITIES"}
@@ -122,6 +130,7 @@ const HotelList = () => {
                 { label: "Wi-Fi" },
                 { label: "Breakfast" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"PROPERTY TYPE"}
@@ -133,6 +142,7 @@ const HotelList = () => {
                 { label: "Residence" },
                 { label: "Guest House" },
               ]}
+              onChange={oneShotLoading}
             />
           </div>
         </div>

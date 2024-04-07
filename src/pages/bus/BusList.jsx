@@ -5,8 +5,9 @@ import api from "../../utils/api";
 import { useSearchParams } from "react-router-dom";
 import BusSeatSelector from "./bus-seat-selector";
 import { useAuth } from "../../utils/useAuth";
+import { useLoading } from "../../utils/useLoading";
 
-const CustomRadioGroup = ({ items }) => {
+const CustomRadioGroup = ({ items, onChange }) => {
   const pId = useId();
   return (
     <div className="flex flex-row items-center rounded border border-gray-300 divide-x">
@@ -14,7 +15,7 @@ const CustomRadioGroup = ({ items }) => {
         const id = useId();
         return (
           <div>
-            <input type="radio" className="peer" id={id} name={pId} />
+            <input onChange={onChange} type="radio" className="peer" id={id} name={pId} />
             <label htmlFor={id} className="peer-checked:bg-red-300">
               {item.label}
             </label>
@@ -34,7 +35,7 @@ const RadioTimeComponent = ({ label, icon }) => {
   );
 };
 
-const CheckBoxItem = ({ children }) => {
+const CheckBoxItem = ({ children, onChange }) => {
   const id = useId();
   return (
     <div className="flex flex-row items-center gap-3 text-xs">
@@ -42,6 +43,7 @@ const CheckBoxItem = ({ children }) => {
         type="checkbox"
         id={id}
         className="h-[16px] aspect-square border-black/25"
+        onChange={onChange}
       />
       <label htmlFor={id} className="flex-1">
         {children}
@@ -55,6 +57,7 @@ const FilterItemWrapper = ({ children }) => {
 };
 
 const BusList = () => {
+  const {oneShotLoading}=useLoading()
   const [buses, setBuses] = useState([]);
   const [selectedBus, setSelectedBus] = useState(null);
 
@@ -136,7 +139,7 @@ const BusList = () => {
             <FilterItemWrapper>
               <div className="flex flex-col gap-2 py-3">
                 {defaultFilter.map((df) => {
-                  return <CheckBoxItem>{df.label}</CheckBoxItem>;
+                  return <CheckBoxItem onChange={oneShotLoading}>{df.label}</CheckBoxItem>;
                 })}
               </div>
             </FilterItemWrapper>
@@ -150,7 +153,7 @@ const BusList = () => {
               <div className="flex flex-col gap-2 py-3">
                 {freeCancellation.map((fc) => {
                   return (
-                    <CheckBoxItem>
+                    <CheckBoxItem onChange={oneShotLoading}>
                       <div className="flex flex-row items-center justify-between">
                         <span>{fc.label}</span>
                         <span>({fc.number})</span>
@@ -165,7 +168,7 @@ const BusList = () => {
               <div className="flex flex-col gap-2 py-3">
                 {busType.map((bt) => {
                   return (
-                    <CheckBoxItem>
+                    <CheckBoxItem onChange={oneShotLoading}>
                       <div className="flex flex-row items-center justify-between">
                         <span>{bt.label}</span>
                         <span>({bt.number})</span>
@@ -180,7 +183,7 @@ const BusList = () => {
               <div className="flex flex-col gap-2 py-3">
                 {amenities.map((bt) => {
                   return (
-                    <CheckBoxItem>
+                    <CheckBoxItem onChange={oneShotLoading}>
                       <div className="flex flex-row items-center justify-between">
                         <span>{bt.label}</span>
                         <span>({bt.number})</span>

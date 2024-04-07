@@ -21,33 +21,39 @@ import UnderConstruction from "../pages/underconstruction/underconstruction";
 import TrainBooking from "../pages/train/TrainBooking";
 import AuthProvider from "../utils/useAuth";
 import HotelBooking from "../pages/hotel/HotelBooking";
+import LoadingProvider from "../utils/useLoading";
 
 function App() {
   return (
     <UserProvider>
       <AuthProvider>
-        <Router>
-          <Header />
-          <Routes>
-            <Route element={<Test />} path="/test" />
-            <Route element={<Home />} path="/*" />
-            <Route element={<Flight />} path="/flight" />
-            <Route element={<FlightList />} path="/flightlist" />
-            <Route element={<Hotels />} path="/hotels" />
-            <Route element={<HotelList />} path="/hotellist" />
-            <Route element={<Activities />} path="/activities" />
-            <Route element={<HotelDetailPage />} path="/hoteldetailpage" />
-            <Route element={<HotelBooking />} path="/hotel-booking" />
-            <Route element={<Train />} path="/trains" />
-            <Route element={<TrainList />} path="/trainlist" />
-            <Route element={<Bus />} path="/bus" />
-            <Route element={<BusList />} path="/buslist" />
-            <Route element={<FlightBooking />} path="/flight-booking" />
-            <Route element={<TrainBooking />} path="/train-booking" />
-            <Route element={<UnderConstruction />} path="/under-construction" />
-          </Routes>
-          <Footer />
-        </Router>
+        <LoadingProvider>
+          <Router>
+            <Header />
+            <Routes>
+              <Route element={<Test />} path="/test" />
+              <Route element={<Home />} path="/*" />
+              <Route element={<Flight />} path="/flight" />
+              <Route element={<FlightList />} path="/flightlist" />
+              <Route element={<Hotels />} path="/hotels" />
+              <Route element={<HotelList />} path="/hotellist" />
+              <Route element={<Activities />} path="/activities" />
+              <Route element={<HotelDetailPage />} path="/hoteldetailpage" />
+              <Route element={<HotelBooking />} path="/hotel-booking" />
+              <Route element={<Train />} path="/trains" />
+              <Route element={<TrainList />} path="/trainlist" />
+              <Route element={<Bus />} path="/bus" />
+              <Route element={<BusList />} path="/buslist" />
+              <Route element={<FlightBooking />} path="/flight-booking" />
+              <Route element={<TrainBooking />} path="/train-booking" />
+              <Route
+                element={<UnderConstruction />}
+                path="/under-construction"
+              />
+            </Routes>
+            <Footer />
+          </Router>
+        </LoadingProvider>
       </AuthProvider>
     </UserProvider>
   );

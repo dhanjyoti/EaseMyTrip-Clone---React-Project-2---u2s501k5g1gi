@@ -14,6 +14,33 @@ import FlightCard from "../components/flightCard/FlightCard";
 // import SwapNewIcon from "../images/swap-nw-icn.png";
 import Slider from "@mui/material/Slider";
 import { weekdays } from "../components/searchBar/SearchBar";
+import { useLoading } from "../utils/useLoading";
+
+const popular_loading = [
+  "Nonstop",
+  "Morning Departure",
+  "Vistara",
+  "Air India",
+  "AksaraAir",
+  "Indigo",
+  "Air India Express",
+  "SpiceJet",
+];
+
+const stops = [
+  { number: "0", stop: "Nonstop" },
+  { number: "1", stop: "Stop" },
+  { number: "2+", stop: "Stop" },
+];
+
+const aircrafts = [
+  "Airbus A320",
+  "Airbus A2IN",
+  "Boeing B78P",
+  "Boeing B738",
+  "Airbus A20N",
+  "Airbus A321",
+];
 
 function formatDate(date) {
   const day = String(date.getDate()).padStart(2, "0");
@@ -71,7 +98,7 @@ const useDebounce = (action, delay, dep = []) => {
       // .. within the delay period. Timeout gets cleared and restarted.
       return () => {
         clearTimeout(handler);
-        if (typeof resp === 'function') {
+        if (typeof resp === "function") {
           resp();
         }
       };
@@ -81,6 +108,7 @@ const useDebounce = (action, delay, dep = []) => {
 };
 
 const FlightList = () => {
+  const { oneShotLoading } = useLoading();
   const [fromOpen, setFromOpen] = useState(false);
   const [toOpen, setToOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -99,21 +127,25 @@ const FlightList = () => {
   const [fromTempCity, setFromTempCity] = useState();
   const [toTempCity, setToTempCity] = useState();
 
-  useDebounce(async () => {
-    try {
-      const res = await api.flightFilterPrice({
-        src,
-        dest,
-        day,
-        lowerPrice: price[1],
-        upperPrice: price[0],
-      });
-      setFlights(res.data.data.flights);
-      console.log(res.data)
-    } catch (e) {
-      console.log(e);
-    }
-  }, 500, [price]);
+  useDebounce(
+    async () => {
+      try {
+        const res = await api.flightFilterPrice({
+          src,
+          dest,
+          day,
+          lowerPrice: price[1],
+          upperPrice: price[0],
+        });
+        setFlights(res.data.data.flights);
+        console.log(res.data);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    500,
+    [price]
+  );
 
   const updateValue = (e, data) => {
     setPrice(data);
@@ -153,13 +185,13 @@ const FlightList = () => {
             />
             <div className="absolute z-20  w-[400px]">
               <SearchList
-              parent={"search-parent-from"}
+                parent={"search-parent-from"}
                 open={fromOpen}
                 items={fromPoint}
                 placeholder={"From"}
                 onClick={setFromCity}
-                onClose={()=>{
-                  setFromOpen(false)
+                onClose={() => {
+                  setFromOpen(false);
                 }}
               />
             </div>
@@ -177,13 +209,13 @@ const FlightList = () => {
             />
             <div className="absolute z-20  w-[400px]">
               <SearchList
-              parent={"search-parent-to"}
+                parent={"search-parent-to"}
                 open={toOpen}
                 items={fromPoint}
                 placeholder={"To"}
                 onClick={setToCity}
-                onClose={()=>{
-                  setToOpen(false)
+                onClose={() => {
+                  setToOpen(false);
                 }}
               />
             </div>
@@ -225,15 +257,15 @@ const FlightList = () => {
             <div>
               <h3>Popular Filters</h3>
               <div>
-                <FilterCheckBox name={"Nonstop"} />
-                <FilterCheckBox name={"Morning Departure"} />
-                <FilterCheckBox name={"Vistara"} />
-                <FilterCheckBox name={"Air India"} />
-                <FilterCheckBox name={"AksaraAir"} />
-                <FilterCheckBox name={"Indigo"} />
-                <FilterCheckBox name={"Air India Express"} />
-                <FilterCheckBox name={"Air India Express"} />
-                <FilterCheckBox name={"SpiceJet"} />
+                {popular_loading.map((p) => (
+                  <FilterCheckBox
+                    key={p}
+                    name={p}
+                    onChange={() => {
+                      oneShotLoading();
+                    }}
+                  />
+                ))}
               </div>
             </div>
             <div>
@@ -255,19 +287,29 @@ const FlightList = () => {
             <div>
               <h3>Stops</h3>
               <div className="flex flex-row gap-[6px]">
-                <Stopage stopsNumber={"0"} stops={"Nonstop"} />
-                <Stopage stopsNumber={"1"} stops={"Stop"} />
-                <Stopage stopsNumber={"2+"} stops={"Stop"} />
+                {stops.map((s) => (
+                  <Stopage
+                    onClick={() => {
+                      oneShotLoading();
+                    }}
+                    key={s.stop}
+                    stopsNumber={s.number}
+                    stops={s.stop}
+                  />
+                ))}
               </div>
             </div>
             <div>
               <h3>Aircraft</h3>
-              <FilterCheckBox name={"Airbus A320"} />
-              <FilterCheckBox name={"Airbus A2IN"} />
-              <FilterCheckBox name={"Boeing B78P"} />
-              <FilterCheckBox name={"Boeing B738"} />
-              <FilterCheckBox name={"Airbus A20N"} />
-              <FilterCheckBox name={"Airbus A321"} />
+              {aircrafts.map((a) => (
+                <FilterCheckBox
+                  key={a}
+                  name={a}
+                  onChange={() => {
+                    oneShotLoading();
+                  }}
+                />
+              ))}
             </div>
           </div>
           <div className="flex flex-col">

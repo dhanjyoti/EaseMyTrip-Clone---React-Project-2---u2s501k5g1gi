@@ -5,9 +5,11 @@ import SearchBar from "./search";
 import TrainCard from "./TrainCard";
 import { Accordion } from "@radix-ui/react-accordion";
 import SideBarCollapse from "../../components/sidebarCollapse/SideBarCollapse";
+import { useLoading } from "../../utils/useLoading";
 
 const TrainList = () => {
   const [trains, setTrains] = useState([]);
+  const {oneShotLoading}=useLoading()
 
   const [params] = useSearchParams();
   const from = params.get("from");
@@ -41,6 +43,7 @@ const TrainList = () => {
                 { label: "Afternoon" },
                 { label: "Night" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"Arrival Time"}
@@ -50,6 +53,7 @@ const TrainList = () => {
                 { label: "Afternoon" },
                 { label: "Night" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"Fare Classes"}
@@ -63,6 +67,7 @@ const TrainList = () => {
                 { label: "Executive Class(EC)" },
                 { label: "Second Seating(2S)" },
               ]}
+              onChange={oneShotLoading}
             />
             <SideBarCollapse
               title={"Fare Classes"}
@@ -74,6 +79,7 @@ const TrainList = () => {
                 { label: "Garib Rath" },
                 { label: "Jan Satabdi" }
               ]}
+              onChange={oneShotLoading}
             />
           </div>
         </div>

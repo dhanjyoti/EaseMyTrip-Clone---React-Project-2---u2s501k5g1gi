@@ -22,6 +22,8 @@ import TrainBooking from "../pages/train/TrainBooking";
 import AuthProvider from "../utils/useAuth";
 import HotelBooking from "../pages/hotel/HotelBooking";
 import LoadingProvider from "../utils/useLoading";
+import Payment from "../pages/payment/Payment";
+import BookingSuccess from "../pages/bookingsuccess/booking";
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
               <Route element={<BusList />} path="/buslist" />
               <Route element={<FlightBooking />} path="/flight-booking" />
               <Route element={<TrainBooking />} path="/train-booking" />
+              <Route element={<BookingSuccess />} path="booking-success" />
               <Route
                 element={<UnderConstruction />}
                 path="/under-construction"

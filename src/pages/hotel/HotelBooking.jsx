@@ -5,6 +5,8 @@ import api from "../../utils/api";
 import medicalCoverage from "../../images/flightCardImage/coverage-icon-v1.svg";
 import RightTeak from "../../images/flightCardImage/blueticknw.svg";
 import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
+import Payment from "../payment/Payment";
+import HeaderItem from "../../components/HeaderItem/HeaderItem";
 
 const fromPoint = [
   {
@@ -43,7 +45,6 @@ const HotelBooking = () => {
   const [source, setSource] = useState();
   const [destination, setDestination] = useState();
 
-
   const [params] = useSearchParams();
   const id = params.get("id");
 
@@ -65,23 +66,12 @@ const HotelBooking = () => {
 
   return (
     hotel && (
-      <div className="flex flex-row gap-7 px-14 py-5">
+      <div className="flex flex-row gap-7 px-14 py-5 max-w-[1280px] m-auto">
         <div className="flex flex-col gap-6 flex-1">
-          <div className="flex flex-col rounded overflow-hidden p-1.5">
-            <div
-              className="h-[50px] flex flex-row items-center px-3"
-              style={{
-                background: "linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%)",
-              }}
-            >
-              <span></span>
-              Hotel Detail
-            </div>
+          <HeaderItem header={"Hotel Detail"}>
             <div className="p-5 shadow-md">
               <div className="shadow-md p-3 ">
-                <div>
-                  {hotel.name}
-                </div>
+                <div>{hotel.name}</div>
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col fontb">
                     <span>{hotel.location}</span>
@@ -91,7 +81,7 @@ const HotelBooking = () => {
                 <div></div>
               </div>
             </div>
-          </div>
+          </HeaderItem>
 
           <div className="shadow-sm shadow-[#b8d0e5] rounded text-xs">
             <div className="flex flex-row gap-2 px-3 py-3">
@@ -165,8 +155,8 @@ const HotelBooking = () => {
               </li>
             </ul>
           </div>
-          <div>hello</div>
-          <div>hello</div>
+
+          <Payment price={`₹ ${Math.floor(hotel.avgCostPerNight)}`}/>
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">
@@ -182,18 +172,26 @@ const HotelBooking = () => {
               </div>
               <div className="flex flex-col divide-y">
                 <div className="py-1 px-3 text-xs flex flex-row justify-between items-center">
-                  <span>Adult x 1</span> <span>₹ {Math.floor(hotel.avgCostPerNight)}</span>
+                  <span>Adult x 1</span>{" "}
+                  <span>₹ {Math.floor(hotel.avgCostPerNight)}</span>
                 </div>
                 <div className="py-1 px-3 text-xs flex flex-row justify-between items-center">
                   <span>Medical Refund Policy</span>{" "}
                   <span className="text-green-600">free</span>
                 </div>
                 <div className="py-1 px-3 text-lg font-bold text-red-600 flex flex-row justify-between items-center">
-                  <span>Grand Total</span> <span>₹ {Math.floor(hotel.avgCostPerNight)}</span>
+                  <span>Grand Total</span>{" "}
+                  <span>₹ {Math.floor(hotel.avgCostPerNight)}</span>
                 </div>
                 <button
                   onClick={() => {
-                    alert("Ticket is booked successfully.");
+                    let paymentBlock = document.querySelector('.payment-block')
+                    console.log(paymentBlock)
+                    if(paymentBlock){
+                      paymentBlock.scrollIntoView({
+                        behavior:"smooth",
+                      })
+                    }
                   }}
                   className="h-[35px] mt-3 bg-[#ef6614] text-white text-[11px] rounded-md px-[10px] py-[2px] font-semibold"
                 >

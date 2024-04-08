@@ -5,6 +5,7 @@ import api from "../../utils/api";
 import medicalCoverage from "../../images/flightCardImage/coverage-icon-v1.svg";
 import RightTeak from "../../images/flightCardImage/blueticknw.svg";
 import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
+import Payment from "../payment/Payment";
 
 const fromPoint = [
   {
@@ -182,6 +183,7 @@ const TrainBooking = () => {
               </li>
             </ul>
           </div>
+          <Payment price={`₹ ${train.fare}`}/>
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">
@@ -208,7 +210,13 @@ const TrainBooking = () => {
                 </div>
                 <button
                   onClick={() => {
-                    alert("Ticket is booked successfully.");
+                    let paymentBlock = document.querySelector('.payment-block')
+                    console.log(paymentBlock)
+                    if(paymentBlock){
+                      paymentBlock.scrollIntoView({
+                        behavior:"smooth",
+                      })
+                    }
                   }}
                   className="h-[35px] mt-3 bg-[#ef6614] text-white text-[11px] rounded-md px-[10px] py-[2px] font-semibold"
                 >

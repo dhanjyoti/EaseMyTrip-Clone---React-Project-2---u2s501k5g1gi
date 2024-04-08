@@ -5,6 +5,8 @@ import api from "../../utils/api";
 import medicalCoverage from "../../images/flightCardImage/coverage-icon-v1.svg";
 import RightTeak from "../../images/flightCardImage/blueticknw.svg";
 import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
+import Payment from "../payment/Payment";
+import HeaderItem from "../../components/HeaderItem/HeaderItem";
 
 const fromPoint = [
   {
@@ -43,7 +45,6 @@ const FlightBooking = () => {
   const [source, setSource] = useState();
   const [destination, setDestination] = useState();
 
-
   const [params] = useSearchParams();
   const id = params.get("id");
 
@@ -67,16 +68,7 @@ const FlightBooking = () => {
     flight && (
       <div className="flex flex-row gap-7 px-14 py-5">
         <div className="flex flex-col gap-6 flex-1">
-          <div className="flex flex-col rounded overflow-hidden p-1.5">
-            <div
-              className="h-[50px] flex flex-row items-center px-3"
-              style={{
-                background: "linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%)",
-              }}
-            >
-              <span></span>
-              Flight Detail
-            </div>
+          <HeaderItem header={"Flight Detail"}>
             <div className="p-5 shadow-md">
               <div className="shadow-md p-3 ">
                 <div>
@@ -110,7 +102,7 @@ const FlightBooking = () => {
                 <div></div>
               </div>
             </div>
-          </div>
+          </HeaderItem>
 
           <div className="shadow-sm shadow-[#b8d0e5] rounded text-xs">
             <div className="flex flex-row gap-2 px-3 py-3">
@@ -184,8 +176,7 @@ const FlightBooking = () => {
               </li>
             </ul>
           </div>
-          <div>hello</div>
-          <div>hello</div>
+          <Payment price={`₹ ${flight.ticketPrice}`}/>
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">
@@ -212,7 +203,13 @@ const FlightBooking = () => {
                 </div>
                 <button
                   onClick={() => {
-                    alert("Ticket is booked successfully.");
+                    let paymentBlock = document.querySelector('.payment-block')
+                    console.log(paymentBlock)
+                    if(paymentBlock){
+                      paymentBlock.scrollIntoView({
+                        behavior:"smooth",
+                      })
+                    }
                   }}
                   className="h-[35px] mt-3 bg-[#ef6614] text-white text-[11px] rounded-md px-[10px] py-[2px] font-semibold"
                 >

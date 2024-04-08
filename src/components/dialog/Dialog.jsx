@@ -1,11 +1,12 @@
 import React from 'react';
 import * as DialogP from '@radix-ui/react-dialog';
+import classNames from 'classnames';
 
-const Dialog = ({ title, content, open, openChange }) => (
+const Dialog = ({ title, content, open, openChange, className }) => (
     <DialogP.Root open={open} onOpenChange={openChange}>
         <DialogP.Portal>
             <DialogP.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0 z-50" />
-            <DialogP.Content className="z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-fit translate-x-[-50%] translate-y-[-50%] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+            <DialogP.Content className={classNames("z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] w-[90vw] max-w-fit translate-x-[-50%] translate-y-[-50%] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none", className)}>
                 <DialogP.Title className="text-mauve12 m-0 text-[17px] font-medium">
                     {title}
                 </DialogP.Title>

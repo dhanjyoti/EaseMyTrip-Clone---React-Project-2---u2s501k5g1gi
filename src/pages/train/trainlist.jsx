@@ -34,7 +34,7 @@ const TrainList = () => {
 
       <div className="flex flex-row mx-[130px]">
         <div className="pt-6 pr-3 border-r border-r-[#E3DFDF]">
-          <div className="bg-white w-[240px] h-[800px] border border-[#E3DFDF]">
+          <div className="bg-white w-[240px] h-[800px] border border-[#E3DFDF] px-4">
             <SideBarCollapse
               title={"Departure Time all Stations"}
               items={[
@@ -84,7 +84,7 @@ const TrainList = () => {
           </div>
         </div>
 
-        <div className="pl-3 pt-6 flex flex-col gap-3">
+        <div className="pl-3 pt-6 flex flex-col gap-3 w-[1000px]">
           
 
           {trains.map((train) => (

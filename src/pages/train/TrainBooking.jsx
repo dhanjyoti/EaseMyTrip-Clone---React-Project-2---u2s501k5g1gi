@@ -70,7 +70,7 @@ const TrainBooking = () => {
 
   return (
     train && (
-      <div className="flex flex-row gap-7 px-14 py-5">
+      <div className="flex flex-row gap-7 px-14 py-5 mx-20">
         <div className="flex flex-col gap-6 flex-1">
           <div className="flex flex-col rounded overflow-hidden p-1.5">
             <div

@@ -7,6 +7,7 @@ import SearchList from "../search-list/SearchList";
 import TravallerClass from "../travaller-class/TravallerClass";
 import Calander from "../calander/Calander";
 import RadioOption from "./RadioOption";
+import { Link } from "react-router-dom";
 
 const months = [
   "Jan",
@@ -303,12 +304,12 @@ const SearchBar = () => {
       </div>
       <div className="flex flex-row items-center justify-between">
         <RadioOption/>
-        <div className="web-checkin flex flex-row">
+        <Link to={"/under-construction"} className="web-checkin flex flex-row">
           <div>
             <WebCheckinIcon />
           </div>
           <div>Web Check-In</div>
-        </div>
+        </Link>
       </div>
     </div>
   );

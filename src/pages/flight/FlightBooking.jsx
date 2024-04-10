@@ -68,7 +68,7 @@ const FlightBooking = () => {
 
   return (
     flight && (
-      <div className="flex flex-row gap-7 px-14 py-5">
+      <div className="flex flex-row gap-7 px-32 py-5">
         <div className="flex flex-col gap-6 flex-1">
           <HeaderItem header={"Flight Detail"}>
             <div className="p-5 shadow-md">

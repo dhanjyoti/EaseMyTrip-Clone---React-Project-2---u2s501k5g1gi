@@ -14,6 +14,7 @@ import { useSearchParams } from "react-router-dom";
 import api from "../../utils/api";
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../../utils/useAuth";
+import { Link } from "react-router-dom";
 
 
 const HotelDetailPage = () => {
@@ -38,8 +39,8 @@ const HotelDetailPage = () => {
   }, [params]);
 
   return hotel ? (
-    <div className="my-10">
-      <div className="mx-[50px] p-[10px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]">
+    <div className="my-10 mx-10">
+      <div className="mx-20 p-[10px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]">
         <div className="flex flex-row justify-between">
           <div>
             <div className="flex flex-row items-baseline">
@@ -95,7 +96,7 @@ const HotelDetailPage = () => {
             <div className="flex flex-row justify-between">
               <div className="max-w-[214px] mr-[78px]">
                 <div className="flex flex-row">
-                  <p className="border-l-4 text-[11px] max-h-[18px] rounded-[3px] border-[#0c6be9] mr-[6px] mt-[2px]"></p>
+                  {/* <p className="border-l-4 text-[11px] max-h-[18px] rounded-[3px] border-[#0c6be9] mr-[6px] mt-[2px]"></p> */}
                   <p className="text-[#446DCB] text-[17px] font-medium">
                     Deluxe Room NON Smoking
                   </p>
@@ -146,9 +147,9 @@ const HotelDetailPage = () => {
               </ul>
             </div>
             <div className="flex flex-row justify-between mt-5">
-              <button className="text-[#2196f3] border border-[#2196f3] py-[9px] w-[47%] rounded-full font-semibold cursor-pointer">
-                SELECT ROOMS
-              </button>
+                <Link to={"/under-construction"} className="text-[#2196f3] text-center border border-[#2196f3] py-[9px] w-[47%] rounded-full font-semibold cursor-pointer">
+                  SELECT ROOMS
+                </Link>
               <button onClick={()=>{
                 if(validate()){
                   navigate(`/hotel-booking?id=${id}`)
@@ -161,25 +162,25 @@ const HotelDetailPage = () => {
         </div>
       </div>
 
-      <div className="py-[10px] px-[15px] rounded-[5px] border border-[#d5d5d5] shadow-sm">
-        <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+      <div className="mx-20 py-[12px] px-[15px] rounded-[5px] border border-[#d5d5d5] shadow-sm">
+        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
           Room
-        </span>
-        <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
-          Room
-        </span>
-        <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
-          Room
-        </span>
-        <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
-          Room
-        </span>
-        <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
-          Room
-        </span>
-        <span className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
-          Room
-        </span>
+        </Link>
+        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+          Overview
+        </Link>
+        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+          Amenities
+        </Link>
+        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+          Location
+        </Link>
+        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+          Booking Policy
+        </Link>
+        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+          Guest Rating
+        </Link>
       </div>
 
       <HotelAmunities />

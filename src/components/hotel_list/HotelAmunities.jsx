@@ -115,10 +115,10 @@ const payment = [
 
 const HotelAmunities = () => {
   return (
-    <div className="p-[10px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)] mx-[73px] my-3">
-      <h3>AMENITIES</h3>
-      <div className="mr-24">
-        <div className="flex flex-row">
+    <div className="p-[10px] rounded-[5px] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)] mx-20 my-3">
+      <h3 className="text-lg font-medium">AMENITIES</h3>
+      <div className="mr-24 flex flex-col gap-2">
+        <div className="flex flex-row gap-2 pl-[1px]">
             <img className="self-start" src={HotelFacilitiesIcon}/>
           <div className="pl-[15px] border-l-[3px] border-[#C9D9EF]">
             <h3>Facilities</h3>
@@ -130,7 +130,7 @@ const HotelAmunities = () => {
           </div>
         </div>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row gap-2 pl-[2px]">
           <img className="self-start" src={HotelType} />
           <div className="pl-[15px] border-l-[3px] border-[#C9D9EF]">
             <h3>Hotel Type</h3>
@@ -140,7 +140,7 @@ const HotelAmunities = () => {
           </div>
         </div>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row gap-2 pl-4">
           <img className="self-start" src={Payment} />
           <div className="pl-[15px] border-l-[3px] border-[#C9D9EF]">
             <h3>Payment</h3>
@@ -152,7 +152,7 @@ const HotelAmunities = () => {
           </div>
         </div>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row gap-2 pl-4">
           <img className="self-start" src={Payment} />
           <div className="pl-[15px] border-l-[3px] border-[#C9D9EF]">
             <h3>Room Facilities</h3>

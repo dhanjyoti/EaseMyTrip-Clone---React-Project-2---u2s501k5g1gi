@@ -14,7 +14,7 @@ const BookingSuccess = () => {
   }
 
   return (
-    <div className="flex flex-col p-20 gap-7">
+    <div className="flex flex-col p-20 gap-7 mx-20">
       <div className=" text-2xl font-bold text-center">
         {booking.length > 0 ? (
           <span>

@@ -58,7 +58,7 @@ const Header = () => {
     setUser(null)
   }
   return (
-    <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px] pb-[7``px]">
+    <div className="flex flex-row justify-between mx-[110px] pr-4 border-2 border-white h-[65px] pb-[7px]">
       <div className="flex flex-row">
         <div>
           <Link to={"/"}><Logo /></Link>
@@ -93,7 +93,7 @@ const Header = () => {
             />
             <ul className="transform divide-y divide-gray-300 transition-[max-height] duration-300 shadow-[0_0_7px_rgba(0,0,0,.4)] z-[999] absolute max-h-0 overflow-hidden bg-white group-hover/more:max-h-full">
               {moreOptions.map((mo) => (
-                <li key={mo} className="relative px-2.5 py-1.5">
+                <li key={mo} className="relative px-2.5 py-1.5 hover:text-orange-600">
                   {mo}
                   <Link to="/under-construction" className="absolute inset-0"></Link>
                 </li>
@@ -121,8 +121,8 @@ const Header = () => {
                 </button>
               }
             >
-              <div>Tel: 011 - 83663234, 43224563</div>
-              <div>care@easemytrip.com</div>
+              <div className="hover:text-orange-600">Tel: 011 - 83663234, 43224563</div>
+              <div className="hover:text-orange-600">care@easemytrip.com</div>
             </HoverCard>
           </div>
           <div className="flex flex-col items-end">
@@ -143,25 +143,25 @@ const Header = () => {
             >
               {user ? (
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col hover:text-orange-600">
                     <span className="font-bold text-xl">{user.name}</span>
                     <span className="text-sm">{user.email}</span>
                   </div>
-                  <div>
+                  <div className="hover:text-orange-600">
                     <NavLink to={"/booking-success?type=history"}>Booking history</NavLink>
                   </div>
-                  <div>
+                  <div className="hover:text-orange-600">
                     <button onClick={logout}>Logout</button>
                   </div>
                 </div>
               ) : (
                 <div>
-                  <div>
+                  <div className="hover:text-orange-600">
                     <button onClick={() => setSignupDialog(true)}>
                       Signup
                     </button>
                   </div>
-                  <div>
+                  <div className="hover:text-orange-600">
                     <button onClick={() => setLoginDialog(true)}>Login</button>
                   </div>
                 </div>

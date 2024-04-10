@@ -2,7 +2,7 @@ import React from 'react'
 
 const BookingPolicy = () => {
   return (
-    <div className='mx-[50px] p-3 rounded border border-[#d5d5d5] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]'>
+    <div className='mx-20 p-3 rounded border border-[#d5d5d5] shadow-[0_0_7px_0_rgb(0_0_0_/_25%)]'>
             <h4 className='text-base font-semibold'>BOOKING POLICY</h4>
             <ul className='list-disc text-[13px] mt-3 ml-[18px]'>
                 <li>As per the government regulations, every guest above the 18 years has to carry a valid Photo ID. The identification proofs can be Driving License, Voters Card, Passport and Ration<br/>Card. Without valid ID, guests will not be allowed to check in.</li>

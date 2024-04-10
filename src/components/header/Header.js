@@ -58,7 +58,7 @@ const Header = () => {
     setUser(null)
   }
   return (
-    <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px] pb-[7px]">
+    <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px] pb-[7``px]">
       <div className="flex flex-row">
         <div>
           <Link to={"/"}><Logo /></Link>
@@ -67,13 +67,13 @@ const Header = () => {
           {navList.map((item) => (
             <li
               key={item.label}
-              className="border-r h-6 border-gray-400 pl-1 text-xs font-medium flex items-center"
+              className="border-r h-6 border-gray-400 pl-1 text-xs font-medium flex items-center pt-1"
             >
               <NavLink
                 to={`/${item.label.toLowerCase()}`}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#ef6614] border-b-4 border-b-[#ef6614] py-4"
+                    ? "text-[#ef6614] border-b-4 border-b-[#ef6614] py-[10px]"
                     : "border-b-4 border-b-white"
                 }
               >

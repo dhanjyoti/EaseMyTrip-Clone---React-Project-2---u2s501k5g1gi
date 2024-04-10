@@ -11,22 +11,31 @@ import Login from "../login/Login";
 import { Link, NavLink } from "react-router-dom";
 import useUser from "../../utils/useUser";
 import { useAuth } from "../../utils/useAuth";
+import NavIcons from "../../images/menuspriteicon.png";
 
 const navList = [
   {
     label: "FLIGHT",
+    class:"bg-[position:-4px_-40px]"
   },
   {
     label: "HOTELS",
+    class:"bg-[position:-40px_-4px]"
   },
   {
     label: "TRAINS",
+    class:"bg-[position:-109px_-4px]"
+
   },
   {
     label: "BUS",
+    class:"bg-[position:-180px_-4px]"
+
   },
   {
     label: "ACTIVITIES",
+    class:"bg-[position:-40px_-109px]"
+
   },
 ];
 
@@ -49,7 +58,7 @@ const Header = () => {
     setUser(null)
   }
   return (
-    <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px]">
+    <div className="flex flex-row justify-between mx-[110px] border-2 border-white h-[65px] pb-[7px]">
       <div className="flex flex-row">
         <div>
           <Link to={"/"}><Logo /></Link>
@@ -58,7 +67,7 @@ const Header = () => {
           {navList.map((item) => (
             <li
               key={item.label}
-              className="border-r h-6 border-gray-400 text-xs font-medium flex items-center"
+              className="border-r h-6 border-gray-400 pl-1 text-xs font-medium flex items-center"
             >
               <NavLink
                 to={`/${item.label.toLowerCase()}`}
@@ -68,7 +77,10 @@ const Header = () => {
                     : "border-b-4 border-b-white"
                 }
               >
+              <div className="flex flex-row items-center">
+              <span className={"flex h-9 w-9 m-auto "+item.class} style={{backgroundImage:`url(${NavIcons})`, backgroundSize: "355px 330px", backgroundRepeat:"no-repeat"}}></span>
                 <NavItems text={item.label} />
+              </div>
               </NavLink>
             </li>
           ))}

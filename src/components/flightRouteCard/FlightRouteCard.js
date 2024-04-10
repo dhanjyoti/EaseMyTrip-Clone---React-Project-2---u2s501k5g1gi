@@ -1,10 +1,11 @@
 import React from 'react'
 import "./flightRouteCard.css"
 import RupeesIcon from '../../images/RupeesIcon'
+import { Link } from 'react-router-dom'
 
 const FlightRouteCard = ({place, date, flightName, price}) => {
   return (
-    <div className='flex flex-row justify-between items-center line'>
+    <div className='flex flex-row justify-between items-center line mb-3'>
         <div className='flex flex-col items-start'>
             <p className='head'>To {place}</p>
             <div>
@@ -18,9 +19,9 @@ const FlightRouteCard = ({place, date, flightName, price}) => {
           <span><RupeesIcon/></span>
           <strong className='price'>{price}</strong>
         </div>
-        <div>
+        <Link to={"/under-construction"}>
             <button className='booking-button'>BOOK NOW</button>
-        </div>
+        </Link>
     </div>
   )
 }

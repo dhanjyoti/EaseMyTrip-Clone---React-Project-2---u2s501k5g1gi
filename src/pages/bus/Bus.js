@@ -16,6 +16,7 @@ import RightArrow from "../../images/hotelComponent/right-arrow.svg";
 import BusFAQ from "./BusFAQ";
 import BusSearchBar from "./searchbar";
 import OfferCard from "../../components/offerCard/OfferCard";
+import { Link } from "react-router-dom";
 
 const crousalItems = [
   {
@@ -184,9 +185,11 @@ const Bus = () => {
         <div>
           <Crousal items={crousalItems} />
         </div>
-        <button className="bg-[#2196F3] rounded-full px-5 py-[5px] block m-auto text-white text-[15px] font-medium my-[15px]">
-          View All Offers
-        </button>
+        <Link to={"/under-construction"}>
+          <button className="bg-[#2196F3] rounded-full px-5 py-[5px] block m-auto text-white text-[15px] font-medium my-[15px]">
+            View All Offers
+          </button>
+        </Link>
       </div>
       <BusTravelDetails />
       <BusFAQ />

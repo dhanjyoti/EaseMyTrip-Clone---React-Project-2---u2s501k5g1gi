@@ -7,6 +7,7 @@ import LiveTrain from "../../images/trainComponent/LiveStatus.svg";
 import IRCTC2 from "../../images/trainComponent/FoodonTrackLogo.png";
 import RefundIcon from "../../images/trainComponent/instrcb.svg";
 import CustomerService from "../../images/trainComponent/CustomerService.svg";
+import { Link } from "react-router-dom";
 
 const WhyBookTrain = () => {
   return (
@@ -14,7 +15,7 @@ const WhyBookTrain = () => {
       <h2 className="text-xl font-semibold my-8">
         Why Book Train Tickets from EaseMyTrip
       </h2>
-      <div className="p-2 flex flex-row gap-3">
+      <Link to={"/under-construction"} className="p-2 flex flex-row gap-3">
         <ComponentWhyBookTrain
           serviceIcon={IRCTC}
           heading={"IRCTC Authorized Partner"}
@@ -38,8 +39,8 @@ const WhyBookTrain = () => {
           }
           rightArrow={RightArrow}
         />
-      </div>
-      <div className="p-2 flex flex-row gap-2">
+      </Link>
+      <Link to={"/under-construction"} className="p-2 flex flex-row gap-3">
         <ComponentWhyBookTrain
           serviceIcon={IRCTC2}
           heading={"IRCTC Train Food Booking"}
@@ -60,7 +61,7 @@ const WhyBookTrain = () => {
             "We work 24 hours a day to make sure our availability whenever our customers need us."
           }
         />
-      </div>
+      </Link>
     </div>
   );
 };

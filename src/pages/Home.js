@@ -44,6 +44,7 @@ import Support from "../images/whyBook/Support";
 import LeftArrow from "../images/hotelComponent/left-arrow.svg";
 import RightArrow from "../images/hotelComponent/right-arrow.svg";
 import SearchBar from "../components/searchBar/SearchBar";
+import { Link } from "react-router-dom";
 
 const crousalItems = [
   {
@@ -142,61 +143,62 @@ const crousalItems = [
   },
 ];
 const Crousal = ({ items = [] }) => {
-
-  const [slide, setSlide]=useState(null)
-  const next = ()=>{
-    if(slide){
-      if(slide.index <= 2){
-        slide.go(slide.index + 1)
-      }else{
-        slide.go(0)
+  const [slide, setSlide] = useState(null);
+  const next = () => {
+    if (slide) {
+      if (slide.index <= 2) {
+        slide.go(slide.index + 1);
+      } else {
+        slide.go(0);
       }
       console.log(slide.index, slide.length);
     }
-
-  }
-  const prev = ()=>{
-    if(slide){
-      if(slide.index === 0){
-        slide.go(slide.length - 1)
-      }else{
-        slide.go(slide.index - 1)
+  };
+  const prev = () => {
+    if (slide) {
+      if (slide.index === 0) {
+        slide.go(slide.length - 1);
+      } else {
+        slide.go(slide.index - 1);
       }
     }
-
-  }
+  };
   return (
-   <div className="relative">
-     <Splide
-     onMounted={(s)=>setSlide(s)}
-      options={{
-        perPage: 3,
-        perMove: 1,
-        autoWidth: true,
-        gap: 20,
-        arrows:false,
-        pagination:false,
-        rewind:true
-        
-      }}
-      aria-label="My Favorite Images"
-    >
-      {items.map((item) => (
-        <SplideSlide key={item.id}>{item.render}</SplideSlide>
-      ))}
-    </Splide>
-    <div className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-white to-transparent w-[200px] flex items-center justify-center" onClick={prev}>
-      <img src={LeftArrow} className="cursor-pointer"/>
+    <div className="relative">
+      <Splide
+        onMounted={(s) => setSlide(s)}
+        options={{
+          perPage: 3,
+          perMove: 1,
+          autoWidth: true,
+          gap: 20,
+          arrows: false,
+          pagination: false,
+          rewind: true,
+        }}
+        aria-label="My Favorite Images"
+      >
+        {items.map((item) => (
+          <SplideSlide key={item.id}>{item.render}</SplideSlide>
+        ))}
+      </Splide>
+      <div
+        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-white to-transparent w-[200px] flex items-center justify-center"
+        onClick={prev}
+      >
+        <img src={LeftArrow} className="cursor-pointer" />
       </div>
-    <div className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-white to-transparent w-[200px]  flex items-center justify-center" onClick={next}>
-    <img src={RightArrow} className="cursor-pointer"/>
+      <div
+        className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-white to-transparent w-[200px]  flex items-center justify-center"
+        onClick={next}
+      >
+        <img src={RightArrow} className="cursor-pointer" />
+      </div>
     </div>
-   </div>
   );
 };
 
 const Home = () => {
-  
   return (
     <div>
       <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
@@ -215,9 +217,11 @@ const Home = () => {
         <div>
           <Crousal items={crousalItems} />
         </div>
-        <button className="bg-[#2196F3] rounded-full px-5 py-[5px] block m-auto text-white text-[15px] font-medium my-[15px]">
-          View All Offers
-        </button>
+        <Link to={"/under-construction"}>
+          <button className="bg-[#2196F3] rounded-full px-5 py-[5px] block m-auto text-white text-[15px] font-medium my-[15px]">
+            View All Offers
+          </button>
+        </Link>
       </div>
 
       {/* Refund Section */}
@@ -267,7 +271,9 @@ const Home = () => {
         </div>
       </div>
 
-      <h1 className="text-center py-5">Top Flight Routes</h1>
+      <h1 className="text-center py-7 font-semibold text-2xl">
+        Top Flight Routes
+      </h1>
 
       <div className="grid grid-cols-3 grid-flow-row gap-4 mx-[140px]">
         <TopFlightRoutes
@@ -353,7 +359,9 @@ const Home = () => {
 
       {/* Famous Travel Attraction */}
       <div className="flex flex-col items-center justify-center mx-20">
-        <h1>Famous Travel Attraction</h1>
+        <h1 className="py-7 font-semibold text-2xl">
+          Famous Travel Attraction
+        </h1>
         <div className="grid grid-cols-5 grid-flow-row gap-[30px] m-auto mt-8 mb-4">
           <FamousLocation
             image={<img className="h-[100px] w-[100px]" src={Andaman} />}
@@ -372,7 +380,7 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col items-center mx-[140px]">
-        <div>Why book with us?</div>
+        <div className="py-7 font-semibold text-2xl">Why book with us?</div>
         <div className="why-book">
           <WhyBook
             icon={<EasyBooking />}
@@ -409,7 +417,7 @@ const Home = () => {
       </div>
 
       <div className="travel-package">
-        <h1 className="travel-package-heading">
+        <h1 className="travel-package-heading py-7 font-semibold text-2xl">
           Search Flights, Hotels, Bus and Holiday Packages
         </h1>
         <div className="travel-package-para">

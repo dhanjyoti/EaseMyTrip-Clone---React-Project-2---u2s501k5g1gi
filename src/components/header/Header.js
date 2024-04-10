@@ -108,7 +108,7 @@ const Header = () => {
         <div>
           <JoinEmtpro />
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center gap-4">
           <div>
             <HoverCard
               trigger={
@@ -129,7 +129,6 @@ const Header = () => {
             <HelpComponent
               className={"flag"}
               text={"India"}
-              icon={<DownArrow />}
             />
             <HoverCard
               trigger={

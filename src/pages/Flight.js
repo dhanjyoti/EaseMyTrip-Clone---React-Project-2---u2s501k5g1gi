@@ -8,7 +8,7 @@ import FlightRootCardComponent from './flight/FlightRootCardComponent'
 const Flight = () => {
     return (
         <div>
-            <di className='text-center font-semibold text-[28px]'><h1>Best Deals on Flight Tickets</h1></di>
+            <div className='text-center font-semibold text-[28px] my-3'><h1>Best Deals on Flight Tickets</h1></div>
             <div className='flex flex-row justify-between px-[145px] bg-[#eeeeee] pt-4 pb-5 my-4'>
                 <div>
                     <p className='text-sm text-[#888]'>Departing from</p>

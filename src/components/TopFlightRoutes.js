@@ -3,8 +3,8 @@ import IconAirplane from '../images/IconAirplane'
 
 const TopFlightRoutes = ({image, takeOff, landing, routeCode}) => {
   return (
-    <div className='flex flex-row'>
-        <div><img src={image} /></div>
+    <div className='flex flex-row gap-2'>
+        <div><img className='rounded-md' src={image} /></div>
         <div>
             <div className='flex flex-row items-center'>
                 <span>{takeOff}</span>

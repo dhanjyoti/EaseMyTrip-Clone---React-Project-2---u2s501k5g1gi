@@ -7,6 +7,8 @@ import RightTeak from "../../images/flightCardImage/blueticknw.svg";
 import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
 import Payment from "../payment/Payment";
 import HeaderItem from "../../components/HeaderItem/HeaderItem";
+import commons from "../../utils/commons";
+import { useBooking } from "../../utils/useBooking";
 
 const fromPoint = [
   {
@@ -42,8 +44,8 @@ const fromPoint = [
 ];
 const HotelBooking = () => {
   const [hotel, setHotel] = useState();
-  const [source, setSource] = useState();
-  const [destination, setDestination] = useState();
+  const navigate = useNavigate();
+  const { setBooking } = useBooking();
 
   const [params] = useSearchParams();
   const id = params.get("id");
@@ -156,7 +158,19 @@ const HotelBooking = () => {
             </ul>
           </div>
 
-          <Payment price={`₹ ${Math.floor(hotel.avgCostPerNight)}`}/>
+          <Payment
+            onSuccess={() => {
+              setBooking({
+                type: "hotel",
+                id: hotel._id,
+                name: hotel.name,
+                extra: hotel.location,
+                price:`₹ ${Math.floor(hotel.avgCostPerNight)}`
+              });
+              navigate(`/booking-success`);
+            }}
+            price={`₹ ${Math.floor(hotel.avgCostPerNight)}`}
+          />
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">
@@ -185,12 +199,12 @@ const HotelBooking = () => {
                 </div>
                 <button
                   onClick={() => {
-                    let paymentBlock = document.querySelector('.payment-block')
-                    console.log(paymentBlock)
-                    if(paymentBlock){
+                    let paymentBlock = document.querySelector(".payment-block");
+                    console.log(paymentBlock);
+                    if (paymentBlock) {
                       paymentBlock.scrollIntoView({
-                        behavior:"smooth",
-                      })
+                        behavior: "smooth",
+                      });
                     }
                   }}
                   className="h-[35px] mt-3 bg-[#ef6614] text-white text-[11px] rounded-md px-[10px] py-[2px] font-semibold"

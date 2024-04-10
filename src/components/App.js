@@ -24,12 +24,14 @@ import HotelBooking from "../pages/hotel/HotelBooking";
 import LoadingProvider from "../utils/useLoading";
 import Payment from "../pages/payment/Payment";
 import BookingSuccess from "../pages/bookingsuccess/booking";
+import BookingProvider from "../utils/useBooking";
 
 function App() {
   return (
     <UserProvider>
       <AuthProvider>
         <LoadingProvider>
+          <BookingProvider>
           <Router>
             <Header />
             <Routes>
@@ -56,6 +58,7 @@ function App() {
             </Routes>
             <Footer />
           </Router>
+          </BookingProvider>
         </LoadingProvider>
       </AuthProvider>
     </UserProvider>

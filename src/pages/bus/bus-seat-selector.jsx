@@ -4,6 +4,8 @@ import BusSeatIcon from "./bus-seat";
 import classNames from "classnames";
 import { useAuth } from "../../utils/useAuth";
 import Payment from "../payment/Payment";
+import { useNavigate } from "react-router-dom";
+import { useBooking } from "../../utils/useBooking";
 
 function divideArray(array, parts) {
   var result = [];
@@ -16,7 +18,7 @@ function divideArray(array, parts) {
 }
 
 const BusSeatSelector = ({ open, setOpen, busDetail }) => {
-  const { validate } = useAuth();
+  const {setBooking} = useBooking()
 
   // Numbers from 1 to 49
   var numbersArray = Array.from(
@@ -34,6 +36,8 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
       setSelectedSeats(selectedSeats.filter((ss) => ss !== seat));
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <Dialog
@@ -132,7 +136,18 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
               </div>
             </div>
           </div>
-          <Payment price={`₹ ${busDetail.fare * selectedSeats.length}`} />
+          <Payment
+          onSuccess={() => {
+            setBooking({
+              type: "bus",
+              id: busDetail._id,
+              name: busDetail.name,
+              extra: `${busDetail.source} - ${busDetail.destination}`,
+              price:`₹ ${busDetail.fare * selectedSeats.length}`
+            });
+            navigate(`/booking-success`);
+          }}
+          price={`₹ ${busDetail.fare * selectedSeats.length}`} />
         </div>
       }
     />

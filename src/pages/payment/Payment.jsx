@@ -71,7 +71,7 @@ const TabItem = ({
     </div>
   );
 };
-const Payment = ({price}) => {
+const Payment = ({price, onSuccess}) => {
   const [selected, setSelected] = useState("upi");
 
   const [upiId, setUpiId] = useState("");
@@ -79,7 +79,6 @@ const Payment = ({price}) => {
 
   const [error, setError] = useState(false);
 
-  const navigate = useNavigate()
   return (
     <HeaderItem header={"Payment mode"}>
       <div className="flex flex-row payment-block">
@@ -135,7 +134,7 @@ const Payment = ({price}) => {
                     if(!upiId || !upiName){
                         setError(true)
                     }else{
-                        navigate("/booking-success")
+                        onSuccess?.()
                     }
                   }}
                   className="bg-[#ef6614] text-white text-[20px] rounded-full py-2 px-4"

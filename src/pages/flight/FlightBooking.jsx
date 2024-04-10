@@ -7,6 +7,7 @@ import RightTeak from "../../images/flightCardImage/blueticknw.svg";
 import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
 import Payment from "../payment/Payment";
 import HeaderItem from "../../components/HeaderItem/HeaderItem";
+import { useBooking } from "../../utils/useBooking";
 
 const fromPoint = [
   {
@@ -44,9 +45,11 @@ const FlightBooking = () => {
   const [flight, setFlight] = useState();
   const [source, setSource] = useState();
   const [destination, setDestination] = useState();
-
+  const { setBooking } = useBooking();
   const [params] = useSearchParams();
   const id = params.get("id");
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     (async () => {
@@ -59,7 +62,6 @@ const FlightBooking = () => {
         setDestination(
           fromPoint.find((fp) => fp.code === res.data.data.destination).place
         );
-        console.log(res, id);
       } catch (e) {}
     })();
   }, [params]);
@@ -176,7 +178,21 @@ const FlightBooking = () => {
               </li>
             </ul>
           </div>
-          <Payment price={`₹ ${flight.ticketPrice}`}/>
+          <Payment
+            onSuccess={() => {
+              setBooking({
+                type: "flight",
+                id: flight._id,
+                name: flight.flightID,
+                extra: `${source} - ${destination}`,
+                price:`₹ ${flight.ticketPrice}`
+              })
+              navigate(
+                `/booking-success`
+              );
+            }}
+            price={`₹ ${flight.ticketPrice}`}
+          />
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">

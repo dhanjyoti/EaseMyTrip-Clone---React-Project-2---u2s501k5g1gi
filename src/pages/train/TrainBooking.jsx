@@ -6,6 +6,8 @@ import medicalCoverage from "../../images/flightCardImage/coverage-icon-v1.svg";
 import RightTeak from "../../images/flightCardImage/blueticknw.svg";
 import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
 import Payment from "../payment/Payment";
+import commons from "../../utils/commons";
+import { useBooking } from "../../utils/useBooking";
 
 const fromPoint = [
   {
@@ -45,6 +47,7 @@ const TrainBooking = () => {
   const [destination, setDestination] = useState();
 
   const navigate = useNavigate();
+  const { setBooking } = useBooking();
 
   const [params] = useSearchParams();
   const id = params.get("id");
@@ -183,7 +186,21 @@ const TrainBooking = () => {
               </li>
             </ul>
           </div>
-          <Payment price={`₹ ${train.fare}`}/>
+          <Payment
+            onSuccess={() => {
+              setBooking({
+                type: "train",
+                id: train._id,
+                name: train.trainName,
+                extra: `${train.source} - ${train.destination}`,
+                price:`₹ ${Math.floor(train.fare)}`
+              })
+              navigate(
+                `/booking-success`
+              );
+            }}
+            price={`₹ ${Math.floor(train.fare)}`}
+          />
         </div>
         <div className="flex flex-col w-[20%]">
           <div className="flex overflow-hidden rounded w-full p-1.5">

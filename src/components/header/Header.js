@@ -143,10 +143,13 @@ const Header = () => {
               }
             >
               {user ? (
-                <div>
+                <div className="flex flex-col gap-4">
                   <div className="flex flex-col">
                     <span className="font-bold text-xl">{user.name}</span>
                     <span className="text-sm">{user.email}</span>
+                  </div>
+                  <div>
+                    <NavLink to={"/booking-success?type=history"}>Booking history</NavLink>
                   </div>
                   <div>
                     <button onClick={logout}>Logout</button>

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const WhyBookTrain = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mb-20">
       <h2 className="text-xl font-semibold my-8">
         Why Book Train Tickets from EaseMyTrip
       </h2>

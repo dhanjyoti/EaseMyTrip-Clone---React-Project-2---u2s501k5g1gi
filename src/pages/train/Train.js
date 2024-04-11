@@ -13,7 +13,7 @@ const Train = () => {
         <SearchBar />
       </div>
         <WhyBookTrain/>
-        <TrainRoute/>
+        {/* <TrainRoute/> */}
         <GrabDeals/>
         <FAQs/>
         <TrainAppComponent/>

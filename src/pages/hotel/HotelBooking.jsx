@@ -159,13 +159,15 @@ const HotelBooking = () => {
           </div>
 
           <Payment
-            onSuccess={() => {
+            onSuccess={(name) => {
+              console.log(name);
               setBooking({
                 type: "hotel",
                 id: hotel._id,
                 name: hotel.name,
                 extra: hotel.location,
-                price:`₹ ${Math.floor(hotel.avgCostPerNight)}`
+                price: `₹ ${Math.floor(hotel.avgCostPerNight)}`,
+                userName: name,
               });
               navigate(`/booking-success`);
             }}

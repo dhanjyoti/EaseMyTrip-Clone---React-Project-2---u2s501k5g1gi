@@ -16,26 +16,23 @@ import NavIcons from "../../images/menuspriteicon.png";
 const navList = [
   {
     label: "FLIGHT",
-    class:"bg-[position:-4px_-40px]"
+    class: "bg-[position:-4px_-40px]",
   },
   {
     label: "HOTELS",
-    class:"bg-[position:-40px_-4px]"
+    class: "bg-[position:-40px_-4px]",
   },
   {
     label: "TRAINS",
-    class:"bg-[position:-109px_-4px]"
-
+    class: "bg-[position:-109px_-4px]",
   },
   {
     label: "BUS",
-    class:"bg-[position:-180px_-4px]"
-
+    class: "bg-[position:-180px_-4px]",
   },
   {
     label: "ACTIVITIES",
-    class:"bg-[position:-40px_-109px]"
-
+    class: "bg-[position:-40px_-109px]",
   },
 ];
 
@@ -52,16 +49,18 @@ const Header = () => {
   const [loginDialog, setLoginDialog] = useState(false);
   const [signupDialog, setSignupDialog] = useState(false);
   const { user, setUser } = useUser();
-  const { showLogin, setShowLogin }=useAuth()
+  const { showLogin, setShowLogin } = useAuth();
 
-  const logout = ()=>{
-    setUser(null)
-  }
+  const logout = () => {
+    setUser(null);
+  };
   return (
     <div className="flex flex-row justify-between mx-[110px] pr-4 border-2 border-white h-[65px] pb-[7px]">
       <div className="flex flex-row">
         <div>
-          <Link to={"/"}><Logo /></Link>
+          <Link to={"/"}>
+            <Logo />
+          </Link>
         </div>
         <ul className="flex flex-row items-center list-none">
           {navList.map((item) => (
@@ -77,10 +76,17 @@ const Header = () => {
                     : "border-b-4 border-b-white"
                 }
               >
-              <div className="flex flex-row items-center">
-              <span className={"flex h-9 w-9 m-auto "+item.class} style={{backgroundImage:`url(${NavIcons})`, backgroundSize: "355px 330px", backgroundRepeat:"no-repeat"}}></span>
-                <NavItems text={item.label} />
-              </div>
+                <div className="flex flex-row items-center">
+                  <span
+                    className={"flex h-9 w-9 m-auto " + item.class}
+                    style={{
+                      backgroundImage: `url(${NavIcons})`,
+                      backgroundSize: "355px 330px",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  ></span>
+                  <NavItems text={item.label} />
+                </div>
               </NavLink>
             </li>
           ))}
@@ -93,9 +99,15 @@ const Header = () => {
             />
             <ul className="transform divide-y divide-gray-300 transition-[max-height] duration-300 shadow-[0_0_7px_rgba(0,0,0,.4)] z-[999] absolute max-h-0 overflow-hidden bg-white group-hover/more:max-h-full">
               {moreOptions.map((mo) => (
-                <li key={mo} className="relative px-2.5 py-1.5 hover:text-orange-600">
+                <li
+                  key={mo}
+                  className="relative px-2.5 py-1.5 hover:text-orange-600"
+                >
                   {mo}
-                  <Link to="/under-construction" className="absolute inset-0"></Link>
+                  <Link
+                    to="/under-construction"
+                    className="absolute inset-0"
+                  ></Link>
                 </li>
               ))}
             </ul>
@@ -121,15 +133,14 @@ const Header = () => {
                 </button>
               }
             >
-              <div className="hover:text-orange-600">Tel: 011 - 83663234, 43224563</div>
+              <div className="hover:text-orange-600">
+                Tel: 011 - 83663234, 43224563
+              </div>
               <div className="hover:text-orange-600">care@easemytrip.com</div>
             </HoverCard>
           </div>
           <div className="flex flex-col items-end">
-            <HelpComponent
-              className={"flag"}
-              text={"India"}
-            />
+            <HelpComponent className={"flag"} text={"India"} />
             <HoverCard
               trigger={
                 <button>
@@ -148,7 +159,9 @@ const Header = () => {
                     <span className="text-sm">{user.email}</span>
                   </div>
                   <div className="hover:text-orange-600">
-                    <NavLink to={"/booking-success?type=history"}>Booking history</NavLink>
+                    <NavLink to={"/booking-success?type=history"}>
+                      Booking history
+                    </NavLink>
                   </div>
                   <div className="hover:text-orange-600">
                     <button onClick={logout}>Logout</button>
@@ -169,10 +182,17 @@ const Header = () => {
             </HoverCard>
 
             {/* Login */}
-            <Login open={loginDialog  || showLogin} openChange={(e)=>{
-              setLoginDialog(e)
-              setShowLogin(e)
-            }} />
+            <Login
+              onSignup={() => {
+                setLoginDialog(false);
+                setSignupDialog(true)
+              }}
+              open={loginDialog || showLogin}
+              openChange={(e) => {
+                setLoginDialog(e);
+                setShowLogin(e);
+              }}
+            />
 
             {/* Signup */}
             <Signup

@@ -234,13 +234,18 @@ const FlightList = () => {
             <option>First</option>
           </select>
           <button
-            onClick={() => {
-              setParams({
-                src: fromCity.code,
-                dest: toCity.code,
-                day: weekdays[selectedDate.getDay()].substring(0, 3),
-                data: selectedDate.toJSON(),
-              });
+            onClick={(e) => {
+              if (fromCity.code === toCity.code) {
+                e.preventDefault();
+                alert("Source and destination cannot be same.");
+              } else {
+                setParams({
+                  src: fromCity.code,
+                  dest: toCity.code,
+                  day: weekdays[selectedDate.getDay()].substring(0, 3),
+                  data: selectedDate.toJSON(),
+                });
+              }
             }}
             className="border border-white rounded-full text-white text-base py-[9px] px-7 font-semibold"
           >

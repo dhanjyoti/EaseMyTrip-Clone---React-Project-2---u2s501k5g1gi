@@ -187,17 +187,16 @@ const TrainBooking = () => {
             </ul>
           </div>
           <Payment
-            onSuccess={() => {
+            onSuccess={(name) => {
               setBooking({
                 type: "train",
                 id: train._id,
                 name: train.trainName,
                 extra: `${train.source} - ${train.destination}`,
-                price:`₹ ${Math.floor(train.fare)}`
-              })
-              navigate(
-                `/booking-success`
-              );
+                price: `₹ ${Math.floor(train.fare)}`,
+                userName: name,
+              });
+              navigate(`/booking-success`);
             }}
             price={`₹ ${Math.floor(train.fare)}`}
           />
@@ -227,12 +226,12 @@ const TrainBooking = () => {
                 </div>
                 <button
                   onClick={() => {
-                    let paymentBlock = document.querySelector('.payment-block')
-                    console.log(paymentBlock)
-                    if(paymentBlock){
+                    let paymentBlock = document.querySelector(".payment-block");
+                    console.log(paymentBlock);
+                    if (paymentBlock) {
                       paymentBlock.scrollIntoView({
-                        behavior:"smooth",
-                      })
+                        behavior: "smooth",
+                      });
                     }
                   }}
                   className="h-[35px] mt-3 bg-[#ef6614] text-white text-[11px] rounded-md px-[10px] py-[2px] font-semibold"

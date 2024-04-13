@@ -92,6 +92,13 @@ const BusSearchBar = ({s, d, date}) => {
           }&date=${selectedDate.toJSON()}&day=${weekdays[
             selectedDate.getDay()
           ]?.substring(0, 3)}`}
+
+          onClick={(e)=>{
+            if(source === dest){
+              e.preventDefault()
+              alert("Source and destination cannot be same.")
+            }
+          }}
           className="flex items-center justify-center basis-3/4 border-l-2 text-lg font-semibold text-white bg-[#ef6614] hover:bg-[#e86212]"
         >
           SEARCH

@@ -3,8 +3,9 @@ import Dialog from '../dialog/Dialog'
 import Input from '../Input';
 import api from '../../utils/api';
 import useUser from '../../utils/useUser';
+import { Link } from 'react-router-dom';
 
-const Login = ({ open, openChange }) => {
+const Login = ({ open, openChange, onSignup }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -48,9 +49,10 @@ const Login = ({ open, openChange }) => {
               setPassword(target.value)
             }} />
           </div>
-          <div>
+          <div className='py-3'>
             <button className='continue-button' type='submit'>CONTINUE</button>
           </div>
+          <div className='text-sm'>If not registered, <span onClick={onSignup} className='text-blue-600 font-semibold cursor-pointer'>please click here to Sign Up</span></div>
           <div>
             <p className='terms-n-conditions'>By logging in, I understand & agree to EaseMyTrip
               <span className='text-hyperlink'> terms of use</span> and <span className='text-hyperlink'>privacy policy</span>

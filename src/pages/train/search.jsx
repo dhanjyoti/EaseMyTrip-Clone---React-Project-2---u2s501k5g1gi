@@ -153,6 +153,13 @@ const SearchBar = ({ f, t, d }) => {
             0,
             3
           )}`}
+
+          onClick={(e)=>{
+            if(from.place === to.place){
+              e.preventDefault()
+              alert("Source and destination cannot be same.")
+            }
+          }}
           className="bg-[#ef6614] uppercase text-white text-xl font-bold flex items-center justify-center px-7 -m-0.5 ml-0 rounded-r-md"
         >
           Search

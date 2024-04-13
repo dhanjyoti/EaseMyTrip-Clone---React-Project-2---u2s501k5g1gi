@@ -297,6 +297,12 @@ const SearchBar = () => {
             0,
             3
           )}&date=${departureDate.toJSON()}`}
+          onClick={(e)=>{
+            if(selectedFrom.code === selectedTo.code){
+              e.preventDefault()
+              alert("Source and destination cannot be same.")
+            }
+          }}
           className="bg-[#ef6614] uppercase text-white text-xl font-bold flex items-center justify-center px-7 -m-0.5 ml-0 rounded-r-md"
         >
           Search

@@ -36,11 +36,21 @@ const BookingSuccess = () => {
             }
           >
             <div className="p-5 shadow-md flex flex-row items-center justify-between">
-              <div className="p-3 ">
-                <div>{b.name}</div>
-                <div className="flex flex-row items-center justify-between">
-                  <div className="flex flex-col fontb">
-                    <span>{b.extra}</span>
+              <div className="flex flex-col gap-3 p-3">
+                <div>
+                  <div className="font-bold">User name</div>
+                  <div>{b.userName}</div>
+                  <div className="pt-3">
+                    <span className="font-bold">Booked on</span>{" "}
+                    {new Date(b.date).toLocaleString("en-US")}
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div>{b.name}</div>
+                  <div className="flex flex-row items-center justify-between">
+                    <div className="flex flex-col fontb">
+                      <span>{b.extra}</span>
+                    </div>
                   </div>
                 </div>
               </div>

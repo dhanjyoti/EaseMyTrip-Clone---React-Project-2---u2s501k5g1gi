@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const Calander = ({onChange,selected, customInput, className=""}) => {
   return (
-    <DatePicker selected={selected} onChange={onChange} customInput={customInput} wrapperClassName={className}/>
+    <DatePicker minDate={new Date()} selected={selected} onChange={onChange} customInput={customInput} wrapperClassName={className}/>
   );
 };
 

@@ -18,7 +18,7 @@ function divideArray(array, parts) {
 }
 
 const BusSeatSelector = ({ open, setOpen, busDetail }) => {
-  const {setBooking} = useBooking()
+  const { setBooking } = useBooking();
 
   // Numbers from 1 to 49
   var numbersArray = Array.from(
@@ -41,7 +41,7 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
 
   return (
     <Dialog
-    className="min-w-[768px]"
+      className="min-w-[768px]"
       open={open}
       openChange={setOpen}
       title={"Bus seats"}
@@ -137,17 +137,19 @@ const BusSeatSelector = ({ open, setOpen, busDetail }) => {
             </div>
           </div>
           <Payment
-          onSuccess={() => {
-            setBooking({
-              type: "bus",
-              id: busDetail._id,
-              name: busDetail.name,
-              extra: `${busDetail.source} - ${busDetail.destination}`,
-              price:`₹ ${busDetail.fare * selectedSeats.length}`
-            });
-            navigate(`/booking-success`);
-          }}
-          price={`₹ ${busDetail.fare * selectedSeats.length}`} />
+            onSuccess={(name) => {
+              setBooking({
+                type: "bus",
+                id: busDetail._id,
+                name: busDetail.name,
+                extra: `${busDetail.source} - ${busDetail.destination}`,
+                price: `₹ ${busDetail.fare * selectedSeats.length}`,
+                userName: name,
+              });
+              navigate(`/booking-success`);
+            }}
+            price={`₹ ${busDetail.fare * selectedSeats.length}`}
+          />
         </div>
       }
     />

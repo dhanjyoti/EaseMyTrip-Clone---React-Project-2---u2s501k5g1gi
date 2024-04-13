@@ -50,7 +50,6 @@ const FlightBooking = () => {
   const id = params.get("id");
   const navigate = useNavigate();
 
-
   useEffect(() => {
     (async () => {
       try {
@@ -179,17 +178,16 @@ const FlightBooking = () => {
             </ul>
           </div>
           <Payment
-            onSuccess={() => {
+            onSuccess={(name) => {
               setBooking({
                 type: "flight",
                 id: flight._id,
                 name: flight.flightID,
                 extra: `${source} - ${destination}`,
-                price:`₹ ${flight.ticketPrice}`
-              })
-              navigate(
-                `/booking-success`
-              );
+                price: `₹ ${flight.ticketPrice}`,
+                userName: name,
+              });
+              navigate(`/booking-success`);
             }}
             price={`₹ ${flight.ticketPrice}`}
           />
@@ -219,12 +217,12 @@ const FlightBooking = () => {
                 </div>
                 <button
                   onClick={() => {
-                    let paymentBlock = document.querySelector('.payment-block')
-                    console.log(paymentBlock)
-                    if(paymentBlock){
+                    let paymentBlock = document.querySelector(".payment-block");
+                    console.log(paymentBlock);
+                    if (paymentBlock) {
                       paymentBlock.scrollIntoView({
-                        behavior:"smooth",
-                      })
+                        behavior: "smooth",
+                      });
                     }
                   }}
                   className="h-[35px] mt-3 bg-[#ef6614] text-white text-[11px] rounded-md px-[10px] py-[2px] font-semibold"

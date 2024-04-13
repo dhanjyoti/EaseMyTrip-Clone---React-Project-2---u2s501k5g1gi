@@ -18,22 +18,31 @@ const setBookingOrg = (data) => {
 const BookingProvider = ({ children }) => {
   const [booking, setBooking_] = useState(getBookingOrg());
 
-  useEffect(()=>{
-    setBookingOrg(booking)
-  },[booking])
+  useEffect(() => {
+    setBookingOrg(booking);
+  }, [booking]);
 
-  useEffect(()=>{
-    setBooking_(getBookingOrg())
-  },[])
+  useEffect(() => {
+    setBooking_(getBookingOrg());
+  }, []);
 
-  const setBooking = ({type, id, name, extra, price})=>{
-    setBooking_((prev)=>[{type, id, name, extra, price}, ...prev])
-  }
+  const setBooking = ({ type, id, name, extra, price, userName }) => {
+    setBooking_((prev) => [
+      { type, id, name, extra, price, userName, date: new Date() },
+      ...prev,
+    ]);
+  };
 
-  return <BookingContext.Provider value={{
-    setBooking,
-    booking
-  }}>{children}</BookingContext.Provider>;
+  return (
+    <BookingContext.Provider
+      value={{
+        setBooking,
+        booking,
+      }}
+    >
+      {children}
+    </BookingContext.Provider>
+  );
 };
 
 export default BookingProvider;

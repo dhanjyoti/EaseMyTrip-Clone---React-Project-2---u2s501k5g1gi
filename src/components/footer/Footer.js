@@ -5,6 +5,7 @@ import GooglePlay from "../../images/footerImage/androidft.png";
 import AppStore from "../../images/footerImage/iosnovft.png";
 import QrCode from "../../images/footerImage/qrcode.png";
 import BottomImage from "../../images/footerImage/botft.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -27,19 +28,19 @@ const Footer = () => {
             Download EaseMyTrip App
           </div>
           <div className="flex flex-row gap-4">
-            <div>
+            <Link to={"/under-construction"}>
               <img className="w-[125px] h-[41px]" src={GooglePlay} />
-            </div>
-            <div>
+            </Link>
+            <Link to={"/under-construction"}>
               <img className="w-[125px] h-[41px]" src={AppStore} />
-            </div>
+            </Link>
           </div>
         </div>
         <div>
           <div className="text-white text-base pb-5">SCAN QR CODE</div>
-          <div>
+          <Link to={"/under-construction"}>
             <img className="w-[74px] h-[74px]" src={QrCode} />
-          </div>
+          </Link>
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-between border-t border-t-[#4A4747] px-4 py-3">

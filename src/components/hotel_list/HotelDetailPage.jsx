@@ -166,7 +166,7 @@ const HotelDetailPage = () => {
         <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
           Room
         </Link>
-        <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
+        {/* <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
           Overview
         </Link>
         <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
@@ -180,7 +180,7 @@ const HotelDetailPage = () => {
         </Link>
         <Link to={"/under-construction"} className="py-[10px] px-[30px] hover:text-blue-600 border-b-4 hover:border-blue-600 text-sm font-semibold">
           Guest Rating
-        </Link>
+        </Link> */}
       </div>
 
       <HotelAmunities />

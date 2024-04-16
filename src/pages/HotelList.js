@@ -104,7 +104,7 @@ const HotelList = () => {
               }}
               defaultOpen={true}
             />
-            <SideBarCollapse
+            {/* <SideBarCollapse
               title={"LOCATIONS"}
               items={[
                 { label: "International Airport Road" },
@@ -115,7 +115,7 @@ const HotelList = () => {
                 { label: "Koramangala" },
               ]}
               onChange={oneShotLoading}
-            />
+            /> */}
             <SideBarCollapse
               title={"STAR RATING"}
               items={[

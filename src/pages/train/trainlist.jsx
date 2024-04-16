@@ -116,7 +116,7 @@ const TrainList = () => {
               onChange={oneShotLoading}
             />
             <SideBarCollapse
-              title={"Fare Classes"}
+              title={"Train"}
               value={trainType}
               items={[
                 { label: "Express", value: `"Express"` },

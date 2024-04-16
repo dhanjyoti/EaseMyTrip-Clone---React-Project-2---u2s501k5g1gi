@@ -4,7 +4,7 @@ import RupeesIcon from "../../images/RupeesIcon";
 import Arrow from "../../images/flightCardImage/arow_main.png";
 import Alarm from "../../images/alarm.png";
 
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/useAuth";
 
 const FlightCard = ({
@@ -24,9 +24,8 @@ const FlightCard = ({
   price,
 }) => {
   const [detailVisible, setDetailVisible] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { validate } = useAuth();
-
 
   return (
     <div className="flex flex-col items-start px-4 py-2 my-[10px] transition-shadow duration-400 shadow-[0_0_10px_0_rgb(0_0_0_/_15%)] hover:shadow-[0_0_15px_0_rgb(0_0_0_/_35%)]">
@@ -65,16 +64,15 @@ const FlightCard = ({
             <RupeesIcon />
             <strong className="price">{price}</strong>
           </div>
-          <button className="morefare-button">+ More Fare</button>
+          {/* <button className="morefare-button">+ More Fare</button> */}
         </div>
         <div className="shrink-0">
           <button
             className="py-[6px] px-3 rounded-full text-white bg-[#ef6614] hover:bg-orange-700 transition-all"
             onClick={() => {
-              if(validate()){
-                navigate(`/flight-booking?id=${id}`)
+              if (validate()) {
+                navigate(`/flight-booking?id=${id}`);
               }
-
             }}
           >
             BOOK NOW
@@ -88,7 +86,7 @@ const FlightCard = ({
         Flight Details
       </div>
       {detailVisible && (
-        <div className="w-full">
+        <div className="w-full text-sm">
           <div className="flex flex-row gap-6 justify-between items-start">
             <div className="flex flex-row gap-4">
               <div>

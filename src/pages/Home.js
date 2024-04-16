@@ -183,13 +183,13 @@ const Crousal = ({ items = [] }) => {
         ))}
       </Splide>
       <div
-        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-white to-transparent w-[200px] flex items-center justify-center"
+        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-white to-transparent md:w-[200px] flex items-center justify-center"
         onClick={prev}
       >
         <img src={LeftArrow} className="cursor-pointer" />
       </div>
       <div
-        className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-white to-transparent w-[200px]  flex items-center justify-center"
+        className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-white to-transparent md:w-[200px]  flex items-center justify-center"
         onClick={next}
       >
         <img src={RightArrow} className="cursor-pointer" />
@@ -200,14 +200,14 @@ const Crousal = ({ items = [] }) => {
 
 const Home = () => {
   return (
-    <div>
-      <div className="relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
+    <div className="overflow-hidden md:overflow-auto">
+      <div className="hidden md:block relative bg-gradient-to-r from-[#2F80ED] to-[#56CCF2] py-12 px-4">
         <SearchBar />
       </div>
 
       <div className="my-10">
         <h2 className="text-center text-[34px] font-bold">Exclusive Offers</h2>
-        <div className="text-center text-[15px] font-medium flex flex-row justify-center gap-14 mb-10 mt-5">
+        <div className="px-5 md:p-0 text-center text-[15px] font-medium flex flex-row justify-center gap-4 md:gap-14 mb-10 mt-5">
           <span>Best Offers</span>
           <span>Flight</span>
           <span>Hotel</span>
@@ -225,8 +225,8 @@ const Home = () => {
       </div>
 
       {/* Refund Section */}
-      <div className="flex flex-row gap-5 mx-[140px]">
-        <div className="rounded-xl flex flex-row w-[74%] full-refund">
+      <div className="flex flex-col md:flex-row gap-5 md:mx-[140px] px-5 md:px-0">
+        <div className="rounded-xl flex flex-col gap-2 md:gap-0 md:flex-row w-full md:w-[74%] full-refund">
           <div>
             <img src={refundImage} />
           </div>
@@ -257,7 +257,7 @@ const Home = () => {
             <img src={TandC_refund} />
           </div>
         </div>
-        <div className="rounded-xl w-[24%] covid-refund">
+        <div className="rounded-xl w-full md:w-[24%] covid-refund md:m-auto">
           <div>
             <p>claim for</p>
             <p>COVID REFUND</p>
@@ -275,7 +275,7 @@ const Home = () => {
         Top Flight Routes
       </h1>
 
-      <div className="grid grid-cols-3 grid-flow-row gap-4 mx-[140px]">
+      <div className="grid grid-cols-1 px-5 md:px-0 md:grid-cols-3 grid-flow-row gap-4 md:mx-[140px]">
         <TopFlightRoutes
           image={mumbaiImg}
           takeOff={"Chennai"}
@@ -332,8 +332,8 @@ const Home = () => {
         />
       </div>
 
-      <div className="flex flex-row gap-3 mx-[140px] py-10">
-        <div className="flex flex-row border-2 border-blue-500 rounded-ss-full background">
+      <div className="flex flex-col md:flex-row gap-3 md:mx-[140px] py-10 px-5 md:px-0">
+        <div className="flex flex-row border-2 border-blue-500 rounded-ss-full background !w-full md:w-auto">
           <div>
             <Important />
           </div>
@@ -342,7 +342,7 @@ const Home = () => {
             <p>To cancel/claim refund or reschedule/modify your booking.</p>
           </div>
         </div>
-        <div className="flex flex-row border-2 border-blue-500 rounded-ss-full background">
+        <div className="flex flex-row border-2 border-blue-500 rounded-ss-full background  !w-full md:w-auto">
           <div>
             <TrvlGuide />
           </div>
@@ -358,11 +358,11 @@ const Home = () => {
       </div>
 
       {/* Famous Travel Attraction */}
-      <div className="flex flex-col items-center justify-center mx-20">
+      <div className="flex flex-col items-center justify-center md:mx-20">
         <h1 className="py-7 font-semibold text-2xl">
           Famous Travel Attraction
         </h1>
-        <div className="grid grid-cols-5 grid-flow-row gap-[30px] m-auto mt-8 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-5 grid-flow-row gap-[30px] m-auto mt-8 mb-4">
           <FamousLocation
             image={<img className="h-[100px] w-[100px]" src={Andaman} />}
             place={"Andaman"}
@@ -379,9 +379,9 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center mx-[140px]">
+      <div className="flex flex-col items-center md:mx-[140px]">
         <div className="py-7 font-semibold text-2xl">Why book with us?</div>
-        <div className="why-book">
+        <div className="why-book flex-col gap-5 md:gap-0 md:flex-row px-5 md:p-0">
           <WhyBook
             icon={<EasyBooking />}
             head={"Easy Booking"}
@@ -416,7 +416,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="travel-package">
+      <div className="w-auto px-5 md:p-0 md:travel-package">
         <h1 className="travel-package-heading py-7 font-semibold text-2xl">
           Search Flights, Hotels, Bus and Holiday Packages
         </h1>

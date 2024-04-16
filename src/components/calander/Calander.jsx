@@ -6,10 +6,16 @@ import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const Calander = ({onChange,selected, customInput, className=""}) => {
+const Calander = ({ onChange, selected, customInput, className = "", min }) => {
   return (
-    <DatePicker minDate={new Date()} selected={selected} onChange={onChange} customInput={customInput} wrapperClassName={className}/>
+    <DatePicker
+      minDate={min || new Date()}
+      selected={selected}
+      onChange={onChange}
+      customInput={customInput}
+      wrapperClassName={className}
+    />
   );
 };
 
-export default Calander
+export default Calander;

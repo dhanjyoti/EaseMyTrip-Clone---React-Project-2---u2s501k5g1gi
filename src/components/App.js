@@ -26,6 +26,7 @@ import Payment from "../pages/payment/Payment";
 import BookingSuccess from "../pages/bookingsuccess/booking";
 import BookingProvider from "../utils/useBooking";
 
+// Routing implementation on this page
 function App() {
   return (
     <UserProvider>

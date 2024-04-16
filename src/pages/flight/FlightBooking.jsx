@@ -8,6 +8,7 @@ import LikeIcon from "../../images/flightCardImage/f-icon-9.png";
 import Payment from "../payment/Payment";
 import HeaderItem from "../../components/HeaderItem/HeaderItem";
 import { useBooking } from "../../utils/useBooking";
+import MedicinePolicy from "../../components/medicine-policy/MedicinePolicy";
 
 const fromPoint = [
   {
@@ -105,39 +106,7 @@ const FlightBooking = () => {
             </div>
           </HeaderItem>
 
-          <div className="shadow-sm shadow-[#b8d0e5] rounded text-xs">
-            <div className="flex flex-row gap-2 px-3 py-3">
-              <img src={medicalCoverage} alt="medical coverage" />
-              <div>
-                <p className="flex flex-row gap-1">
-                  <h3 className="text-[#2196f3] text-[15px] font-semibold">
-                    FREE Medical Refund Policy
-                  </h3>
-                  <img src={RightTeak} />
-                </p>
-                <p>
-                  Get full airline refund, if you cancel tickets due to illness
-                  or sickness. This service is provided at sickness. This
-                  service is provided at <b>ZERO additional charges</b>.
-                </p>
-              </div>
-            </div>
-            <div className="pl-6 bg-[#f7f7f7] py-3">
-              <p className="flex flex-row gap-2 pb-[6px]">
-                <input className="w-[18px]" type="radio" name="select" />
-                <p>
-                  Yes, I want to add Medical Refund Policy (FREE) to this flight
-                </p>
-              </p>
-              <p className="flex flex-row gap-2">
-                <input className="w-[18px]" type="radio" name="select" />
-                <p>
-                  No, I don't wish to add Medical Refund Policy (FREE) to this
-                  flight
-                </p>
-              </p>
-            </div>
-          </div>
+          <MedicinePolicy />
 
           <div className="shadow-sm shadow-[#b8d0e5] rounded text-xs">
             <div className="flex flex-row items-center border-b border-[#c4e4b8] gap-2 bg-[#dcfbd0] pt-[6px] px-6 pb-2">

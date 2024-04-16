@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import useUser from "./useUser";
 
+// Context Api for providing api to pages that are logged validation
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {

@@ -2,7 +2,7 @@ import React from "react";
 import Accordion from "../accordian/Accordian";
 import CheckBox from "../checkbox/CheckBox";
 
-const SideBarCollapse = ({ title, items, defaultOpen, onChange }) => {
+const SideBarCollapse = ({ title, items, defaultOpen, onChange, value }) => {
   return (
     <Accordion
       defaultOpen={defaultOpen}
@@ -11,7 +11,14 @@ const SideBarCollapse = ({ title, items, defaultOpen, onChange }) => {
       content={
         <div className="flex flex-col gap-3">
           {items?.map((item) => (
-            <CheckBox key={item.label} label={item.label} onChange={onChange}/>
+            <CheckBox
+              key={item.label}
+              label={item.label}
+              onChange={() => {
+                onChange?.(item.value);
+              }}
+              checked={value === item.value}
+            />
           ))}
         </div>
       }

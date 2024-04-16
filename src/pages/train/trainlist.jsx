@@ -6,16 +6,46 @@ import TrainCard from "./TrainCard";
 import { Accordion } from "@radix-ui/react-accordion";
 import SideBarCollapse from "../../components/sidebarCollapse/SideBarCollapse";
 import { useLoading } from "../../utils/useLoading";
+import { Slider } from "@mui/material";
+import useDebounce from "../../utils/useDebounce";
 
 const TrainList = () => {
   const [trains, setTrains] = useState([]);
-  const {oneShotLoading}=useLoading()
+  const { oneShotLoading } = useLoading();
+  const [price, setPrice] = useState([500, 10000]);
+  const [trainType, setTrainType] = useState("");
 
   const [params] = useSearchParams();
   const from = params.get("from");
   const to = params.get("to");
   const date = params.get("date");
   const day = params.get("day");
+
+  useDebounce(
+    async () => {
+      try {
+        const res = await api.filterTrains({
+          src: from,
+          dest: to,
+          day,
+          lowerPrice: price[1],
+          upperPrice: price[0],
+          type: trainType,
+        });
+        setTrains(res.data.data.trains);
+        console.log(res.data.data.trains);
+      } catch (e) {
+        setTrains([]);
+        console.log(e);
+      }
+    },
+    500,
+    [price, trainType]
+  );
+
+  const updateValue = (e, data) => {
+    setPrice(data);
+  };
 
   useEffect(() => {
     (async () => {
@@ -35,6 +65,22 @@ const TrainList = () => {
       <div className="flex flex-row mx-[130px]">
         <div className="pt-6 pr-3 border-r border-r-[#E3DFDF]">
           <div className="bg-white w-[240px] h-[800px] border border-[#E3DFDF] px-4">
+            <div>
+              <h3>Price Range</h3>
+              <div className="w-full m-1">
+                <Slider
+                  min={500}
+                  max={10000}
+                  value={price}
+                  onChange={updateValue}
+                  valueLabelDisplay="auto"
+                />
+              </div>
+              {/* <input type="range" className="w-52" name="price" min="5000" max="50000" step="1" value={price} onChange={(e)=>setPrice(e.target.value)} /> */}
+              <p>
+                Rs.{price[0]} - Rs.{price[1]}
+              </p>
+            </div>
             <SideBarCollapse
               title={"Departure Time all Stations"}
               items={[
@@ -71,24 +117,27 @@ const TrainList = () => {
             />
             <SideBarCollapse
               title={"Fare Classes"}
+              value={trainType}
               items={[
-                { label: "OTHERS" },
-                { label: "Special Shuvidha Trains" },
-                { label: "Satabdi" },
-                { label: "Rajdhani" },
-                { label: "Garib Rath" },
-                { label: "Jan Satabdi" }
+                { label: "Express", value: `"Express"` },
+                {
+                  label: "Superfast",
+                  value: `"Superfast"`,
+                },
+                { label: "Duronto", value: `"Duronto"` },
+                { label: "Rajdhani", value: `"Rajdhani"` },
               ]}
-              onChange={oneShotLoading}
+              onChange={(e) => {
+                setTrainType(e);
+                oneShotLoading();
+              }}
             />
           </div>
         </div>
 
         <div className="pl-3 pt-6 flex flex-col gap-3 w-[1000px]">
-          
-
           {trains.map((train) => (
-            <TrainCard train={train}/>
+            <TrainCard train={train} />
           ))}
         </div>
       </div>

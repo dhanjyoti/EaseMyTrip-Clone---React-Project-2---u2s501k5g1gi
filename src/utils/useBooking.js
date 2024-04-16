@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+// This is Context Api for providing booking options 
 const BookingContext = createContext();
 
 const getBookingOrg = () => {

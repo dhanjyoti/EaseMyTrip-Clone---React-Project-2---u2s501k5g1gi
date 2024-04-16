@@ -154,6 +154,8 @@ const Crousal = ({ items = [] }) => {
       }}
       aria-label="My Favorite Images"
     >
+
+      {/* SplideSlide is a library used from React Splide to give Crousal effectP */}
       {items.map((item) => (
         <SplideSlide key={item.id}>{item.render}</SplideSlide>
       ))}

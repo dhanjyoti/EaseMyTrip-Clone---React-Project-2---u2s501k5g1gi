@@ -3,6 +3,7 @@ import Loading from "../components/loading/Loading";
 
 const LoadingContext = createContext();
 
+// This is a Context Api for prividing loading image effect on filters
 const LoadingProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 

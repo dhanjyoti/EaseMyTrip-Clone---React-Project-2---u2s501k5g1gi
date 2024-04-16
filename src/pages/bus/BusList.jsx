@@ -6,6 +6,8 @@ import { useSearchParams } from "react-router-dom";
 import BusSeatSelector from "./bus-seat-selector";
 import { useAuth } from "../../utils/useAuth";
 import { useLoading } from "../../utils/useLoading";
+import useDebounce from "../../utils/useDebounce";
+import { Slider } from "@mui/material";
 
 const CustomRadioGroup = ({ items, onChange }) => {
   const pId = useId();
@@ -15,7 +17,13 @@ const CustomRadioGroup = ({ items, onChange }) => {
         const id = useId();
         return (
           <div>
-            <input onChange={onChange} type="radio" className="peer" id={id} name={pId} />
+            <input
+              onChange={onChange}
+              type="radio"
+              className="peer"
+              id={id}
+              name={pId}
+            />
             <label htmlFor={id} className="peer-checked:bg-red-300">
               {item.label}
             </label>
@@ -35,7 +43,7 @@ const RadioTimeComponent = ({ label, icon }) => {
   );
 };
 
-const CheckBoxItem = ({ children, onChange }) => {
+const CheckBoxItem = ({ children, onChange, checked }) => {
   const id = useId();
   return (
     <div className="flex flex-row items-center gap-3 text-xs">
@@ -44,6 +52,7 @@ const CheckBoxItem = ({ children, onChange }) => {
         id={id}
         className="h-[16px] aspect-square border-black/25"
         onChange={onChange}
+        checked={checked}
       />
       <label htmlFor={id} className="flex-1">
         {children}
@@ -57,7 +66,7 @@ const FilterItemWrapper = ({ children }) => {
 };
 
 const BusList = () => {
-  const {oneShotLoading}=useLoading()
+  const { oneShotLoading } = useLoading();
   const [buses, setBuses] = useState([]);
   const [selectedBus, setSelectedBus] = useState(null);
 
@@ -66,6 +75,35 @@ const BusList = () => {
   const to = params.get("to");
   const date = params.get("date");
   const day = params.get("day");
+
+  const [price, setPrice] = useState([500, 10000]);
+  const [busType_, setBusType] = useState("");
+
+  useDebounce(
+    async () => {
+      try {
+        const res = await api.filterBus({
+          src: from,
+          dest: to,
+          day,
+          lowerPrice: price[1],
+          upperPrice: price[0],
+          type: busType_ ? `"${busType_}"` : "",
+        });
+        setBuses(res.data.data.buses);
+        console.log(res.data.data.buses);
+      } catch (e) {
+        setBuses([]);
+        console.log(e);
+      }
+    },
+    500,
+    [price, busType_]
+  );
+
+  const updateValue = (e, data) => {
+    setPrice(data);
+  };
 
   useEffect(() => {
     (async () => {
@@ -88,9 +126,9 @@ const BusList = () => {
   ];
   const busType = [
     { label: "AC", number: "0" },
-    { label: "Non AC", number: "0" },
-    { label: "Sleeper", number: "0" },
-    { label: "Seater", number: "0" },
+    { label: "Non-AC", number: "0" },
+    // { label: "Sleeper", number: "0" },
+    // { label: "Seater", number: "0" },
   ];
 
   const amenities = [
@@ -137,9 +175,30 @@ const BusList = () => {
               </FilterItemWrapper>
             </div>
             <FilterItemWrapper>
+              <div>
+                <h3>Price Range</h3>
+                <div className="w-full m-1 px-3">
+                  <Slider
+                    min={500}
+                    max={10000}
+                    value={price}
+                    onChange={updateValue}
+                    valueLabelDisplay="auto"
+                  />
+                </div>
+                {/* <input type="range" className="w-52" name="price" min="5000" max="50000" step="1" value={price} onChange={(e)=>setPrice(e.target.value)} /> */}
+                <p>
+                  Rs.{price[0]} - Rs.{price[1]}
+                </p>
+              </div>
+
               <div className="flex flex-col gap-2 py-3">
                 {defaultFilter.map((df) => {
-                  return <CheckBoxItem onChange={oneShotLoading}>{df.label}</CheckBoxItem>;
+                  return (
+                    <CheckBoxItem onChange={oneShotLoading}>
+                      {df.label}
+                    </CheckBoxItem>
+                  );
                 })}
               </div>
             </FilterItemWrapper>
@@ -168,7 +227,17 @@ const BusList = () => {
               <div className="flex flex-col gap-2 py-3">
                 {busType.map((bt) => {
                   return (
-                    <CheckBoxItem onChange={oneShotLoading}>
+                    <CheckBoxItem
+                      checked={bt.label === busType_}
+                      onChange={() => {
+                        if (bt.label === busType_) {
+                          setBusType("");
+                        } else {
+                          setBusType(bt.label);
+                        }
+                        oneShotLoading();
+                      }}
+                    >
                       <div className="flex flex-row items-center justify-between">
                         <span>{bt.label}</span>
                         <span>({bt.number})</span>

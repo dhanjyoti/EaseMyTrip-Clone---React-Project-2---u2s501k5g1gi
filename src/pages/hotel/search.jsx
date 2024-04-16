@@ -30,43 +30,43 @@ export const weekdays = [
   "Saturday",
 ];
 
-
-const SearchBar = ({checkin, checkout, location}) => {
+const SearchBar = ({ checkin, checkout, location }) => {
   const places = [
     {
       place: "Delhi",
-      country: "India"
+      country: "India",
     },
     {
       place: "Bangalore",
-      country: "India"
+      country: "India",
     },
     {
       place: "Mumbai",
-      country: "India"
+      country: "India",
     },
     {
       place: "Kolkota",
-      country: "India"
+      country: "India",
     },
     {
       place: "Goa",
-      country: "India"
+      country: "India",
     },
   ];
 
-
-  const [place, setPlace] = useState(location?places.find((l)=>l.place === location):places[0]);
-  const [openPlace, setOpenPlace]=useState(false)
+  const [place, setPlace] = useState(
+    location ? places.find((l) => l.place === location) : places[0]
+  );
+  const [openPlace, setOpenPlace] = useState(false);
 
   useEffect(() => {
     setPlace(places[0]);
   }, []);
-useEffect(()=>{
-    if(location){
-        setPlace(places.find((l)=>l.place === location))
+  useEffect(() => {
+    if (location) {
+      setPlace(places.find((l) => l.place === location));
     }
-},[location])
+  }, [location]);
 
   const [departureDate, setDepartureDate] = useState(checkin || new Date());
   const [returnDate, setReturnDate] = useState(checkout || new Date());
@@ -78,18 +78,20 @@ useEffect(()=>{
           className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative basis-full search-parent"
           onClick={() => setOpenPlace((prev) => !prev)}
         >
-          <div className="text-sm text-black/40">Enter City name, Location or Specific hotel</div>
+          <div className="text-sm text-black/40">
+            Enter City name, Location or Specific hotel
+          </div>
           <div className="font-bold text-lg">{place?.place}</div>
           <div className="text-sm">{place?.country}</div>
           <div className="absolute z-10 w-[400px] top-2/3">
             <SearchList
-            parent={"search-parent"}
+              parent={"search-parent"}
               open={openPlace}
               items={places}
               placeholder={"City"}
               onClick={(e) => setPlace(e)}
-              onClose={()=>{
-                setOpenPlace(false)
+              onClose={() => {
+                setOpenPlace(false);
               }}
             />
           </div>
@@ -103,7 +105,13 @@ useEffect(()=>{
         </div>
         <Calander
           selected={departureDate}
-          onChange={setDepartureDate}
+          onChange={(e) => {
+            setDepartureDate(e);
+            if (returnDate < e) {
+              const d = new Date(e);
+              setReturnDate(d);
+            }
+          }}
           customInput={
             <div className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative basis-full">
               <div className="text-sm text-black/40">Check In</div>
@@ -126,32 +134,34 @@ useEffect(()=>{
           }
         />
         <Calander
+          min={departureDate || new Date()}
           selected={returnDate}
           onChange={setReturnDate}
           customInput={
             <div className="flex flex-col gap-1 hover:bg-sky-50 p-2 cursor-pointer relative flex-1">
-            <div className="text-sm text-black/40">Check Out</div>
-            <div className="font-bold text-lg flex flex-row items-center gap-3">
-              <span className="flex flex-row items-baseline gap-1">
-                {returnDate.getDate()}
-                <span className="text-sm">
-                  {months[returnDate.getMonth()]}'
-                  {returnDate.getFullYear()}
+              <div className="text-sm text-black/40">Check Out</div>
+              <div className="font-bold text-lg flex flex-row items-center gap-3">
+                <span className="flex flex-row items-baseline gap-1">
+                  {returnDate.getDate()}
+                  <span className="text-sm">
+                    {months[returnDate.getMonth()]}'{returnDate.getFullYear()}
+                  </span>
                 </span>
-              </span>
-              <span>
-                <img src={CalanderIcon} />
-              </span>
+                <span>
+                  <img src={CalanderIcon} />
+                </span>
+              </div>
+              <div className="text-xs truncate">
+                {weekdays[returnDate.getDay()]}
+              </div>
             </div>
-            <div className="text-xs truncate">
-              {weekdays[returnDate.getDay()]}
-            </div>
-          </div>
           }
         />
 
         <a
-          href={`/hotellist?place=${place.place}&checkin=${departureDate.toJSON()}&checkout=${returnDate.toJSON()}`}
+          href={`/hotellist?place=${
+            place.place
+          }&checkin=${departureDate.toJSON()}&checkout=${returnDate.toJSON()}`}
           className="bg-[#ef6614] uppercase text-white text-xl font-bold flex items-center justify-center px-7 -m-0.5 ml-0 rounded-r-md"
         >
           Search

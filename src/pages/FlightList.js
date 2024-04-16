@@ -15,6 +15,7 @@ import FlightCard from "../components/flightCard/FlightCard";
 import Slider from "@mui/material/Slider";
 import { weekdays } from "../components/searchBar/SearchBar";
 import { useLoading } from "../utils/useLoading";
+import useDebounce from "../utils/useDebounce";
 
 const popular_loading = [
   "Nonstop",
@@ -28,9 +29,9 @@ const popular_loading = [
 ];
 
 const stops = [
-  { number: "0", stop: "Nonstop" },
-  { number: "1", stop: "Stop" },
-  { number: "2+", stop: "Stop" },
+  { number: "0", stop: "Nonstop", value: 0 },
+  { number: "1", stop: "Stop", value: 1 },
+  { number: "2+", stop: "Stop", value: 2 },
 ];
 
 const aircrafts = [
@@ -83,30 +84,6 @@ const fromPoint = [
   },
 ];
 
-const useDebounce = (action, delay, dep = []) => {
-  // State and setters for debounced value
-  // const [debouncedValue, setDebouncedValue] = useState(value);
-  useEffect(
-    () => {
-      let resp = () => {};
-      // Update debounced value after delay
-      const handler = setTimeout(() => {
-        resp = action();
-      }, delay);
-      // Cancel the timeout if value changes (also on delay change or unmount)
-      // This is how we prevent debounced value from updating if value is changed ...
-      // .. within the delay period. Timeout gets cleared and restarted.
-      return () => {
-        clearTimeout(handler);
-        if (typeof resp === "function") {
-          resp();
-        }
-      };
-    },
-    [delay, ...dep] // Only re-call effect if value or delay changes
-  );
-};
-
 const FlightList = () => {
   const { oneShotLoading } = useLoading();
   const [fromOpen, setFromOpen] = useState(false);
@@ -115,6 +92,7 @@ const FlightList = () => {
   const [fromCity, setFromCity] = useState({});
   const [toCity, setToCity] = useState({});
   const [price, setPrice] = useState([500, 10000]);
+  const [stop, setStop] = useState(0);
 
   const [flights, setFlights] = useState([]);
 
@@ -130,12 +108,13 @@ const FlightList = () => {
   useDebounce(
     async () => {
       try {
-        const res = await api.flightFilterPrice({
+        const res = await api.filterFlights({
           src,
           dest,
           day,
           lowerPrice: price[1],
           upperPrice: price[0],
+          stops: stop,
         });
         setFlights(res.data.data.flights);
         console.log(res.data);
@@ -144,7 +123,7 @@ const FlightList = () => {
       }
     },
     500,
-    [price]
+    [price, stop]
   );
 
   const updateValue = (e, data) => {
@@ -295,6 +274,7 @@ const FlightList = () => {
                 {stops.map((s) => (
                   <Stopage
                     onClick={() => {
+                      setStop(s.value);
                       oneShotLoading();
                     }}
                     key={s.stop}

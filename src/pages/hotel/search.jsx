@@ -45,13 +45,13 @@ const SearchBar = ({ checkin, checkout, location }) => {
       country: "India",
     },
     {
-      place: "Kolkota",
+      place: "Hyderabad",
       country: "India",
     },
     {
-      place: "Goa",
+      place: "Chennai",
       country: "India",
-    },
+    }
   ];
 
   const [place, setPlace] = useState(

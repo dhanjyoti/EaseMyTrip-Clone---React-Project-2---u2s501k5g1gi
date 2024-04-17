@@ -116,7 +116,7 @@ const HotelList = () => {
               ]}
               onChange={oneShotLoading}
             /> */}
-            <SideBarCollapse
+            {/* <SideBarCollapse
               title={"STAR RATING"}
               items={[
                 { label: "5 Star" },
@@ -127,7 +127,7 @@ const HotelList = () => {
                 { label: "Unrated" },
               ]}
               onChange={oneShotLoading}
-            />
+            /> */}
             <SideBarCollapse
               title={"USER REVIEW RATING"}
               value={rating}

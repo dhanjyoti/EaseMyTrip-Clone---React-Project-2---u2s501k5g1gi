@@ -167,7 +167,7 @@ const filterHotels = async ({ location, price, rating }) => {
   let rate = ``;
 
   if (price) {
-    pr = `"costPerNight":{${price}}`;
+    pr = `"avgCostPerNight":{${price}}`;
     if (f) {
       f = f + "," + pr;
     } else {

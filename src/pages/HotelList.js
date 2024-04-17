@@ -89,14 +89,14 @@ const HotelList = () => {
               title={"PRICE (PER NIGHT)"}
               value={price}
               items={[
-                { label: "₹ 2001- ₹4000", value: `"$gte":2001, "$lte":4000` },
-                { label: "₹ 4001- ₹8000", value: `"$lte":8000, "$gte":4001` },
-                { label: "₹ 8001- ₹20000", value: `"$gte":8001, "$lte":20000` },
+                { label: "₹ 3001- ₹4000", value: `"$gte":3001, "$lte":4000` },
+                { label: "₹ 4001- ₹5000", value: `"$lte":5000, "$gte":4001` },
+                { label: "₹ 5001- ₹6000", value: `"$gte":5001, "$lte":6000` },
                 {
-                  label: "₹ 20001- ₹30000",
-                  value: `"$gte":20001, "$lte":30000`,
+                  label: "₹ 6001- ₹7000",
+                  value: `"$gte":6001, "$lte":7000`,
                 },
-                { label: "above- ₹30000", value: `"$gte":300001` },
+                { label: "above- ₹7000", value: `"$gte":7001` },
               ]}
               onChange={(e) => {
                 setPrice(e);

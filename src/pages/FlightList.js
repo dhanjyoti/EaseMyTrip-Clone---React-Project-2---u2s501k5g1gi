@@ -236,10 +236,10 @@ const FlightList = () => {
         <div className="flex flex-row max-w-full justify-center">
           <div className="flex flex-col border-2 border-gray-400 h-fit py-5 w-60 px-4">
             <div>
-              <h2>FILTER</h2>
+              <h2 className="text-lg font-bold">FILTER</h2>
             </div>
             <div>
-              <h3>Popular Filters</h3>
+              <h3 className="text-base font-semibold py-1">Popular Filters</h3>
               <div>
                 {popular_loading.map((p) => (
                   <FilterCheckBox
@@ -253,7 +253,7 @@ const FlightList = () => {
               </div>
             </div>
             <div>
-              <h3>Price Range</h3>
+              <h3 className="text-base font-semibold py-2">Price Range</h3>
               <div className="w-full m-1">
                 <Slider
                   min={500}
@@ -269,7 +269,7 @@ const FlightList = () => {
               </p>
             </div>
             <div>
-              <h3>Stops</h3>
+              <h3 className="text-base font-semibold py-2">Stops</h3>
               <div className="flex flex-row gap-[6px]">
                 {stops.map((s) => (
                   <Stopage
@@ -285,7 +285,7 @@ const FlightList = () => {
               </div>
             </div>
             <div>
-              <h3>Aircraft</h3>
+              <h3 className="text-base font-semibold py-2">Aircraft</h3>
               {aircrafts.map((a) => (
                 <FilterCheckBox
                   key={a}

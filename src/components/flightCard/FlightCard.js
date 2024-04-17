@@ -43,7 +43,7 @@ const FlightCard = ({
           <div>{departureTime}</div>
           <div>{departurePlace}</div>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-xs">
           <div>{travelTime}</div>
           <div>
             <img src={Arrow} />

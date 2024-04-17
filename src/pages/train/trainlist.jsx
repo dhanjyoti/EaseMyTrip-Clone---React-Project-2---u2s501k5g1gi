@@ -64,7 +64,7 @@ const TrainList = () => {
 
       <div className="flex flex-row mx-[130px]">
         <div className="pt-6 pr-3 border-r border-r-[#E3DFDF]">
-          <div className="bg-white w-[240px] h-[800px] border border-[#E3DFDF] px-4">
+          <div className="bg-white w-[240px] h-auto border border-[#E3DFDF] px-4">
             <div>
               <h3>Price Range</h3>
               <div className="w-full m-1">
